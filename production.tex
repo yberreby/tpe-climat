@@ -1,0 +1,104 @@
+% Preamble
+% ---
+\documentclass[12pt]{article}
+
+% Packages
+% ---
+%\usepackage{amsmath} % Advanced math typesetting
+\usepackage[utf8]{inputenc} % Unicode support (Umlauts etc.)w
+\usepackage[french]{babel} % Change hyphenation rules
+\usepackage[T1]{fontenc} % for farenheit
+\usepackage{textcomp}
+\usepackage{gensymb}
+\usepackage{hyperref}
+\usepackage{minted}
+%\usepackage{graphicx} % Add pictures to your document
+%\usepackage{listings} % Source code formatting and highlighting
+
+\begin{document}
+% Page de couverture
+\author{Yohaï Eliel Berreby} % The authors name
+\title{Comment peut-on modéliser le rayonnement solaire, et comment traduit-on cette modélisation mathématique en programme informatique ?}
+\date{\today{}} % Sets date you can remove \today{} and type a date manually
+\maketitle{} % Generates title
+\begin{abstract}
+Nous nous sommes demandé comment on pouvait construire des modèles climatiques, tenant compte de paramètres qui couvrent la géométrie, la physique, la chimie, et les mathématiques, et comment l’agencement de ces paramètres, qui deviennent des variables pour le mathématicien, peut prendre place dans un programme informatique.
+
+Pour ce faire, après avoir défini le vocabulaire important et exploré le fonctionnement de modèles aujourd'hui utilisés à grande échelle, nous nous intéressons à la variable de l'\textbf{éclairement énergétique solaire} en écrivant un programme reflétant le passage du phénomène de rayonnement solaire à sa modélisation, puis à son écriture dans un langage de programmation.
+
+Nous testons ensuite ce programme, et comparons les résultats à ceux attendus.
+\end{abstract}
+
+
+\clearpage
+\tableofcontents{} % Generates table of contents from sections and subsections
+
+\clearpage
+\section{Introduction : les modèles, pour quoi faire ?} 
+Qui n'a jamais eu besoin d'allumer sa télévision ou de consulter son téléphone pour savoir quel temps il ferait avant de prendre un avion, de partir en vacances ou tout simplement d'aller se promener en forêt ? Les prévisions météorologiques sont aujourd'hui communes et faciles d'accès, mais elle n'en sont pas moins importantes. Elles présentent en effet des enjeux \textbf{économiques}, avec par exemple la météo agricole qui guide les choix de millions d'agriculteurs à travers le monde, mais aussi \textbf{humains}, car prévoir une crue ou une tempête, ne serait-ce que quelques heures à l'avance, peut permettre de sauver des vies en évacuant les populations en danger.
+
+Ces prévisions sont aujourd'hui littéralement à \textit{portée de main} avec l'avènement des applications mobiles, et pourtant elles reposent sur des constructions d'une incroyable complexité, à la croisée des mathématiques, de la physique et de l'informatique : les modèles.
+Il s'agit d'arriver à une \textbf{approximation du réel}, un système suffisamment simple pour être compréhensible par l'esprit humain, tout en étant assez précis pour nous permettre d'explorer le passé et de prédire le future.
+
+Forts de ce constat, nous nous sommes demandé comment on pouvait construire de tels modèles, tenant compte de paramètres qui couvrent la géométrie, la physique, la chimie, et les mathématiques, et comment l’agencement de ces paramètres, qui deviennent des variables pour le mathématicien, peut prendre place dans un programme informatique.
+
+Pour ce faire, après avoir défini le vocabulaire important et exploré le fonctionnement de modèles utilisés à grande échelle, nous nous intéresserons à la variable de l'\textbf{éclairement énergétique} solaire en écrivant un programme reflétant le passage du phénomène de rayonnement solaire à sa modélisation, puis à son écriture dans un programme.
+
+
+\section{Les modèles en climatologie}
+
+
+
+\section{Choix des données et construction de notre modèle}
+
+\section{Démarche théorique : choix du paramètre de l'éclairement énergétique}
+
+\section{Application : écriture de notre programme}
+Pour écrire un programme, il faut choisir un langage de programmation. On écrira dans ce langage le \textit{code source} du programme, un ensemble d'instructions destinées à la machine qui seront traduites en langage machine (\textit{machine code}) par un programme appelé \textbf{compilateur}. L'ordinateur pourra exécuter le programme compilé.
+
+J'ai choisi d'écrire mon programme en Rust. C'est un langage
+
+écrit en Rust, langage innovant très performant et sûr
+open-source, disponible sur GitHub
+captures d'écran du code source, ou html
+démonstration en images
+
+
+\subsection{Code source du programme final}
+Le code source de mon programme est trop long pour le copier dans son intégralité, mais il est disponible publiquement sur GitHub, un site de développement collaboratif, à l'adresse suivante : \url{https://github.com/yberreby/rust-climate}. Vous pouvez en télécharger une copie sur votre disque dur en cliquant sur "Download ZIP" dans l'interface GitHub, ou sur le lien suivant : \url{https://github.com/yberreby/rust-climate/archive/master.zip}.
+
+Il est également possible de le lire directement depuis votre navigateur, en cliquant sur les noms de fichiers. Le code est dans \texttt{src}.
+
+En voici un extrait :
+
+\inputminted[linenos]{rust}{temperature.rs}
+
+\section{Validation expérimentale : essai du programme}
+
+
+
+\begin{thebibliography}{9}
+
+\bibitem{how_do_climate_models_work} 
+Kaitlin Alexander, \textit{How do climate models work?}
+
+\url{http://climatesight.org/2012/01/20/how-do-climate-models-work/}
+
+
+\bibitem{properties_of_sunlight} 
+PVEducation.org, \textit{Properties of Sunlight}
+
+\url{http://www.pveducation.org/pvcdrom/properties-of-sunlight/}
+
+
+\bibitem{cahier_globe} 
+GLOBE-SWISS, \textit{Climat, météo et atmosphère}
+
+\url{http://www.globe-swiss.ch/files/Downloads/779/Download/Cahier_Atmosphere.pdf}
+
+
+
+\end{thebibliography}
+
+
+\end{document}
