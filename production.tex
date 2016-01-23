@@ -69,39 +69,26 @@ Ces prévisions sont aujourd'hui littéralement à \textit{portée de main} avec
 
 \subsection{Rapport au thème}
 
-La modélisation climatique s'inscrit naturellement dans le thème choisi, à savoir \textit{"l'aléatoire, l'insolite, le prévisible"}, car, outre l'exploration du passé qu'elle permet -- un point sur lequel nous reviendrons plus loin --, l'un de ses principaux intérêts est la réalisation de \textbf{prévisions météorologiques}.
+La modélisation climatique s'inscrit naturellement dans le thème choisi, à savoir \textit{"l'aléatoire, l'insolite, le prévisible"}, car, outre l'exploration du passé qu'elle permet -- un point sur lequel on reviendra plus loin --, l'un de ses principaux intérêts est la réalisation de \textbf{prévisions météorologiques}.
 
 Elle est également aujourd'hui indissociable de l'informatique, discipline qui passionne votre serviteur, d'où le choix du sujet \textit{"la modélisation informatique du climat"}.
 En effet, le volume de données que doit traiter tout modèle climatique à partir d'un certain degré de complexité est bien trop important pour qu'un être humain, même muni d'une calculatrice, puisse réaliser les calculs nécessaires : on a donc recours à des ordinateurs pour cela, car ils sont capables de réaliser ces calculs à des vitesses dépassant de très loin les capacités humaines.
 
 \subsection{Démarche expérimentale}
 
-Le rôle primordial des modèles dans un domaine aussi important que la météorologie nous a conduits à vouloir explorer leur fonctionnement.
-Pour ce faire, nous avons choisi de \textbf{modéliser le rayonnement solaire} afin de calculer \textbf{l'éclairement énergétique solaire}, ou \textit{irradiance solaire}, d'un point sur Terre, en fonction de sa position, de la date et de l'heure.
+Le rôle primordial des modèles dans un domaine aussi important que la météorologie m'a conduit à vouloir explorer leur fonctionnement.
+Pour ce faire, j'ai choisi de créer un modèle simple, et de le traduire en un programme informatique, avec comme variable l'intensité du rayonnement solaire en un point de la Terre.
 
 Cet exemple, d'une grande simplicité en comparaison avec les modèles qu'utilisent des organismes comme Météo France, présente cependant de multiples avantages :
 
 \begin{itemize}
   \item sa \textbf{simplicité} le rend réalisable par un élève seul dans le cadre d'un TPE
   \item les calculs qu'il implique restent cependant suffisamment complexes pour \textbf{justifier la création d'un programme informatique} les réalisant automatiquement
-  \item enfin, le rayonnement solaire est \textbf{relativement simple à modéliser}, car plus prévisible que le vent ou les intempéries
+  \item le rayonnement solaire est \textbf{relativement simple à modéliser}, car plus prévisible que le vent ou les intempéries
 \end{itemize}
 
-
-
-%%
-% Résumé
-%%
-
-\begin{abstract}
-Nous nous sommes demandé comment l'on pouvait construire un modèle climatique, tenant compte de paramètres qui couvrent la géométrie, la physique, la chimie, et les mathématiques, et comment l'agencement de ces paramètres, qui deviennent des variables pour le mathématicien, peut prendre place dans un programme informatique.
-
-Pour ce faire, après avoir \textbf{défini le vocabulaire important} et \textbf{exploré l'usage qui est fait des modèles en climatologie}, nous sommes intéressés à la variable de l'\textbf{éclairement énergétique solaire} en écrivant un programme reflétant le passage du phénomène de rayonnement solaire à sa modélisation, puis à son \textbf{écriture dans un langage de programmation} --- son \textit{implémentation}.
-
-Nous avons ensuite procédé à la \textbf{validation expérimentale} de ce programme en le testant, et en comparant les résultats obtenus à ceux attendus.
-\end{abstract}
-
-
+À l'aide de ressources trouvées sur Internet, citées plus loin, j'ai abouti à une série de calculs permettant de calculer \textbf{l'éclairement énergétique solaire} (ou \textit{irradiance solaire}) d'un point \textbf{en fonction de sa position sur Terre, de la date et de l'heure}.
+J'ai ensuite intégré ces calculs dans un programme, et procédé à la \textbf{validation expérimentale} de celui-ci en le faisant fonctionner et en comparant les résultats obtenus à ceux attendus.
 
 \section{Les modèles en climatologie}
 
