@@ -1,8 +1,8 @@
-% Preamble
+% Préambule
 % ---
 \documentclass[12pt]{article}
 
-% Packages
+% Paquets utilisés
 % ---
 %\usepackage{amsmath} % Advanced math typesetting
 \usepackage[utf8]{inputenc} % Unicode support (Umlauts etc.)w
@@ -17,7 +17,10 @@
 
 \begin{document}
 
-% Custom title page
+%%
+% Page de couverture sur-mesure
+%%
+
 \begin{titlepage}
 	\centering
 	
@@ -46,48 +49,88 @@
 \end{titlepage}
 
 
+\clearpage
+\tableofcontents{}
+\clearpage
+
+%%
+% Début du document
+%%
+
+\section{Introduction} 
+
+\subsection{Des enjeux actuels} % des enjeux actuels
+
+Qui n'a jamais eu besoin d'allumer sa télévision ou de consulter son téléphone pour savoir quel temps il ferait avant de prendre un avion, de partir en vacances ou tout simplement d'aller se promener en forêt ?
+Les prévisions météorologiques, toutes communes et faciles d'accès qu'elles soient, n'en présentent cependant pas moins des enjeux importants.
+Ces enjeux sont \textbf{économiques}, avec par exemple la météo agricole, un outil précieux pour des millions d'agriculteurs à travers le monde, mais aussi \textbf{humains}, car prévoir une crue ou une tempête, ne serait-ce que quelques heures à l'avance, peut permettre de sauver des vies en évacuant les populations en danger.
+
+Ces prévisions sont aujourd'hui littéralement à \textit{portée de main} avec l'avènement des applications mobiles, et pourtant elles reposent sur des constructions complexes à la croisée des mathématiques, de la physique et de l'informatique : \textbf{les modèles}.
+
+\subsection{Rapport au thème}
+
+La modélisation climatique s'inscrit naturellement dans le thème choisi, à savoir \textit{"l'aléatoire, l'insolite, le prévisible"}, car, outre l'exploration du passé qu'elle permet -- un point sur lequel nous reviendrons plus loin --, l'un de ses principaux intérêts est la réalisation de \textbf{prévisions météorologiques}.
+
+Elle est également aujourd'hui indissociable de l'informatique, discipline qui passionne votre serviteur, d'où le choix du sujet \textit{"la modélisation informatique du climat"}.
+En effet, le volume de données que doit traiter tout modèle climatique à partir d'un certain degré de complexité est bien trop important pour qu'un être humain, même muni d'une calculatrice, puisse réaliser les calculs nécessaires : on a donc recours à des ordinateurs pour cela, car ils sont capables de réaliser ces calculs à des vitesses dépassant de très loin les capacités humaines.
+
+\subsection{Démarche expérimentale}
+
+Le rôle primordial des modèles dans un domaine aussi important que la météorologie nous a conduits à vouloir explorer leur fonctionnement.
+Pour ce faire, nous avons choisi de \textbf{modéliser le rayonnement solaire} afin de calculer \textbf{l'éclairement énergétique solaire}, ou \textit{irradiance solaire}, d'un point sur Terre, en fonction de sa position, de la date et de l'heure.
+
+Cet exemple, d'une grande simplicité en comparaison avec les modèles qu'utilisent des organismes comme Météo France, présente cependant de multiples avantages :
+
+\begin{itemize}
+  \item sa \textbf{simplicité} le rend réalisable par un élève seul dans le cadre d'un TPE
+  \item les calculs qu'il implique restent cependant suffisamment complexes pour \textbf{justifier la création d'un programme informatique} les réalisant automatiquement
+  \item enfin, le rayonnement solaire est \textbf{relativement simple à modéliser}, car plus prévisible que le vent ou les intempéries
+\end{itemize}
+
+
+
+%%
+% Résumé
+%%
+
 \begin{abstract}
-Nous nous sommes demandé comment on pouvait construire des modèles climatiques, tenant compte de paramètres qui couvrent la géométrie, la physique, la chimie, et les mathématiques, et comment l’agencement de ces paramètres, qui deviennent des variables pour le mathématicien, peut prendre place dans un programme informatique.
+Nous nous sommes demandé comment l'on pouvait construire un modèle climatique, tenant compte de paramètres qui couvrent la géométrie, la physique, la chimie, et les mathématiques, et comment l'agencement de ces paramètres, qui deviennent des variables pour le mathématicien, peut prendre place dans un programme informatique.
 
-Pour ce faire, après avoir défini le vocabulaire important et exploré le fonctionnement de modèles aujourd'hui utilisés à grande échelle, nous nous intéressons à la variable de l'\textbf{éclairement énergétique solaire} en écrivant un programme reflétant le passage du phénomène de rayonnement solaire à sa modélisation, puis à son écriture dans un langage de programmation.
+Pour ce faire, après avoir \textbf{défini le vocabulaire important} et \textbf{exploré l'usage qui est fait des modèles en climatologie}, nous sommes intéressés à la variable de l'\textbf{éclairement énergétique solaire} en écrivant un programme reflétant le passage du phénomène de rayonnement solaire à sa modélisation, puis à son \textbf{écriture dans un langage de programmation} --- son \textit{implémentation}.
 
-Nous testons ensuite ce programme, et comparons les résultats à ceux attendus.
+Nous avons ensuite procédé à la \textbf{validation expérimentale} de ce programme en le testant, et en comparant les résultats obtenus à ceux attendus.
 \end{abstract}
 
-
-\clearpage
-\tableofcontents{} % Generates table of contents from sections and subsections
-
-\clearpage
-\section{Introduction : les modèles, pour quoi faire ?} 
-Qui n'a jamais eu besoin d'allumer sa télévision ou de consulter son téléphone pour savoir quel temps il ferait avant de prendre un avion, de partir en vacances ou tout simplement d'aller se promener en forêt ? Les prévisions météorologiques sont aujourd'hui communes et faciles d'accès, mais elle n'en sont pas moins importantes. Elles présentent en effet des enjeux \textbf{économiques}, avec par exemple la météo agricole qui guide les choix de millions d'agriculteurs à travers le monde, mais aussi \textbf{humains}, car prévoir une crue ou une tempête, ne serait-ce que quelques heures à l'avance, peut permettre de sauver des vies en évacuant les populations en danger.
-
-Ces prévisions sont aujourd'hui littéralement à \textit{portée de main} avec l'avènement des applications mobiles, et pourtant elles reposent sur des constructions d'une incroyable complexité, à la croisée des mathématiques, de la physique et de l'informatique : les modèles.
-Il s'agit d'arriver à une \textbf{approximation du réel}, un système suffisamment simple pour être compréhensible par l'esprit humain, tout en étant assez précis pour nous permettre d'explorer le passé et de prédire le future.
-
-Forts de ce constat, nous nous sommes demandé comment on pouvait construire de tels modèles, tenant compte de paramètres qui couvrent la géométrie, la physique, la chimie, et les mathématiques, et comment l’agencement de ces paramètres, qui deviennent des variables pour le mathématicien, peut prendre place dans un programme informatique.
-
-Pour ce faire, après avoir défini le vocabulaire important et exploré le fonctionnement de modèles utilisés à grande échelle, nous nous intéresserons à la variable de l'\textbf{éclairement énergétique} solaire en écrivant un programme reflétant le passage du phénomène de rayonnement solaire à sa modélisation, puis à son écriture dans un programme.
 
 
 \section{Les modèles en climatologie}
 
+\subsection{Qu'est-ce qu'un modèle ?}
 
+On parle de modèles mathématiques, scientifiques, climatiques, ou encore informatiques.
+Ces notions, bien que diverses, se rejoignent en un point : il s'agit de représentations de phénomènes, suffisamment simples pour qu'on puisse les appréhender et les manipuler, mais qui restent les plus proches possibles de la réalité, sans quoi elles seraient inutiles.
+En ce sens, l'on peut dire que tout modèle est une \textbf{approximation du réel}.
+
+[à faire]
 
 \section{Choix des données et construction de notre modèle}
 
-\section{Démarche théorique : choix du paramètre de l'éclairement énergétique}
+[à faire]
+
+% \section{Démarche théorique : choix du paramètre de l'éclairement énergétique}
 
 \section{Application : écriture de notre programme}
-Pour écrire un programme, il faut choisir un langage de programmation. On écrira dans ce langage le \textit{code source} du programme, un ensemble d'instructions destinées à la machine qui seront traduites en langage machine (\textit{machine code}) par un programme appelé \textbf{compilateur}. L'ordinateur pourra exécuter le programme compilé.
 
-J'ai choisi d'écrire mon programme en Rust. C'est un langage
+\subsection{Bases du fonctionnement d'un programme}
 
-écrit en Rust, langage innovant très performant et sûr
-open-source, disponible sur GitHub
-captures d'écran du code source, ou html
-démonstration en images
+Pour être exécuté, un programme doit être traduit en une série d'instructions appelée \textit{code machine}. Ce code n'étant pas conçu pour être lu ou écrit par des êtres humains, on écrit en pratique les programmes dans des \textit{langages de programmation}, conçus pour être compréhensibles à la fois par le programmeur et par l'ordinateur.
 
+Le texte formant un programme, écrit dans un langage de programmation, est appelé \textit{code source} du programme. L'ordinateur traduit le code source en code machine à l'aide un programme appelé \textit{compilateur}. Il est alors libre d'exécuter le code machine.
+
+\subsection{Choix du langage}
+Il existe de nombreux langages de programmation, chacun ayant ses propres atouts et points faibles. Pour ce TPE, j'ai choisi d'écrire mon programme en \textbf{Rust} (\url{https://www.rust-lang.org/}). Il s'agit d'un langage innovant, extrêmement performant, et prévenant de nombreux bugs grâce à un système qui analyse automatiquement le code source afin de vérifier son exactitude avant la traduction en langage machine. Ce sont ces qualités, ainsi que ma familiarité avec le langage, que j'utilise depuis janvier 2015, qui ont motivé mon choix.
+
+[à étoffer]
 
 \subsection{Code source du programme final}
 Le code source de mon programme est trop long pour le copier dans son intégralité, mais il est disponible publiquement sur GitHub, un site de développement collaboratif, à l'adresse suivante : \url{https://github.com/yberreby/rust-climate}. Vous pouvez en télécharger une copie sur votre disque dur en cliquant sur "Download ZIP" dans l'interface GitHub, ou sur le lien suivant : \url{https://github.com/yberreby/rust-climate/archive/master.zip}.
@@ -98,8 +141,16 @@ En voici un extrait :
 
 \inputminted[linenos]{rust}{temperature.rs}
 
+[à étoffer]
+[le code est tronqué car certaines lignes sont trop longues
+
 \section{Validation expérimentale : essai du programme}
 
+[à faire]
+
+\section{Conclusion}
+
+[à faire]
 
 
 \begin{thebibliography}{9}
@@ -121,6 +172,11 @@ GLOBE-SWISS, \textit{Climat, météo et atmosphère}
 
 \url{http://www.globe-swiss.ch/files/Downloads/779/Download/Cahier_Atmosphere.pdf}
 
+\bibitem{qu_est_ce_qu_un_modele}
+
+
+
+\url{http://archive.mcxapc.org/docs/ateliers/lemoign2.pdf}
 
 
 \end{thebibliography}
