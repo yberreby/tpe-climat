@@ -150,7 +150,7 @@ L'angle d'élévation $\alpha$ est plus complexe à calculer, car il est fonctio
 
 L'angle de déclinaison $\delta$ est ``l'angle entre la droite joignant les centres du Soleil et de la Terre et le plan de l'équateur terrestre'' \cite{mouvement_terre}. Il dépend de la position de la Terre autour du Soleil, et donc du \emph{jour de l'année} (allant de 1 à 365).
 
-% faire une illustration sur le tableau
+% TODO: illustration sur le tableau
 
 \[
 	\delta = \sin^{-1} \left(
@@ -169,15 +169,19 @@ L'angle de déclinaison $\delta$ est ``l'angle entre la droite joignant les cent
 \subsubsection{Angle horaire et temps solaire} % XXX
 
 L'angle horaire, noté $HRA$ pour \textit{Hour Angle}, correspond à l'arc que décrit le Soleil au cours de la journée, et dépend donc de l'heure.
-Cependant, la Terre ne se contente pas de tourner sur elle-même, elle tourne en même temps autour du Soleil, ce qui provoque un décalage entre l'heure locale (i.e. celle qu'indique un ordinateur ou une horloge) et l'heure solaire (définie par la position apparente du Soleil dans le ciel).
-On doit donc utiliser l'heure solaire.
-Pour cela, on calcule la différence entre l'heure solaire et l'heure locale.
-Cette différence est appelée facteur de correction du temps, et est fonction de la longitude du point étudié, de la longitude du méridien local à ce point et de l'équation du temps, un paramètre (``Remarque sur le mot ``équation'' : en astronomie ancienne, le terme ``équation'' désignait une correction ajoutée algébriquement à une valeur moyenne pour obtenir une valeur vraie.
-C'est une telle acception qui a survécu dans l'expression ``équation du temps'' '' \cite{equation_temps_wiki}) qui permet de corriger l'irrégularité du temps solaire, celui-ci n'évoluant pas de manière monotone.
+La Terre ne tournant pas seulement sur elle-même mais aussi autour du Soleil, il y a décalage entre l'heure \emph{locale} (i.e. celle qu'indique un ordinateur ou une horloge) et l'heure \emph{solaire}, qui est définie par la position apparente du Soleil dans le ciel.
+On doit donc utiliser l'heure solaire, et non l'heure locale, pour calculer l'angle horaire.
+Pour cela, on calcule une valeur appelée facteur de correction du temps, qui est la différence entre l'heure solaire et l'heure locale.
+Cette valeur est fonction de la longitude du point étudié, de la longitude du méridien local à ce point et de l'équation du temps, un paramètre qui permet de corriger l'irrégularité du temps solaire, celui-ci n'évoluant pas de manière monotone.
+
+\textit{``Remarque sur le mot ``équation'' : en astronomie ancienne, le terme ``équation'' désignait une correction ajoutée algébriquement à une valeur moyenne pour obtenir une valeur vraie.
+C'est une telle acception qui a survécu dans l'expression ``équation du temps'' ''} \cite{equation_temps_wiki}.
 
 
-\subsubsection{Combinaison des paramètres}
-La combinaison de tous ces paramètres permet de calculer une approximation de l'éclairement énergétique solaire en un point à partir de la position de ce point, de la date, de l'heure locale et du fuseau horaire seulement. Le fuseau horaire doit être indiqué explicitement, car on ne peut le calculer simplement à partir de la latitude, les limites des fuseaux horaires tendant à suivre les frontières des pays au lieu d'être rectilignes, comme le montre la figure ~\ref{fig:timezones}.+
+
+\subsubsection{Combinaison des paramètres} % OK
+La combinaison de tous ces paramètres permet de calculer une approximation de l'éclairement énergétique solaire en un point à partir de la position de ce point, de la date, de l'heure locale et du fuseau horaire seulement.
+Le fuseau horaire doit être indiqué explicitement car on ne peut le déduire simplement à partir de la latitude, les limites des fuseaux horaires tendant à suivre les frontières des pays au lieu d'être rectilignes, comme le montre la figure ~\ref{fig:timezones}.+
 
 \begin{figure}[!ht]
   \centering
