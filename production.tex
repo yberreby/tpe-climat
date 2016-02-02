@@ -107,29 +107,27 @@ Le modèle \textit{mathématique} est une construction formelle qui bien souvent
 \subsection{Construction de notre modèle}
 
 Le modèle informatique que nous cherchons à construire va ainsi s'appuyer sur un modèle mathématique, que nous construirons progressivement.
-Pour ce faire, je me suis principalement appuyé sur une collection de ressources du site PVEducation.org \cite{properties_of_sunlight}.
+Pour ce faire, je me suis principalement appuyé sur une collection de ressources du site PVEducation.org \cite{properties_of_sunlight}. À l'aide de ce site, j'ai déterminé comment l'on pouvait calculer l'éclairement énergétique solaire (\textit{solar irradiance} en anglais) à partir d'autres paramètres physiques, eux-mêmes calculables individuellement. Le tout forme un modèle petite échelle. Voici son fonctionnement.
 
-À l'aide de ce site, j'ai déterminé comment l'on pouvait calculer l'éclairement énergétique solaire (\textit{solar irradiance} en anglais) à partir d'autres paramètres physiques, eux-mêmes calculables individuellement.
+
+
 L'éclairement énergétique solaire dépend ainsi du coefficient de masse atmosphérique. Il s'agit du rapport du minimum de la longueur chemin que doivent parcourir les rayons du Soleil pour arriver à la Terre (atteint au zénith) sur la longueur de ce chemin à un instant t donné. Plus ce coefficient est élevé, plus le rayonnement solaire doit parcourir une distance importante, et plus il est atténué par l'atmosphère par diffusion et absorption \cite{air_mass_wiki}.
 Ce coefficient dépend de l'angle zénithal, qui est l'angle formé par la verticale (la normale à la surface) terrestre et le Soleil. Il est fonction de l'angle d'élévation, qui est l'angle que forment l'horizontale terrestre et le Soleil (l'angle zénithal est donc égal à : $90\degree - \textrm{angle d'élévation}$). Il dépend de la latitude, de l'angle de déclinaison et de l'angle horaire.
       
 L'angle de déclinaison est ``l'angle entre la droite joignant les centres du Soleil et de la Terre et le plan de l'équateur terrestre'' \cite{mouvement_terre}. Il dépend de la position de la Terre autour du Soleil, et donc du jour de l'année (de 1 à 365).
 L'angle horaire correspond à l'arc que décrit le Soleil au cours de la journée, et dépend donc de l'heure. Cependant, la Terre ne se contente pas de tourner sur elle-même, elle tourne en même temps autour du Soleil, ce qui provoque un décalage entre l'heure locale (i.e. celle qu'indique un ordinateur ou une horloge) et l'heure solaire (définie par la position apparente du Soleil dans le ciel). On doit donc utiliser l'heure solaire.
 Pour cela, on calcule la différence entre l'heure solaire et l'heure locale. Cette différence est appelée facteur de correction du temps, et est fonction de la longitude du point étudié, de la longitude du méridien local à ce point et de l'équation du temps, un paramètre (« Remarque sur le mot « équation » : en astronomie ancienne, le terme « équation » désignait une correction ajoutée algébriquement à une valeur moyenne pour obtenir une valeur vraie. C'est une telle acception qui a survécu dans l'expression ``équation du temps'' \cite{equation_temps_wiki} qui permet de corriger l'irrégularité du temps solaire, celui-ci n'évoluant pas de manière monotone. % FIXME
-La combinaison de tous ces paramètres permet de calculer une approximation de l'éclairement énergétique solaire en un point à partir de la position de ce point, de la date, de l'heure locale et du fuseau horaire seulement. Le fuseau horaire doit être indiqué explicitement, car on ne peut le calculer simplement à partir de la latitude, les limites des fuseaux horaires tendant à suivre les frontières des pays au lieu d'être rectilignes, comme le montre la figure ~\ref{fig:timezones}.
+La combinaison de tous ces paramètres permet de calculer une approximation de l'éclairement énergétique solaire en un point à partir de la position de ce point, de la date, de l'heure locale et du fuseau horaire seulement. Le fuseau horaire doit être indiqué explicitement, car on ne peut le calculer simplement à partir de la latitude, les limites des fuseaux horaires tendant à suivre les frontières des pays au lieu d'être rectilignes, comme le montre la figure ~\ref{fig:timezones}.+
 
 \begin{figure}[!ht]
   \centering
       \makebox[\textwidth]{\includegraphics[width=\paperwidth]{timezones.png}}
-  \caption{Les fuseaux horaires, dont les limites sont représentées par des lignes rouges suivant bien souvent les contours des pays.}
+  \caption{Les fuseaux horaires, dont les limites sont représentées par des lignes rouges, suivent souvent les contours des pays.}
   \label{fig:timezones}
 \end{figure}
 
 Cette approximation ne tient pas compte des nuages ou d'autres phénomènes climatiques pouvant altérer le parcours des rayons du Soleil, mais reste assez proche de la réalité par temps clair.
 
-[à faire - ici on parle du point de vue mathématique]
-
-% \section{Démarche théorique : choix du paramètre de l'éclairement énergétique}
 
 \clearpage
 \section{Application : écriture de notre programme}
