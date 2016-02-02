@@ -122,7 +122,7 @@ L'éclairement énergétique solaire d'un point à la surface de la Terre dépen
 Le rayonnement solaire au sommet de l'atmosphère, si l'on se place perpendiculairement au Soleil, est d'environ \SI{1.35}{\kilo\watt\per\square\meter}.
 Comme il varie peu (+/- \SI{10}{\watt\per\square\meter} ) nous nous intéresserons plus particulièrement au degré d'atténuation qu'il subit.
 Dans l'espace, les rayons du Soleil peuvent parcourir de grandes distances en perdant peu d'énergie, mais sitôt qu'ils pénètrent l'atmosphère, ils en perdent beaucoup par diffusion et absorption.
-Leur degré d'atténuation est fonction de la distance qu'ils parcourent dans l'atmosphère, c'est pourquoi on utilise pour le calculer un paramètre appelé \emph{masse d'air} (ou \emph{masse atmosphérique} -- \textit{air mass} en anglais) \cite{air_mass_wiki} qui représente le rapport de la longueur du plus court chemin possible au travers de l'atmosphère sur celle du chemin emprunté par la lumière à un instant donné (figure ~\ref{fig:air-mass}).
+Leur degré d'atténuation est fonction de la distance qu'ils parcourent dans l'atmosphère, c'est pourquoi on utilise pour le calculer un paramètre appelé \emph{masse d'air} (ou \emph{masse atmosphérique} -- \textit{air mass} en anglais) \cite{air_mass_wiki} qui représente le rapport de la longueur du plus court chemin possible au travers de l'atmosphère sur celle du chemin emprunté par la lumière à un instant donné (figure ~\ref{fig:air-mass}). Plus ce coefficient est élevé, plus le rayonnement solaire doit parcourir une distance importante, et plus il est atténué par l'atmosphère.
 
 \begin{figure}[!ht]
 	\centerline{\includegraphics{air-mass.png}}
@@ -130,18 +130,20 @@ Leur degré d'atténuation est fonction de la distance qu'ils parcourent dans l'
 	\label{fig:air-mass}
 \end{figure}
 
+La distance Y de la figure ~\ref{fig:air-mass} est égale à : \[\frac{1 }{\cos \theta}\]
 
+$\theta$ est l'angle zénithal, qui est l'angle formé par la verticale (la normale à la surface) terrestre et le Soleil. Il est fonction de l'angle d'élévation, qui est l'angle que forment l'horizontale terrestre et le Soleil. L'angle zénithal est donc égal à : \[90\degree - \textrm{angle d'élévation}\].
 
-L'éclairement énergétique solaire dépend ainsi du coefficient de masse atmosphérique.
-Il s'agit du rapport du minimum de la longueur chemin que doivent parcourir les rayons du Soleil pour arriver à la Terre (atteint au zénith) sur la longueur de ce chemin à un instant t donné.
-Plus ce coefficient est élevé, plus le rayonnement solaire doit parcourir une distance importante, et plus il est atténué par l'atmosphère par diffusion et absorption \cite{air_mass_wiki}.
-Ce coefficient dépend de l'angle zénithal, qui est l'angle formé par la verticale (la normale à la surface) terrestre et le Soleil.
-Il est fonction de l'angle d'élévation, qui est l'angle que forment l'horizontale terrestre et le Soleil (l'angle zénithal est donc égal à : $90\degree - \textrm{angle d'élévation}$).
+% FIXMEEE
+
 Il dépend de la latitude, de l'angle de déclinaison et de l'angle horaire.
       
 L'angle de déclinaison est ``l'angle entre la droite joignant les centres du Soleil et de la Terre et le plan de l'équateur terrestre'' \cite{mouvement_terre}. Il dépend de la position de la Terre autour du Soleil, et donc du jour de l'année (de 1 à 365).
 L'angle horaire correspond à l'arc que décrit le Soleil au cours de la journée, et dépend donc de l'heure. Cependant, la Terre ne se contente pas de tourner sur elle-même, elle tourne en même temps autour du Soleil, ce qui provoque un décalage entre l'heure locale (i.e. celle qu'indique un ordinateur ou une horloge) et l'heure solaire (définie par la position apparente du Soleil dans le ciel). On doit donc utiliser l'heure solaire.
 Pour cela, on calcule la différence entre l'heure solaire et l'heure locale. Cette différence est appelée facteur de correction du temps, et est fonction de la longitude du point étudié, de la longitude du méridien local à ce point et de l'équation du temps, un paramètre (« Remarque sur le mot « équation » : en astronomie ancienne, le terme « équation » désignait une correction ajoutée algébriquement à une valeur moyenne pour obtenir une valeur vraie. C'est une telle acception qui a survécu dans l'expression ``équation du temps'' \cite{equation_temps_wiki} qui permet de corriger l'irrégularité du temps solaire, celui-ci n'évoluant pas de manière monotone. % FIXME
+
+
+\subsubsection{Combinaison des paramètres}
 La combinaison de tous ces paramètres permet de calculer une approximation de l'éclairement énergétique solaire en un point à partir de la position de ce point, de la date, de l'heure locale et du fuseau horaire seulement. Le fuseau horaire doit être indiqué explicitement, car on ne peut le calculer simplement à partir de la latitude, les limites des fuseaux horaires tendant à suivre les frontières des pays au lieu d'être rectilignes, comme le montre la figure ~\ref{fig:timezones}.+
 
 \begin{figure}[!ht]
