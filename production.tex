@@ -115,12 +115,16 @@ Ce coefficient dépend de l'angle zénithal, qui est l'angle formé par la verti
       
 L'angle de déclinaison est ``l'angle entre la droite joignant les centres du Soleil et de la Terre et le plan de l'équateur terrestre'' \cite{mouvement_terre}. Il dépend de la position de la Terre autour du Soleil, et donc du jour de l'année (de 1 à 365).
 L'angle horaire correspond à l'arc que décrit le Soleil au cours de la journée, et dépend donc de l'heure. Cependant, la Terre ne se contente pas de tourner sur elle-même, elle tourne en même temps autour du Soleil, ce qui provoque un décalage entre l'heure locale (i.e. celle qu'indique un ordinateur ou une horloge) et l'heure solaire (définie par la position apparente du Soleil dans le ciel). On doit donc utiliser l'heure solaire.
-Pour cela, on calcule la différence entre l'heure solaire et l'heure locale. Cette différence est appelée facteur de correction du temps, et est fonction de la longitude du point étudié, de la longitude du méridien local à ce point et de l'équation du temps, un paramètre (« Remarque sur le mot « équation » : en astronomie ancienne, le terme « équation » désignait une correction ajoutée algébriquement à une valeur moyenne pour obtenir une valeur vraie. C'est une telle acception qui a survécu dans l'expression « équation du temps » », https://fr.wikipedia.org/wiki/%C3%89quation_du_temps ) qui permet de corriger l'irrégularité du temps solaire, celui-ci n'évoluant pas de manière monotone.
-La combinaison de tous ces paramètres permet de calculer une approximation de l'éclairement énergétique solaire en un point à partir de la position de ce point, de la date, de l'heure locale et du fuseau horaire seulement. Le fuseau horaire doit être indiqué explicitement, car on ne peut le calculer simplement à partir de la latitude, les limites des fuseaux horaires tendant à suivre les frontières des pays au lieu d'être rectilignes, comme le montre l'image suivante : 
+Pour cela, on calcule la différence entre l'heure solaire et l'heure locale. Cette différence est appelée facteur de correction du temps, et est fonction de la longitude du point étudié, de la longitude du méridien local à ce point et de l'équation du temps, un paramètre (« Remarque sur le mot « équation » : en astronomie ancienne, le terme « équation » désignait une correction ajoutée algébriquement à une valeur moyenne pour obtenir une valeur vraie. C'est une telle acception qui a survécu dans l'expression ``équation du temps'' \cite{equation_temps_wiki} qui permet de corriger l'irrégularité du temps solaire, celui-ci n'évoluant pas de manière monotone. % FIXME
+La combinaison de tous ces paramètres permet de calculer une approximation de l'éclairement énergétique solaire en un point à partir de la position de ce point, de la date, de l'heure locale et du fuseau horaire seulement. Le fuseau horaire doit être indiqué explicitement, car on ne peut le calculer simplement à partir de la latitude, les limites des fuseaux horaires tendant à suivre les frontières des pays au lieu d'être rectilignes, comme le montre la figure ~\ref{fig:timezones}.
 
-\begin{center}
-  \makebox[\textwidth]{\includegraphics[width=\paperwidth]{timezones.png}}
-\end{center}
+\begin{figure}[!ht]
+  \centering
+    \reflectbox{%
+      \makebox[\textwidth]{\includegraphics[width=\paperwidth]{timezones.png}}}
+  \caption{Les fuseaux horaires, dont les limites sont représentées par des lignes rouges suivant bien souvent les contours des pays.}
+  \label{fig:timezones}
+\end{figure}
 
 Cette approximation ne tient pas compte des nuages ou d'autres phénomènes climatiques pouvant altérer le parcours des rayons du Soleil, mais reste assez proche de la réalité par temps clair.
 
@@ -202,6 +206,9 @@ Université du Maine, \textit{Mouvement de la Terre}
 \url{https://en.wikipedia.org/wiki/Air_mass_(solar_energy)}
 
 
+\bibitem{equation_temps_wiki}
+
+\url{https://fr.wikipedia.org/wiki/%C3%89quation_du_temps}
 
 \end{thebibliography}
 
