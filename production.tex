@@ -90,7 +90,7 @@ Cet exemple, d'une grande simplicité en comparaison avec les modèles qu'utilis
   \item le rayonnement solaire est \textbf{relativement simple à modéliser}, car plus prévisible que le vent ou les intempéries
 \end{itemize}
 
-J'ai donc abouti, à l'aide de ressources trouvées sur Internet, à une série de calculs permettant de calculer \textbf{l'éclairement énergétique solaire} (ou \emph{irradiance solaire}) d'un point en fonction de sa position sur Terre, de la date et de l'heure.
+J'ai donc abouti, à l'aide de ressources trouvées sur Internet, à une série de calculs permettant de calculer \textbf{l'éclairement énergétique solaire} d'un point en fonction de sa position sur Terre, de la date et de l'heure.
 J'ai ensuite intégré ces calculs dans un programme, et procédé à la validation expérimentale de celui-ci en le faisant fonctionner et en comparant les résultats obtenus à ceux attendus.
 
 Le lecteur ne sera probablement pas sans remarquer l'utilisation abondante de sources anglophones dans le présent TPE. L'anglais est en effet aujourd'hui communément considéré comme la \textit{lingua franca} \cite{english_lingua_franca} des sciences, et l'abondance des ressources écrites dans cette langue par rapport aux ressources francophones me poussa à mener mes recherches en anglais. 
@@ -117,10 +117,8 @@ Pour ce faire, je me suis principalement appuyé sur une collection de ressource
 Le tout forme un modèle à petite échelle, dont voici le fonctionnement.
 
 \subsubsection{Masse d'air et atténuation du rayonnement solaire}
-L'éclairement énergétique solaire au niveau du sol, ou irradiance solaire, dépend fondamentalement de deux facteurs : l'intensité du rayonnement solaire parvenant \emph{au sommet de l'atmosphère}, et l'atténuation de celui-ci par l'atmosphère. 
-
+L'éclairement énergétique solaire d'un point à la surface de la Terre dépend fondamentalement de deux facteurs : l'intensité du rayonnement solaire parvenant \emph{au sommet de l'atmosphère}, et l'atténuation de celui-ci par l'atmosphère. 
 Le premier étant presque constant, on utilisera une approximation de sa valeur, et nous nous intéresserons plus particulièrement au second.
-
 Dans l'espace, les rayons du Soleil sont peu attenués, mais sitôt qu'ils pénètrent l'atmosphère, ils perdent de l'énergie par diffusion et absorption.
 \textbf{Le degré de cette atténuation étant fonction de la distance qu'ils parcourent dans l'atmosphère}, on utilise un paramètre appelé \emph{masse d'air} (ou \emph{masse atmosphérique} -- \textit{air mass} en anglais) \cite{air_mass_wiki}.
 
