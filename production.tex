@@ -95,6 +95,7 @@ J'ai ensuite intégré ces calculs dans un programme, et procédé à la validat
 
 Le lecteur ne sera probablement pas sans remarquer l'utilisation abondante de sources anglophones dans le présent TPE. L'anglais est en effet aujourd'hui communément considéré comme la \textit{lingua franca} \cite{english_lingua_franca} des sciences, et l'abondance des ressources écrites dans cette langue par rapport aux ressources francophones me poussa à mener mes recherches en anglais. 
 
+
 \clearpage
 \section{Les modèles en climatologie} % FIXME: awful title
 
@@ -104,17 +105,24 @@ On parle de modèles mathématiques, scientifiques, climatiques, ou encore infor
 Ces notions, bien que diverses, se rejoignent en un point : il s'agit de représentations de phénomènes, suffisamment simples pour qu'on puisse les appréhender et les manipuler, mais qui restent les plus proches possibles de la réalité, sans quoi elles seraient inutiles.
 En ce sens, l'on peut dire que tout modèle est une \textbf{approximation du réel}.
 
-Le modèle \emph{mathématique} est une construction formelle qui bien souvent sert de base au modèle informatique. Les lois qui régissent le premier servent de base au second, qui, soumis à des contraintes physiques (vitesse de calcul, de transfert des données, capacité de stockage d'un volume de données grandissant), en est la traduction imparfaite, empirique, gouverné par l'expérience, approximative. Il dépend du matériel avec lequel on l'utilise, et évolue au fur et à mesure que celui-ci devient plus rapide et capable de traiter de grands volumes de données.
+Le modèle \emph{mathématique} est une construction formelle qui bien souvent sert de base au modèle informatique.
+Les lois qui régissent le premier servent de base au second, qui, soumis à des contraintes physiques (vitesse de calcul, de transfert des données, capacité de stockage d'un volume de données grandissant), en est la traduction imparfaite, empirique, gouverné par l'expérience, approximative.
+Il dépend du matériel avec lequel on l'utilise, et évolue au fur et à mesure que celui-ci devient plus rapide et capable de traiter de grands volumes de données.
 
 \subsection{Construction de notre modèle}
 
 Le modèle informatique que nous cherchons à construire va ainsi s'appuyer sur un modèle mathématique, que nous construirons progressivement.
-Pour ce faire, je me suis principalement appuyé sur une collection de ressources du site PVEducation.org appelée \emph{Properties of Sunlight} \cite{properties_of_sunlight}. À l'aide de ce site, j'ai déterminé comment l'on pouvait calculer l'éclairement énergétique solaire (\textit{solar irradiance} en anglais) à partir d'autres paramètres physiques, pouvant eux-mêmes être calculés à partir d'autres paramètres, et ainsi de suite jusqu'à établir une relation entre date, heure, position sur la Terre d'un point, et éclairement énergétique solaire de ce point. Le tout forme un modèle à petite échelle, dont voici le fonctionnement.
+Pour ce faire, je me suis principalement appuyé sur une collection de ressources du site PVEducation.org appelée \emph{Properties of Sunlight} \cite{properties_of_sunlight}.
+À l'aide de ce site, j'ai déterminé comment l'on pouvait calculer l'éclairement énergétique solaire (\textit{solar irradiance} en anglais) à partir d'autres paramètres physiques, pouvant eux-mêmes être calculés à partir d'autres paramètres, et ainsi de suite jusqu'à établir une relation entre date, heure, position sur la Terre d'un point, et éclairement énergétique solaire de ce point.
+Le tout forme un modèle à petite échelle, dont voici le fonctionnement.
 
 \subsubsection{Masse d'air et atténuation du rayonnement solaire}
-L'éclairement énergétique solaire au niveau du sol, ou irradiance solaire, dépend fondamentalement de deux facteurs : l'intensité du rayonnement solaire parvenant \emph{au sommet de l'atmosphère}, et l'atténuation de celui-ci par l'atmosphère. Le premier étant presque constant, on utilisera une approximation de sa valeur, et nous nous intéresserons plus particulièrement au second.
+L'éclairement énergétique solaire au niveau du sol, ou irradiance solaire, dépend fondamentalement de deux facteurs : l'intensité du rayonnement solaire parvenant \emph{au sommet de l'atmosphère}, et l'atténuation de celui-ci par l'atmosphère. 
 
-Dans l'espace, les rayons du Soleil sont peu attenués, mais sitôt qu'ils pénètrent l'atmosphère, ils perdent de l'énergie par diffusion et absorption. \textbf{Le degré de cette atténuation étant fonction de la distance qu'ils parcourent dans l'atmosphère}, on utilise un paramètre appelé \emph{masse d'air} (ou \emph{masse atmosphérique} -- \textit{air mass} en anglais) \cite{air_mass_wiki}.
+Le premier étant presque constant, on utilisera une approximation de sa valeur, et nous nous intéresserons plus particulièrement au second.
+
+Dans l'espace, les rayons du Soleil sont peu attenués, mais sitôt qu'ils pénètrent l'atmosphère, ils perdent de l'énergie par diffusion et absorption.
+\textbf{Le degré de cette atténuation étant fonction de la distance qu'ils parcourent dans l'atmosphère}, on utilise un paramètre appelé \emph{masse d'air} (ou \emph{masse atmosphérique} -- \textit{air mass} en anglais) \cite{air_mass_wiki}.
 
 \begin{figure}[!ht]
 	\centerline{\includegraphics{air-mass.png}}
@@ -124,8 +132,12 @@ Dans l'espace, les rayons du Soleil sont peu attenués, mais sitôt qu'ils pén�
 
 
 
-L'éclairement énergétique solaire dépend ainsi du coefficient de masse atmosphérique. Il s'agit du rapport du minimum de la longueur chemin que doivent parcourir les rayons du Soleil pour arriver à la Terre (atteint au zénith) sur la longueur de ce chemin à un instant t donné. Plus ce coefficient est élevé, plus le rayonnement solaire doit parcourir une distance importante, et plus il est atténué par l'atmosphère par diffusion et absorption \cite{air_mass_wiki}.
-Ce coefficient dépend de l'angle zénithal, qui est l'angle formé par la verticale (la normale à la surface) terrestre et le Soleil. Il est fonction de l'angle d'élévation, qui est l'angle que forment l'horizontale terrestre et le Soleil (l'angle zénithal est donc égal à : $90\degree - \textrm{angle d'élévation}$). Il dépend de la latitude, de l'angle de déclinaison et de l'angle horaire.
+L'éclairement énergétique solaire dépend ainsi du coefficient de masse atmosphérique.
+Il s'agit du rapport du minimum de la longueur chemin que doivent parcourir les rayons du Soleil pour arriver à la Terre (atteint au zénith) sur la longueur de ce chemin à un instant t donné.
+Plus ce coefficient est élevé, plus le rayonnement solaire doit parcourir une distance importante, et plus il est atténué par l'atmosphère par diffusion et absorption \cite{air_mass_wiki}.
+Ce coefficient dépend de l'angle zénithal, qui est l'angle formé par la verticale (la normale à la surface) terrestre et le Soleil.
+Il est fonction de l'angle d'élévation, qui est l'angle que forment l'horizontale terrestre et le Soleil (l'angle zénithal est donc égal à : $90\degree - \textrm{angle d'élévation}$).
+Il dépend de la latitude, de l'angle de déclinaison et de l'angle horaire.
       
 L'angle de déclinaison est ``l'angle entre la droite joignant les centres du Soleil et de la Terre et le plan de l'équateur terrestre'' \cite{mouvement_terre}. Il dépend de la position de la Terre autour du Soleil, et donc du jour de l'année (de 1 à 365).
 L'angle horaire correspond à l'arc que décrit le Soleil au cours de la journée, et dépend donc de l'heure. Cependant, la Terre ne se contente pas de tourner sur elle-même, elle tourne en même temps autour du Soleil, ce qui provoque un décalage entre l'heure locale (i.e. celle qu'indique un ordinateur ou une horloge) et l'heure solaire (définie par la position apparente du Soleil dans le ciel). On doit donc utiliser l'heure solaire.
@@ -240,6 +252,11 @@ En voici un extrait :
 	Wikipédia,
 	\emph{Équation du temps}\\
 	\url{https://fr.wikipedia.org/wiki/%C3%89quation_du_temps}
+	
+\bibiitem{irradiation_solaire_wiki}
+	Wikipédia,
+	\emph{Irradiation solaire}\\
+	\url{https://fr.wikipedia.org/wiki/Irradiation_solaire}
 
 \end{thebibliography}
 
