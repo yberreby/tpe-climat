@@ -111,7 +111,7 @@ Pour ce faire, je me suis principalement appuyé sur une collection de ressource
 
 À l'aide de ce site, j'ai déterminé comment l'on pouvait calculer l'éclairement énergétique solaire (\textit{solar irradiance} en anglais) à partir d'autres paramètres physiques, eux-mêmes calculables individuellement.
 L'éclairement énergétique solaire dépend ainsi du coefficient de masse atmosphérique. Il s'agit du rapport du minimum de la longueur chemin que doivent parcourir les rayons du Soleil pour arriver à la Terre (atteint au zénith) sur la longueur de ce chemin à un instant t donné. Plus ce coefficient est élevé, plus le rayonnement solaire doit parcourir une distance importante, et plus il est atténué par l'atmosphère par diffusion et absorption \cite{air_mass_wiki}.
-Ce coefficient dépend de l'angle zénithal, qui est l'angle formé par la verticale (la normale à la surface) terrestre et le Soleil. Il est fonction de l'angle d'élévation, qui est l'angle que forment l'horizontale terrestre et le Soleil (l'angle zénithal est donc égal à : [90° – l'angle d'élévation]). Il dépend de la latitude, de l'angle de déclinaison et de l'angle horaire.
+Ce coefficient dépend de l'angle zénithal, qui est l'angle formé par la verticale (la normale à la surface) terrestre et le Soleil. Il est fonction de l'angle d'élévation, qui est l'angle que forment l'horizontale terrestre et le Soleil (l'angle zénithal est donc égal à : $90\degree - \textrm{angle d'élévation}$). Il dépend de la latitude, de l'angle de déclinaison et de l'angle horaire.
       
 L'angle de déclinaison est ``l'angle entre la droite joignant les centres du Soleil et de la Terre et le plan de l'équateur terrestre'' \cite{mouvement_terre}. Il dépend de la position de la Terre autour du Soleil, et donc du jour de l'année (de 1 à 365).
 L'angle horaire correspond à l'arc que décrit le Soleil au cours de la journée, et dépend donc de l'heure. Cependant, la Terre ne se contente pas de tourner sur elle-même, elle tourne en même temps autour du Soleil, ce qui provoque un décalage entre l'heure locale (i.e. celle qu'indique un ordinateur ou une horloge) et l'heure solaire (définie par la position apparente du Soleil dans le ciel). On doit donc utiliser l'heure solaire.
@@ -120,8 +120,7 @@ La combinaison de tous ces paramètres permet de calculer une approximation de l
 
 \begin{figure}[!ht]
   \centering
-    \reflectbox{%
-      \makebox[\textwidth]{\includegraphics[width=\paperwidth]{timezones.png}}}
+      \makebox[\textwidth]{\includegraphics[width=\paperwidth]{timezones.png}}
   \caption{Les fuseaux horaires, dont les limites sont représentées par des lignes rouges suivant bien souvent les contours des pays.}
   \label{fig:timezones}
 \end{figure}
