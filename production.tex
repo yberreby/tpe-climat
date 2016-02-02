@@ -130,19 +130,17 @@ Leur degré d'atténuation est fonction de la distance qu'ils parcourent dans l'
 	\label{fig:air-mass}
 \end{figure}
 
-La distance parcourue par les rayons du Soleil ($Y$ sur la figure ~\ref{fig:air-mass}) est égale à $\cos \theta$.
+La distance parcourue par les rayons du Soleil ($Y$ sur la figure ~\ref{fig:air-mass}) est égale à $\cos \theta$ ($\theta$ est l'angle zénithal, que nous décrirons plus loin).
 La masse d'air est donc égale à :
 
 \[\frac{1 }{\cos \theta}\]
 
 
 \subsubsection{Angle zénithal, d'élévation, de déclinaison}
-$\theta$, dont on a fait usage plus haut, est \emph{l'angle zénithal}. L'angle zénithal et l'angle d'élévation ($\alpha$) sont complémentaires, on a donc :
+$\theta$ est \emph{l'angle zénithal}. L'angle zénithal et l'angle d'élévation ($\alpha$) étant complémentaires, on a :
 \[90\degree - \alpha\]
 
-L'angle d'élévation $\alpha$ est plus complexe à calculer. Il est fonction de la latitude du point étudié (il convient de rappeler qu'il s'agit de calculer l'éclairement énergétique d'un point à la surface de la Terre), de \emph{l'angle de déclinaison} et de \emph{l'angle horaire}.
-
-
+L'angle d'élévation $\alpha$ est plus complexe à calculer, car il est fonction de la latitude du point étudié (il convient de rappeler qu'il s'agit de calculer l'éclairement énergétique d'un point à la surface de la Terre), de \emph{l'angle de déclinaison} et de \emph{l'angle horaire}.
 
 \begin{figure}[!ht]
 	\centerline{\includegraphics[width=7cm]{elevation-and-zenith-angle.png}}
@@ -150,14 +148,16 @@ L'angle d'élévation $\alpha$ est plus complexe à calculer. Il est fonction de
 	\label{fig:air-mass}
 \end{figure}
 
-\subsubsection{Angle horaire et temps solaire}
-% FIXMEEE
+L'angle de déclinaison $\delta$ est ``l'angle entre la droite joignant les centres du Soleil et de la Terre et le plan de l'équateur terrestre'' \cite{mouvement_terre}. Il dépend de la position de la Terre autour du Soleil, et donc du jour de l'année (de 1 à 365).
 
-Il dépend de la latitude, de l'angle de déclinaison et de l'angle horaire.
-      
-L'angle de déclinaison est ``l'angle entre la droite joignant les centres du Soleil et de la Terre et le plan de l'équateur terrestre'' \cite{mouvement_terre}. Il dépend de la position de la Terre autour du Soleil, et donc du jour de l'année (de 1 à 365).
-L'angle horaire correspond à l'arc que décrit le Soleil au cours de la journée, et dépend donc de l'heure. Cependant, la Terre ne se contente pas de tourner sur elle-même, elle tourne en même temps autour du Soleil, ce qui provoque un décalage entre l'heure locale (i.e. celle qu'indique un ordinateur ou une horloge) et l'heure solaire (définie par la position apparente du Soleil dans le ciel). On doit donc utiliser l'heure solaire.
-Pour cela, on calcule la différence entre l'heure solaire et l'heure locale. Cette différence est appelée facteur de correction du temps, et est fonction de la longitude du point étudié, de la longitude du méridien local à ce point et de l'équation du temps, un paramètre (« Remarque sur le mot « équation » : en astronomie ancienne, le terme « équation » désignait une correction ajoutée algébriquement à une valeur moyenne pour obtenir une valeur vraie. C'est une telle acception qui a survécu dans l'expression ``équation du temps'' \cite{equation_temps_wiki} qui permet de corriger l'irrégularité du temps solaire, celui-ci n'évoluant pas de manière monotone. % FIXME
+\subsubsection{Angle horaire et temps solaire} % XXX
+
+L'angle horaire, noté $HRA$ pour \textit{Hour Angle}, correspond à l'arc que décrit le Soleil au cours de la journée, et dépend donc de l'heure.
+Cependant, la Terre ne se contente pas de tourner sur elle-même, elle tourne en même temps autour du Soleil, ce qui provoque un décalage entre l'heure locale (i.e. celle qu'indique un ordinateur ou une horloge) et l'heure solaire (définie par la position apparente du Soleil dans le ciel).
+On doit donc utiliser l'heure solaire.
+Pour cela, on calcule la différence entre l'heure solaire et l'heure locale.
+Cette différence est appelée facteur de correction du temps, et est fonction de la longitude du point étudié, de la longitude du méridien local à ce point et de l'équation du temps, un paramètre (« Remarque sur le mot « équation » : en astronomie ancienne, le terme « équation » désignait une correction ajoutée algébriquement à une valeur moyenne pour obtenir une valeur vraie.
+C'est une telle acception qui a survécu dans l'expression ``équation du temps'' \cite{equation_temps_wiki} qui permet de corriger l'irrégularité du temps solaire, celui-ci n'évoluant pas de manière monotone.
 
 
 \subsubsection{Combinaison des paramètres}
