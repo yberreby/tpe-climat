@@ -62,19 +62,19 @@
 
 \section{Introduction} 
 
-\subsection{Des enjeux actuels} % des enjeux actuels
+\subsection{Des enjeux actuels}
 
 Qui n'a jamais eu besoin d'allumer sa télévision ou de consulter son téléphone pour savoir quel temps il ferait avant de prendre un avion, de partir en vacances ou tout simplement d'aller se promener en forêt ?
 Les prévisions météorologiques, toutes communes et faciles d'accès qu'elles soient, n'en présentent cependant pas moins des enjeux importants.
 Ces enjeux sont \textbf{économiques}, avec par exemple la météo agricole, un outil précieux pour des millions d'agriculteurs à travers le monde, mais aussi \textbf{humains}, car prévoir une crue ou une tempête, ne serait-ce que quelques heures à l'avance, peut permettre de sauver des vies en évacuant les populations en danger.
 
-Ces prévisions sont aujourd'hui littéralement à \textit{portée de main} avec l'avènement des applications mobiles, et pourtant elles reposent sur des constructions d'une grande complexité à la croisée des mathématiques, de la physique et de l'informatique : \textbf{les modèles}.
+Ces prévisions sont aujourd'hui littéralement à \emph{portée de main} avec l'avènement des applications mobiles, et pourtant elles reposent sur des constructions d'une grande complexité à la croisée des mathématiques, de la physique et de l'informatique : \textbf{les modèles}.
 
 \subsection{Rapport au thème}
 
-La modélisation climatique s'inscrit naturellement dans le thème choisi, à savoir \textit{"l'aléatoire, l'insolite, le prévisible"}, car, outre l'exploration du passé qu'elle permet -- un point sur lequel on reviendra plus loin --, l'un de ses principaux intérêts est la réalisation de \textbf{prévisions météorologiques}.
+La modélisation climatique s'inscrit naturellement dans le thème choisi, à savoir \emph{"l'aléatoire, l'insolite, le prévisible"}, car, outre l'exploration du passé qu'elle permet -- un point sur lequel on reviendra plus loin --, l'un de ses principaux intérêts est la réalisation de \textbf{prévisions météorologiques}.
 
-Elle est également aujourd'hui indissociable de l'informatique, discipline qui passionne votre serviteur, d'où le choix du sujet \textit{"la modélisation informatique du climat"}.
+Elle est également aujourd'hui indissociable de l'informatique, discipline qui passionne votre serviteur, d'où le choix du sujet \emph{"la modélisation informatique du climat"}.
 En effet, le volume de données que doit traiter tout modèle climatique à partir d'un certain degré de complexité est bien trop important pour qu'un être humain, même muni d'une calculatrice, puisse réaliser les calculs nécessaires : on a donc recours à des ordinateurs pour cela, car ils sont capables de réaliser ces calculs à des vitesses dépassant de très loin les capacités humaines.
 
 \subsection{Démarche expérimentale}
@@ -90,7 +90,7 @@ Cet exemple, d'une grande simplicité en comparaison avec les modèles qu'utilis
   \item le rayonnement solaire est \textbf{relativement simple à modéliser}, car plus prévisible que le vent ou les intempéries
 \end{itemize}
 
-J'ai donc abouti, à l'aide de ressources trouvées sur Internet, à une série de calculs permettant de calculer \textbf{l'éclairement énergétique solaire} (ou \textit{irradiance solaire}) d'un point en fonction de sa position sur Terre, de la date et de l'heure.
+J'ai donc abouti, à l'aide de ressources trouvées sur Internet, à une série de calculs permettant de calculer \textbf{l'éclairement énergétique solaire} (ou \emph{irradiance solaire}) d'un point en fonction de sa position sur Terre, de la date et de l'heure.
 J'ai ensuite intégré ces calculs dans un programme, et procédé à la validation expérimentale de celui-ci en le faisant fonctionner et en comparant les résultats obtenus à ceux attendus.
 
 Le lecteur ne sera probablement pas sans remarquer l'utilisation abondante de sources anglophones dans le présent TPE. L'anglais est en effet aujourd'hui communément considéré comme la \textit{lingua franca} \cite{english_lingua_franca} des sciences, et l'abondance des ressources écrites dans cette langue par rapport aux ressources francophones me poussa à mener mes recherches en anglais. 
@@ -104,16 +104,24 @@ On parle de modèles mathématiques, scientifiques, climatiques, ou encore infor
 Ces notions, bien que diverses, se rejoignent en un point : il s'agit de représentations de phénomènes, suffisamment simples pour qu'on puisse les appréhender et les manipuler, mais qui restent les plus proches possibles de la réalité, sans quoi elles seraient inutiles.
 En ce sens, l'on peut dire que tout modèle est une \textbf{approximation du réel}.
 
-Le modèle \textit{mathématique} est une construction formelle qui bien souvent sert de base au modèle informatique. Les lois qui régissent le premier servent de base au second, qui, soumis à des contraintes physiques (vitesse de calcul, de transfert des données, capacité de stockage d'un volume de données grandissant), en est la traduction imparfaite, empirique, gouverné par l'expérience, approximative. Il dépend du matériel avec lequel on l'utilise, et évolue au fur et à mesure que celui-ci devient plus rapide et capable de traiter de grands volumes de données.
+Le modèle \emph{mathématique} est une construction formelle qui bien souvent sert de base au modèle informatique. Les lois qui régissent le premier servent de base au second, qui, soumis à des contraintes physiques (vitesse de calcul, de transfert des données, capacité de stockage d'un volume de données grandissant), en est la traduction imparfaite, empirique, gouverné par l'expérience, approximative. Il dépend du matériel avec lequel on l'utilise, et évolue au fur et à mesure que celui-ci devient plus rapide et capable de traiter de grands volumes de données.
 
 \subsection{Construction de notre modèle}
 
 Le modèle informatique que nous cherchons à construire va ainsi s'appuyer sur un modèle mathématique, que nous construirons progressivement.
-Pour ce faire, je me suis principalement appuyé sur une collection de ressources du site PVEducation.org appelée \textit{Properties of Sunlight} \cite{properties_of_sunlight}. À l'aide de ce site, j'ai déterminé comment l'on pouvait calculer l'éclairement énergétique solaire (\textit{solar irradiance} en anglais) à partir d'autres paramètres physiques, pouvant eux-mêmes être calculés à partir d'autres paramètres, et ainsi de suite jusqu'à établir une relation entre date, heure, position sur la Terre d'un point, et éclairement énergétique solaire de ce point. Le tout forme un modèle petite échelle, dont voici le fonctionnement.
-\\
+Pour ce faire, je me suis principalement appuyé sur une collection de ressources du site PVEducation.org appelée \emph{Properties of Sunlight} \cite{properties_of_sunlight}. À l'aide de ce site, j'ai déterminé comment l'on pouvait calculer l'éclairement énergétique solaire (\textit{solar irradiance} en anglais) à partir d'autres paramètres physiques, pouvant eux-mêmes être calculés à partir d'autres paramètres, et ainsi de suite jusqu'à établir une relation entre date, heure, position sur la Terre d'un point, et éclairement énergétique solaire de ce point. Le tout forme un modèle petite échelle, dont voici le fonctionnement.
 
+\subsubsection{Masse d'air et atténuation du rayonnement solaire}
+L'éclairement énergétique solaire au niveau du sol, ou irradiance solaire, dépend fondamentalement de deux facteurs : l'intensité du rayonnement solaire parvenant \emph{au sommet de l'atmosphère}, et l'atténuation de celui-ci par l'atmosphère. Le premier étant presque constant, on utilisera une approximation de sa valeur, et nous nous intéresserons plus particulièrement au second.
 
-L'éclairement énergétique solaire au niveau du sol, ou irradiance solaire, dépend fondamentalement de deux facteurs : l'intensité du rayonnement solaire parvenant \textit{juste au-dessus de l'atmosphère}, et l'atténuation de celui-ci par l'atmosphère. 
+Dans l'espace, les rayons du Soleil sont peu attenués, mais sitôt qu'ils pénètrent l'atmosphère, ils perdent de l'énergie par diffusion et absorption. \textbf{Le degré de cette atténuation étant fonction de la distance qu'ils parcourent dans l'atmosphère}, on utilise un paramètre appelé \emph{masse d'air} (ou \emph{masse atmosphérique} -- \textit{air mass} en anglais) \cite{air_mass_wiki}.
+
+\begin{figure}[!ht]
+	\centerline{\includegraphics{air-mass.png}}
+	\caption{La masse d'air à un instant (\textit{air mass} en anglais) \textit{t} est définie par X (chemin le plus court que peuvent prendre les rayons du Soleil) divisé par Y (chemin qu'ils prennent à cet instant).}
+	\label{fig:air-mass}
+\end{figure}
+
 
 
 L'éclairement énergétique solaire dépend ainsi du coefficient de masse atmosphérique. Il s'agit du rapport du minimum de la longueur chemin que doivent parcourir les rayons du Soleil pour arriver à la Terre (atteint au zénith) sur la longueur de ce chemin à un instant t donné. Plus ce coefficient est élevé, plus le rayonnement solaire doit parcourir une distance importante, et plus il est atténué par l'atmosphère par diffusion et absorption \cite{air_mass_wiki}.
@@ -139,9 +147,9 @@ Cette approximation ne tient pas compte des nuages ou d'autres phénomènes clim
 
 \subsection{Bases du fonctionnement d'un programme}
 
-Pour être exécuté, un programme doit être traduit en une série d'instructions appelée \textit{code machine}. Ce code n'étant pas conçu pour être lu ou écrit par des êtres humains, on écrit en pratique les programmes dans des \textit{langages de programmation}, conçus pour être compréhensibles à la fois par le programmeur et par l'ordinateur.
+Pour être exécuté, un programme doit être traduit en une série d'instructions appelée \emph{code machine}. Ce code n'étant pas conçu pour être lu ou écrit par des êtres humains, on écrit en pratique les programmes dans des \emph{langages de programmation}, conçus pour être compréhensibles à la fois par le programmeur et par l'ordinateur.
 
-Le texte formant un programme, écrit dans un langage de programmation, est appelé \textit{code source} du programme. L'ordinateur traduit le code source en code machine à l'aide un programme appelé \textit{compilateur}. Il est alors libre d'exécuter le code machine.
+Le texte formant un programme, écrit dans un langage de programmation, est appelé \emph{code source} du programme. L'ordinateur traduit le code source en code machine à l'aide un programme appelé \emph{compilateur}. Il est alors libre d'exécuter le code machine.
 
 \subsection{Choix du langage}
 Il existe de nombreux langages de programmation, chacun ayant ses propres atouts et points faibles. Pour ce TPE, j'ai choisi d'écrire mon programme en \textbf{Rust} (\url{https://www.rust-lang.org/}). Il s'agit d'un langage innovant, extrêmement performant, et prévenant de nombreux bugs grâce à un système qui analyse automatiquement le code source afin de vérifier son exactitude avant la traduction en langage machine. Ce sont ces qualités, ainsi que ma familiarité avec le langage, que j'utilise depuis janvier 2015, qui ont motivé mon choix.
@@ -174,49 +182,64 @@ En voici un extrait :
 \begin{thebibliography}{9}
 
 \bibitem{english_lingua_franca}
-Wikipédia, \textit{List of lingua francas}
-
-\url{https://en.wikipedia.org/wiki/List_of_lingua_francas#English}
-
+	Wikipédia,
+	\emph{List of lingua francas}\\
+	\url{https://en.wikipedia.org/wiki/List_of_lingua_francas#English}
 
 \bibitem{how_do_climate_models_work} 
-Kaitlin Alexander, \textit{How do climate models work?}
-
-\url{http://climatesight.org/2012/01/20/how-do-climate-models-work/}
-
+	Kaitlin Alexander,
+	\emph{How do climate models work?}\\
+	\url{http://climatesight.org/2012/01/20/how-do-climate-models-work/}
 
 \bibitem{properties_of_sunlight} 
-PVEducation.org, \textit{Properties of Sunlight}
+	PVEducation.org,
+	\emph{Properties of Sunlight}\\
+	\url{http://www.pveducation.org/pvcdrom/properties-of-sunlight/}
 
-\url{http://www.pveducation.org/pvcdrom/properties-of-sunlight/}
+\bibitem{pos_air_mass}
+	PVEducation.org,
+	\emph{Air Mass}\\
+	\url{http://www.pveducation.org/pvcdrom/properties-of-sunlight/air-mass}
 
+\bibitem{pos_solar_time}
+	PVEducation.org,
+	\emph{Solar Time}\\
+	\url{http://www.pveducation.org/pvcdrom/properties-of-sunlight/solar-time}
+
+\bibitem{pos_declination_angle}
+	PVEducation.org,
+	\emph{Declination Angle}\\
+	\url{http://www.pveducation.org/pvcdrom/properties-of-sunlight/declination-angle}
+
+\bibitem{pos_calculation_of_solar_insolation}
+	PVEducation.org,
+	\emph{Calculation of Solar Insolation}\\
+	\url{http://www.pveducation.org/pvcdrom/properties-of-sunlight/calculation-of-solar-insolation}
 
 \bibitem{cahier_globe} 
-GLOBE-SWISS, \textit{Climat, météo et atmosphère}
-
-\url{http://www.globe-swiss.ch/files/Downloads/779/Download/Cahier_Atmosphere.pdf}
-
+	GLOBE-SWISS,
+	\emph{Climat, météo et atmosphère}\\
+	\url{http://www.globe-swiss.ch/files/Downloads/779/Download/Cahier_Atmosphere.pdf}
 
 \bibitem{qu_est_ce_qu_un_modele}
-Jean-Louis Le Moigne, \textit{Qu'est-ce qu'un modèle ?}
-
-\url{http://archive.mcxapc.org/docs/ateliers/lemoign2.pdf}
-
+	Jean-Louis Le Moigne,
+	\emph{Qu'est-ce qu'un modèle ?}\\
+	\url{http://archive.mcxapc.org/docs/ateliers/lemoign2.pdf}
 
 \bibitem{mouvement_terre}
-Université du Maine, \textit{Mouvement de la Terre}
-
-\url{http://ressources.univ-lemans.fr/AccesLibre/UM/Pedago/physique/02/divers/mouveter.html}
-
+	Université du Maine,
+	\emph{Mouvement de la Terre}\\
+	\url{http://ressources.univ-lemans.fr/AccesLibre/UM/Pedago/physique/02/divers/mouveter.html}
 
 \bibitem{air_mass_wiki}
-
-\url{https://en.wikipedia.org/wiki/Air_mass_(solar_energy)}
-
+	Wikipédia,
+	\emph{Air Mass (solar energy)}\\
+	\url{https://en.wikipedia.org/wiki/Air_mass_(solar_energy)}
 
 \bibitem{equation_temps_wiki}
-
-\url{https://fr.wikipedia.org/wiki/%C3%89quation_du_temps}
+	Wikipédia,
+	\emph{Équation du temps}\\
+	\url{https://fr.wikipedia.org/wiki/%C3%89quation_du_temps}
 
 \end{thebibliography}
 
