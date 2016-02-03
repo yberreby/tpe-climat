@@ -13,6 +13,7 @@
 \usepackage{hyperref}
 \usepackage{siunitx}
 \usepackage{xcolor}
+\usepackage{placeins}
 
 \usepackage{graphicx}
 \graphicspath{{../resources/images/}}
@@ -138,7 +139,7 @@ Avec $I_d$ l'éclairement énergétique solaire en \SI{}{\watt\per\square\meter}
 L'éclairement énergétique solaire au sommet de l'atmosphère, si l'on se place perpendiculairement au Soleil, est d'environ \SI{1.35}{\kilo\watt\per\square\meter}.
 Comme il varie peu (+/- \SI{10}{\watt\per\square\meter}), nous nous intéresserons plus particulièrement au degré d'atténuation qu'il subit.
 Dans l'espace, les rayons du Soleil peuvent parcourir de grandes distances en perdant peu d'énergie, mais sitôt qu'ils pénètrent l'atmosphère, ils en perdent beaucoup par diffusion et absorption.
-Leur degré d'atténuation est fonction de la distance qu'ils parcourent dans l'atmosphère, c'est pourquoi on utilise pour le calculer un paramètre appelé \emph{masse d'air} (ou \emph{masse atmosphérique} -- \textit{air mass} en anglais) \cite{air_mass_wiki} qui représente le rapport de la longueur du plus court chemin possible au travers de l'atmosphère sur celle du chemin emprunté par la lumière à un instant donné (figure ~\ref{fig:air-mass}). Plus ce coefficient est élevé, plus les rayons du Soleil doivent parcourir une distance importante, et plus ils sont atténués par l'atmosphère.
+Leur degré d'atténuation est fonction de la distance qu'ils parcourent dans l'atmosphère, c'est pourquoi on utilise pour le calculer un paramètre appelé \emph{masse d'air} (ou \emph{masse atmosphérique} -- \textit{air mass} en anglais) \cite{air_mass_wiki} qui représente le rapport de la longueur du plus court chemin possible au travers de l'atmosphère sur celle du chemin emprunté par la lumière à un instant donné (figure~\ref{fig:air-mass}). Plus ce coefficient est élevé, plus les rayons du Soleil doivent parcourir une distance importante, et plus ils sont atténués par l'atmosphère.
 
 
 \begin{figure}[!ht]
@@ -257,13 +258,14 @@ Ce sont ces qualités, ainsi que ma familiarité avec le langage (je l'utilise e
 \subsection{Interface utilisateur}
 J'ai décidé de munir mon programme d'une interface utilisateur simple, afin qu'il soit possible de l'utiliser sans connaissances en programmation. Il s'agit d'une interface dite \emph{en ligne de commande}, et non d'une interface graphique traditionnelle, afin préserver la simplicité du code. On l'utilise avec le clavier uniquement, en entrant les paramètres demandés l'un après l'autre (figure ~\ref{fig:demo}).
 
-\begin{figure}[!ht]
+\begin{figure}[!htbp]
   \centering
       \makebox[\textwidth]{\includegraphics[width=15cm]{program-demonstration.png}}
   \caption{Un exemple d'utilisation de mon programme, avec comme paramètres les coordonnées GPS de la tour Eiffel (48.8582° N, 2.2945° E) et la date et l'heure d'écriture de ces lignes. Seuls les trois paramètres d'entrée (latitude, longitude, date et heure locale) ont été écrits au clavier ; les variables intermédiaires et le résultat ont été calculés et affichés automatiquement.}
   \label{fig:demo}
 \end{figure}
 
+\FloatBarrier
 \subsection{Code source}
 Le code source de mon programme est trop long pour le copier dans son intégralité, mais il est disponible publiquement sur GitHub, un site de développement collaboratif.\footnote{\url{https://github.com/yberreby/rust-climate}}.
 Vous pouvez en télécharger une copie en cliquant sur "Download ZIP" dans l'interface GitHub.\footnote{\url{https://github.com/yberreby/rust-climate/archive/master.zip}}.
