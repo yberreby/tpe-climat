@@ -11,7 +11,7 @@
 \usepackage{textcomp}
 \usepackage{gensymb}
 \usepackage{hyperref}
-\usepackage{siunitx}
+\usepackage[detect-weight=true, detect-family=true]{siunitx}
 \usepackage{xcolor}
 \usepackage{placeins}
 
@@ -291,13 +291,14 @@ Maintenant que nous disposons d'un programme fonctionnel, il est nécessaire de 
 \subsubsection{Résultats attendus}
 D'après Wikipédia, l'éclairement énergétique solaire \emph{maximal} au niveau de la mer serait d'environ \SI{1000}{\watt\per\square\meter} \cite{earth_irradiance_wiki}, mais aucune source n'est citée.
 D'après une autre source (Green Rhino Energy, une société spécialisée dans l'énergie solaire) \cite{green_rhino_irradiance}, il serait plus proche de \SI{960}{\watt\per\square\meter}.
-Cette valeur ne peut être atteinte que quand les rayons du Soleil arrivent perpendiculairement au plan auquel appartient le point étudié. On pourrait croire que c'est le cas tous les jours au midi solaire, mais ce n'est pas le cas : 
-
-, ce qui n'est pas le cas tous les jours au midi solaire, comme on pourrait le penser. En effet, au midi solaire, le Soleil est à la verticale d'un point dans 
+Cette valeur ne peut être atteinte que quand les rayons du Soleil arrivent perpendiculairement au plan auquel appartient le point étudié.
+Ce n'est \emph{pas} le cas tous les jours au midi solaire, contrairement à ce que l'on pourrait penser.
+Si c'était le cas, tous les pays recevraient une irradiation solaire équivalente chaque jour de l'année au midi solaire, ce qui est évidemment faux.
 
 \subsubsection{Résultats obtenus}
-J'ai fait fonctionner mon programme avec divers paramètres jusqu'à obtenir un .
-Par définition, l'éclairement énergétique solaire maximal est atteint lorsque la masse d'air (qui est, rappelons-le, un coefficient)
+J'ai fait fonctionner mon programme avec divers paramètres jusqu'à obtenir un éclairement énergétique solaire maximal.
+Par définition, ce maximum est atteint lorsque la masse d'air est égale à $1$, mais en pratique, on va chercher à la faire \emph{tendre} vers cette valeur.
+Tenter de l'égaler exactement serait en effet inutile, à cause de l'imprécision des valeurs mesurées servant de base au calcul d'éclairement énergétique.
 
 Mon programme affiche un éclairement énergétique solaire maximal de \textbf{\SI{947.07}{\watt\per\square\meter}} au niveau de l'équateur, au Gabon, à 12h20 heure locale (midi heure solaire), le 22 septembre 2016 (équinoxe d'automne). Ce résultat est très proche
 -- reconnaissable au coefficient de masse atmosphérique qui tend vers 1 --
@@ -312,7 +313,7 @@ Mon programme affiche un éclairement énergétique solaire maximal de \textbf{\
 \clearpage
 \section{Conclusion : bilan et applications}
 
-[à faire]
+Nous sommes donc pa
 
 
 \begin{thebibliography}{99}
