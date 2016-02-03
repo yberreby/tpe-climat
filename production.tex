@@ -71,13 +71,13 @@
 Qui n'a jamais eu besoin d'allumer sa télévision ou de consulter son téléphone pour savoir quel temps il ferait avant de prendre un avion, de partir en vacances ou tout simplement d'aller se promener en forêt ?
 Les prévisions météorologiques font aujourd'hui partie intégrante de la vie quotidienne.
 Cependant, toutes communes et faciles d'accès qu'elles soient, elles n'en présentent pas moins des enjeux importants.
-Ces enjeux sont \textbf{économiques}, avec par exemple la météo agricole, un outil précieux pour des millions d'agriculteurs à travers le monde, mais aussi \textbf{humains}, car prévoir une crue ou une tempête, ne serait-ce que quelques heures à l'avance, peut permettre de sauver des vies en évacuant les populations en danger.
+Ces enjeux sont \textbf{économiques}, avec par exemple la météo agricole, un outil précieux pour des millions d'agriculteurs à travers le monde, mais aussi \textbf{humains}, car prévoir une crue ou une tempête ne serait-ce que quelques heures à l'avance peut permettre de sauver des vies en évacuant les populations en danger.
 
 Ces prévisions sont aujourd'hui littéralement à \emph{portée de main} avec l'avènement des applications mobiles, et pourtant elles reposent sur des constructions d'une grande complexité à la croisée des mathématiques, de la physique et de l'informatique : \textbf{les modèles}.
-
+% XXX: Expliquer POURQUOI et COMMENT les modèles sont à la base de tout
 \subsection{Rapport au thème}
 
-La modélisation climatique s'inscrit naturellement dans le thème choisi, à savoir \emph{"l'aléatoire, l'insolite, le prévisible"}, car, outre l'exploration du passé qu'elle permet -- un point sur lequel on reviendra plus loin --, l'un de ses principaux intérêts est la réalisation de \textbf{prévisions météorologiques}.
+La modélisation climatique s'inscrit naturellement dans le thème choisi, à savoir \emph{"l'aléatoire, l'insolite, le prévisible"}, car, outre l'exploration du passé qu'elle permet -- un point sur lequel on reviendra plus loin --, l'un de ses principaux intérêts est la réalisation de \textbf{prévisions météorologiques}. % XXX: IL FAUT REVENIR SUR L'EXPLORATION DU PASSÉ
 
 Elle est également aujourd'hui indissociable de l'informatique, discipline qui passionne votre serviteur, d'où le choix du sujet \emph{"la modélisation informatique du climat"}.
 En effet, le volume de données que doit traiter tout modèle climatique à partir d'un certain degré de complexité est bien trop important pour qu'un être humain, même muni d'une calculatrice, puisse réaliser les calculs nécessaires : on a donc recours à des ordinateurs pour cela, car ils sont capables de réaliser ces calculs à des vitesses dépassant de très loin les capacités humaines.
@@ -92,14 +92,16 @@ Cet exemple, d'une grande simplicité en comparaison avec les modèles qu'utilis
 \begin{itemize}
   \item sa \textbf{simplicité} le rend réalisable par un élève seul dans le cadre d'un TPE
   \item les calculs qu'il implique restent cependant suffisamment complexes pour \textbf{justifier la création d'un programme informatique} les réalisant automatiquement
-  \item l'irradiation solaire est \textbf{relativement simple à modéliser} approximativement, car plus prévisible que le vent ou les intempéries
+  \item l'irradiation solaire est \textbf{relativement simple à modéliser} avec une marge d'erreur raisonnable car elle est plus stable, plus prévisible que le vent ou les intempéries, par exemple.
 \end{itemize}
 
 J'ai donc abouti, à l'aide de ressources trouvées sur Internet, à une série de calculs permettant de calculer \textbf{l'éclairement énergétique solaire} d'un point en fonction de sa position sur Terre, de la date et de l'heure.
 J'ai ensuite intégré ces calculs dans un programme, et procédé à la validation expérimentale de celui-ci en le faisant fonctionner et en comparant les résultats obtenus à ceux attendus.
 
-Le lecteur ne sera probablement pas sans remarquer l'utilisation abondante de sources anglophones dans le présent TPE.
-L'anglais est en effet aujourd'hui communément considéré comme la \textit{lingua franca} \footnote{\url{https://en.wikipedia.org/wiki/List_of_lingua_francas\#English}} des sciences, et l'abondance des ressources écrites dans cette langue par rapport aux ressources francophones me poussa à mener mes recherches en anglais. 
+\vfill
+
+\small{Note : le lecteur ne sera probablement pas sans remarquer l'utilisation abondante de sources anglophones dans le présent TPE.
+L'anglais est en effet aujourd'hui communément considéré comme la \textit{lingua franca} \footnote{\url{https://en.wikipedia.org/wiki/List_of_lingua_francas\#English}} des sciences, et l'abondance des ressources écrites dans cette langue par rapport aux ressources francophones me poussa à mener mes recherches en anglais.}
 
 
 \clearpage
@@ -108,10 +110,10 @@ L'anglais est en effet aujourd'hui communément considéré comme la \textit{lin
 \subsection{Qu'est-ce qu'un modèle ?}
 
 On parle de modèles mathématiques, scientifiques, climatiques, ou encore informatiques -- mais qu'est-ce au juste qu'un modèle ?
-Ces notions, bien que diverses, se rejoignent en un point : il s'agit de représentations de phénomènes, suffisamment simples pour qu'on puisse les appréhender et les manipuler, mais qui restent les plus proches possibles de la réalité, sans quoi elles seraient inutiles.
+Ces notions, bien que diverses, se rejoignent en un point : il s'agit de représentations de phénomènes rendues suffisamment simples pour qu'on puisse les appréhender et les manipuler, mais qui restent les plus proches possibles de la réalité, sans quoi elles seraient inutiles.
 En ce sens, l'on peut dire que tout modèle est une \textbf{approximation du réel}.
 
-Le modèle \emph{mathématique} est une construction formelle qui bien souvent sert de base au modèle informatique.
+Le modèle \emph{mathématique} est une construction formelle qui sert bien souvent de base au modèle informatique.
 Les lois qui régissent le premier servent de base au second, qui, soumis à des contraintes physiques (vitesse de calcul, de transfert des données, capacité de stockage d'un volume de données grandissant), en est la traduction imparfaite, empirique, gouverné par l'expérience, approximative.
 Il dépend du matériel avec lequel on l'utilise, et évolue au fur et à mesure que celui-ci devient plus rapide et capable de traiter de grands volumes de données.
 
@@ -235,7 +237,7 @@ Cette approximation ne tient pas compte des nuages ou d'autres phénomènes clim
 \section{Application : écriture de notre programme}
 
 Nous disposons à présent d'un petit modèle climatique.
-Pour le faire fonctionner, nous allons devoir en un modèle informatique, et donc en un programme informatique.
+Pour le faire fonctionner, nous allons devoir le traduire en un modèle informatique, et donc en un programme informatique.
 
 \subsection{Bases du fonctionnement d'un programme}
 
