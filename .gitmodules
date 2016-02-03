@@ -1,0 +1,3 @@
+[submodule "rust-climate"]
+	path = rust-climate
+	url = https://github.com/yberreby/rust-climate.git
