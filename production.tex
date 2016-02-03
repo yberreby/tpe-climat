@@ -123,6 +123,13 @@ Le tout forme un modèle à petite échelle, dont voici le fonctionnement.
 
 \subsubsection{Masse d'air et atténuation du rayonnement solaire}
 L'éclairement énergétique solaire d'un point à la surface de la Terre dépend fondamentalement de deux facteurs : l'éclairement énergétique \emph{au sommet de l'atmosphère}, et l'atténuation de celui-ci par l'atmosphère. 
+
+On a ainsi (avec $I_d$ l'éclairement énergétique solaire en \SI{}{\watt\per\square\meter}, et $AM$ la masse d'air) :
+
+\[
+	I_d = 1,353 \cdot 0,7^{{AM}^{0,678}}
+\]
+
 L'éclairement énergétique solaire au sommet de l'atmosphère, si l'on se place perpendiculairement au Soleil, est d'environ \SI{1.35}{\kilo\watt\per\square\meter}.
 Comme il varie peu (+/- \SI{10}{\watt\per\square\meter}), nous nous intéresserons plus particulièrement au degré d'atténuation qu'il subit.
 Dans l'espace, les rayons du Soleil peuvent parcourir de grandes distances en perdant peu d'énergie, mais sitôt qu'ils pénètrent l'atmosphère, ils en perdent beaucoup par diffusion et absorption.
@@ -162,7 +169,7 @@ L'angle de déclinaison $\delta$ est ``l'angle entre la droite joignant les cent
 		\sin \left(
 			\frac{360}{365}
 			\left(
-				d - 81
+				\text{jour de l'année} - 81
 			\right)
 		\right)
 	\right)
@@ -172,14 +179,12 @@ L'angle de déclinaison $\delta$ est ``l'angle entre la droite joignant les cent
 
 \subsubsection{Angle horaire et temps solaire} % XXX
 
-L'angle horaire, noté $HRA$ pour \textit{Hour Angle}, correspond à l'arc que décrit le Soleil au cours de la journée, et dépend donc de l'heure.
-La Terre ne tournant pas seulement sur elle-même mais aussi autour du Soleil, il y a décalage entre l'heure \emph{locale} (i.e. celle qu'indique un ordinateur ou une horloge) et l'heure \emph{solaire}, qui est définie par la position apparente du Soleil dans le ciel.
+L'angle horaire est l'arc que décrit le Soleil au cours de la journée, et dépend donc de l'heure.
+La Terre ne tournant pas seulement sur elle-même mais également autour du Soleil, il y a décalage entre l'heure \emph{locale} (i.e. celle qu'indique un ordinateur ou une horloge) et l'heure \emph{solaire}, qui est définie par la position apparente du Soleil dans le ciel.
 On doit donc utiliser l'heure solaire, et non l'heure locale, pour calculer l'angle horaire.
 Pour cela, on calcule une valeur appelée facteur de correction du temps, qui est la différence entre l'heure solaire et l'heure locale.
 Cette valeur est fonction de la longitude du point étudié, de la longitude du méridien local à ce point et de l'équation du temps, un paramètre qui permet de corriger l'irrégularité du temps solaire, celui-ci n'évoluant pas de manière monotone.\footnote{\textit{``Remarque sur le mot ``équation'' : en astronomie ancienne, le terme ``équation'' désignait une correction ajoutée algébriquement à une valeur moyenne pour obtenir une valeur vraie.
 C'est une telle acception qui a survécu dans l'expression ``équation du temps'' ''} \cite{equation_temps_wiki}.}
-
-$\Delta T_{GMT}$ est le décalage horaire, en heures, par rapport à l'heure GMT. Ainsi, par exemple, $\Delta T_{GMT}$ vaudra $1$ pour Paris, car son fuseau horaire est GMT+1.
 
 \[
 	\text{longitude du méridien local} = 15 \degree \cdot \Delta T_{GMT}
@@ -204,17 +209,11 @@ $\Delta T_{GMT}$ est le décalage horaire, en heures, par rapport à l'heure GMT
 	\right)
 \]
 
-% XXX: Air MAss
-
-\subsubsection{Combinaison des paramètres} % OK
-
-On peut finalement calculer l'éclairement énergétique solaire :
-
-\[
-I_d = 1,353 \cdot 0.7^{{AM}^{0,678}}
-\]
+$\Delta T_{GMT}$ est le décalage horaire, en heures, par rapport à l'heure GMT. Ainsi, par exemple, $\Delta T_{GMT}$ vaudra $1$ pour Paris, car son fuseau horaire est GMT+1.
 
 
+
+\subsubsection{Combinaison des paramètres}
 La combinaison de tous ces paramètres permet de calculer une approximation de l'éclairement énergétique solaire en un point à partir de la position de ce point, de la date, de l'heure locale et du fuseau horaire seulement.
 Le fuseau horaire doit être indiqué explicitement car on ne peut le déduire simplement à partir de la latitude, les limites des fuseaux horaires tendant à suivre les frontières des pays au lieu d'être rectilignes, comme le montre la figure ~\ref{fig:timezones}.+
 
