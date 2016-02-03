@@ -229,10 +229,17 @@ En voici un extrait :
 \inputminted[linenos]{rust}{rust-climate/src/temperature.rs}
 
 \subsection{Interface utilisateur}
-J'ai muni mon programme d'une interface utilisateur simple, afin qu'il soit possible de l'utiliser sans connaissances en programmation.
+J'ai décidé de munir mon programme d'une interface utilisateur simple, afin qu'il soit possible de l'utiliser sans connaissances en programmation. Il s'agit d'une interface dite \emph{en ligne de commande}, et non d'une interface graphique traditionnelle, afin préserver la simplicité du code. On l'utilise avec le clavier uniquement, en entrant les paramètres demandés l'un après l'autre (figure ~\ref{fig:demo}).
+
+\begin{figure}[!ht]
+  \centering
+      \makebox[\textwidth]{\includegraphics[width=15cm]{demonstration-programme.png}}
+  \caption{Un exemple d'utilisation de mon programme, avec comme paramètres les coordonnées GPS de la tour Eiffel (48.8582° N, 2.2945° E) et la date et l'heure d'écriture de ces lignes. Seuls les trois paramètres d'entrée (latitude, longitude, date et heure locale) ont été écrits au clavier ; les variables intermédiaires et le résultat ont été calculés et affichés automatiquement.}
+  \label{fig:demo}
+\end{figure}
+
 
 [à étoffer]
-[le code est tronqué car certaines lignes sont trop longues
 
 \clearpage
 \section{Validation expérimentale : essai du programme}
