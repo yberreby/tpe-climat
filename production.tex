@@ -33,7 +33,7 @@
 	{\scshape\large TPE Mathématiques et SVT\par}
 	\vspace{0.2cm}	
 	{ \Large Thème : l'aléatoire, l'insolite, le prévisible\par }
-	Axe de recherche : comprendre le présent, penser le futur\par
+	{ \large Axe de recherche : comprendre le présent, penser le futur\par }
 	\vspace{1.5cm}
 
 	{\scshape\LARGE La modélisation informatique du climat \par}
@@ -69,7 +69,8 @@
 \subsection{Des enjeux actuels}
 
 Qui n'a jamais eu besoin d'allumer sa télévision ou de consulter son téléphone pour savoir quel temps il ferait avant de prendre un avion, de partir en vacances ou tout simplement d'aller se promener en forêt ?
-Les prévisions météorologiques, toutes communes et faciles d'accès qu'elles soient, n'en présentent cependant pas moins des enjeux importants.
+Les prévisions météorologiques font aujourd'hui partie intégrante de la vie quotidienne.
+Cependant, toutes communes et faciles d'accès qu'elles soient, elles n'en présentent pas moins des enjeux importants.
 Ces enjeux sont \textbf{économiques}, avec par exemple la météo agricole, un outil précieux pour des millions d'agriculteurs à travers le monde, mais aussi \textbf{humains}, car prévoir une crue ou une tempête, ne serait-ce que quelques heures à l'avance, peut permettre de sauver des vies en évacuant les populations en danger.
 
 Ces prévisions sont aujourd'hui littéralement à \emph{portée de main} avec l'avènement des applications mobiles, et pourtant elles reposent sur des constructions d'une grande complexité à la croisée des mathématiques, de la physique et de l'informatique : \textbf{les modèles}.
@@ -124,16 +125,19 @@ Le tout forme un modèle à petite échelle, dont voici le fonctionnement.
 \subsubsection{Masse d'air et atténuation du rayonnement solaire}
 L'éclairement énergétique solaire d'un point à la surface de la Terre dépend fondamentalement de deux facteurs : l'éclairement énergétique \emph{au sommet de l'atmosphère}, et l'atténuation de celui-ci par l'atmosphère. 
 
-On a ainsi (avec $I_d$ l'éclairement énergétique solaire en \SI{}{\watt\per\square\meter}, et $AM$ la masse d'air) :
+D'après \emph{PVEducation.org} \cite{pos_air_mass}, on a :
 
 \[
 	I_d = 1,353 \cdot 0,7^{{AM}^{0,678}}
 \]
 
+Avec $I_d$ l'éclairement énergétique solaire en \SI{}{\watt\per\square\meter}, et $AM$ la masse d'air.
+
 L'éclairement énergétique solaire au sommet de l'atmosphère, si l'on se place perpendiculairement au Soleil, est d'environ \SI{1.35}{\kilo\watt\per\square\meter}.
 Comme il varie peu (+/- \SI{10}{\watt\per\square\meter}), nous nous intéresserons plus particulièrement au degré d'atténuation qu'il subit.
 Dans l'espace, les rayons du Soleil peuvent parcourir de grandes distances en perdant peu d'énergie, mais sitôt qu'ils pénètrent l'atmosphère, ils en perdent beaucoup par diffusion et absorption.
 Leur degré d'atténuation est fonction de la distance qu'ils parcourent dans l'atmosphère, c'est pourquoi on utilise pour le calculer un paramètre appelé \emph{masse d'air} (ou \emph{masse atmosphérique} -- \textit{air mass} en anglais) \cite{air_mass_wiki} qui représente le rapport de la longueur du plus court chemin possible au travers de l'atmosphère sur celle du chemin emprunté par la lumière à un instant donné (figure ~\ref{fig:air-mass}). Plus ce coefficient est élevé, plus les rayons du Soleil doivent parcourir une distance importante, et plus ils sont atténués par l'atmosphère.
+
 
 \begin{figure}[!ht]
 	\centerline{\includegraphics[width=12cm]{air-mass.png}}
