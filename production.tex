@@ -222,33 +222,39 @@ J'ai décidé de munir mon programme d'une interface utilisateur simple, afin qu
 
 \begin{figure}[!ht]
   \centering
-      \makebox[\textwidth]{\includegraphics[width=15cm]{demonstration-programme.png}}
+      \makebox[\textwidth]{\includegraphics[width=15cm]{program-demonstration.png}}
   \caption{Un exemple d'utilisation de mon programme, avec comme paramètres les coordonnées GPS de la tour Eiffel (48.8582° N, 2.2945° E) et la date et l'heure d'écriture de ces lignes. Seuls les trois paramètres d'entrée (latitude, longitude, date et heure locale) ont été écrits au clavier ; les variables intermédiaires et le résultat ont été calculés et affichés automatiquement.}
   \label{fig:demo}
 \end{figure}
 
 \subsection{Code source}
 Le code source de mon programme est trop long pour le copier dans son intégralité, mais il est disponible publiquement sur GitHub, un site de développement collaboratif, à l'adresse suivante : \url{https://github.com/yberreby/rust-climate}.
-Vous pouvez en télécharger une copie sur votre disque dur en cliquant sur "Download ZIP" dans l'interface GitHub, ou sur le lien suivant : \url{https://github.com/yberreby/rust-climate/archive/master.zip}.
-
+Vous pouvez en télécharger une copie en cliquant sur "Download ZIP" dans l'interface GitHub, ou sur le lien suivant : \url{https://github.com/yberreby/rust-climate/archive/master.zip}.
 Il est également possible de le lire directement depuis votre navigateur, en cliquant sur les noms des fichiers dans l'interface Web.
 Le code est dans \texttt{src}.
 
-En voici un extrait :
+En voici un extrait (fichier \texttt{src/temperature.rs}) :
 
 \inputminted[linenos]{rust}{rust-climate/src/temperature.rs}
 
-Si vous souhaitez le faire fonctionner par vous-même, il devrait vous être possible de compiler et d'exécuter \texttt{rust-climate} après avoir installé le compilateur Rust \cite{rust_install}.
+\subsection{Validation expérimentale : essai du programme}
 
-[XXX: faudrait-il des instructions précises pour les utilisateurs Windows ?]
+Maintenant que nous disposons d'un programme fonctionnel, il est nécessaire de le \emph{tester} pour vérifier si les résultats qu'il produit correspondent à la réalité.
 
+D'après Wikipédia, l'éclairement énergétique solaire \emph{maximal} au niveau de la mer est d'environ \SI{1000}{\watt\per\square\meter} \cite{earth_irradiance_wiki}. D'après une autre source \cite{green_rhino_irradiance}, il serait plus proche de \SI{960}{\watt\per\square\meter}.
 
-[à étoffer]
+Cette valeur ne peut être atteinte que quand le Soleil est très exactement à la verticale du point étudié, ce qui n'est pas le cas tous les jours au midi solaire, comme on pourrait le penser.
 
-\clearpage
-\section{Validation expérimentale : essai du programme}
+Mon programme atteint son maximum 
 
-[à faire]
+-- reconnaissable au coefficient de masse atmosphérique qui tend vers 1 --
+
+\begin{figure}[!ht]
+  \centering
+      \makebox[\textwidth]{\includegraphics[width=15cm]{program-maximum.png}}
+  \caption{Mon programme affiche un éclairement énergétique solaire maximal de \SI{947.07}{\watt\per\square\meter} au niveau de l'équateur, au Gabon, à 12h20 heure locale (ce qui donne midi heure solaire), le 22 septembre 2016 (l'équinoxe d'automne).}
+  \label{fig:maximum}
+\end{figure}
 
 \clearpage
 \section{Conclusion}
@@ -325,6 +331,11 @@ Si vous souhaitez le faire fonctionner par vous-même, il devrait vous être pos
 	
 \bibitem{rust}
 	\url{https://www.rust-lang.org/}
+
+\bibitem{earth_irradiance_wiki}
+	Wikipédia,
+	\emph{Solar Irradiance - Earth}
+	\url{https://en.wikipedia.org/wiki/Solar_irradiance#Earth}
 
 \end{thebibliography}
 
