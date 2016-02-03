@@ -156,9 +156,9 @@ La masse d'air est donc égale à :
 
 \subsubsection{Angle zénithal, d'élévation, de déclinaison}
 $\theta$ est \emph{l'angle zénithal}. L'angle zénithal et l'angle d'élévation ($\alpha$) étant complémentaires, on a :
-\[90\degree - \alpha\]
-
-L'angle d'élévation $\alpha$ est plus complexe à calculer, car il est fonction de la latitude du point étudié (il convient de rappeler qu'il s'agit de calculer l'éclairement énergétique d'un point à la surface de la Terre), de \emph{l'angle de déclinaison} et de \emph{l'angle horaire}.
+\[
+	\delta = 90\degree - \alpha
+\]
 
 \begin{figure}[!ht]
 	\centerline{\includegraphics[width=7cm]{elevation-and-zenith-angle.png}}
@@ -166,7 +166,16 @@ L'angle d'élévation $\alpha$ est plus complexe à calculer, car il est fonctio
 	\label{fig:elevation-and-zenith-angle}
 \end{figure}
 
-L'angle de déclinaison $\delta$ est ``l'angle entre la droite joignant les centres du Soleil et de la Terre et le plan de l'équateur terrestre'' \cite{mouvement_terre}. Il dépend de la position de la Terre autour du Soleil, et donc du \emph{jour de l'année} (allant de 1 à 365).
+L'angle d'élévation $\alpha$ est plus complexe à calculer, car il est fonction de la latitude du point étudié (il convient de rappeler qu'il s'agit de calculer l'éclairement énergétique d'un point à la surface de la Terre), de \emph{l'angle de déclinaison} et de \emph{l'angle horaire}. On a ainsi, d'après \emph{PVEducation.org} \cite{pos_elevation_angle}, pour $\phi$ la latitude du point étudié :
+
+\[
+	\alpha = \sin^{-1} \left(
+		\sin \delta \sin \phi +
+		\cos \delta \cos \phi \cos \left( \text{angle horaire} \right)
+	\right)
+\]
+
+L'angle de déclinaison $\delta$ est \emph{``l'angle entre la droite joignant les centres du Soleil et de la Terre et le plan de l'équateur terrestre''} \cite{mouvement_terre}. Il dépend de la position de la Terre autour du Soleil, et donc du \emph{jour de l'année} (allant de 1 à 365).
 
 % TODO: illustration sur le tableau
 
@@ -267,8 +276,8 @@ J'ai décidé de munir mon programme d'une interface utilisateur simple, afin qu
 
 \FloatBarrier
 \subsection{Code source}
-Le code source de mon programme est trop long pour le copier dans son intégralité, mais il est disponible publiquement sur GitHub, un site de développement collaboratif.\footnote{\url{https://github.com/yberreby/rust-climate}}.
-Vous pouvez en télécharger une copie en cliquant sur "Download ZIP" dans l'interface GitHub.\footnote{\url{https://github.com/yberreby/rust-climate/archive/master.zip}}.
+Le code source de mon programme est trop long pour le copier dans son intégralité, mais il est disponible publiquement sur GitHub, un site de développement collaboratif.\footnote{\url{https://github.com/yberreby/rust-climate}}
+Vous pouvez en télécharger une copie en cliquant sur "Download ZIP" dans l'interface GitHub.\footnote{\url{https://github.com/yberreby/rust-climate/archive/master.zip}}
 Il est également possible de le lire directement depuis votre navigateur, en cliquant sur les noms des fichiers dans l'interface Web.
 Le code est dans \texttt{src}.
 
@@ -283,7 +292,9 @@ Maintenant que nous disposons d'un programme fonctionnel, il est nécessaire de 
 \subsubsection{Résultats attendus}
 D'après Wikipédia, l'éclairement énergétique solaire \emph{maximal} au niveau de la mer serait d'environ \SI{1000}{\watt\per\square\meter} \cite{earth_irradiance_wiki}, mais aucune source n'est citée.
 D'après une autre source (Green Rhino Energy, une société spécialisée dans l'énergie solaire) \cite{green_rhino_irradiance}, il serait plus proche de \SI{960}{\watt\per\square\meter}.
-Cette valeur ne peut être atteinte que quand le Soleil est très exactement à la verticale du point étudié, ce qui n'est pas le cas tous les jours au midi solaire, comme on pourrait le penser.
+Cette valeur ne peut être atteinte que quand les rayons du Soleil arrivent perpendiculairement au plan auquel appartient le point étudié. On pourrait croire que c'est le cas tous les jours au midi solaire, mais ce n'est pas le cas : 
+
+, ce qui n'est pas le cas tous les jours au midi solaire, comme on pourrait le penser. En effet, au midi solaire, le Soleil est à la verticale d'un point dans 
 
 \subsubsection{Résultats obtenus}
 J'ai fait fonctionner mon programme avec divers paramètres jusqu'à obtenir un .
@@ -326,6 +337,11 @@ Mon programme affiche un éclairement énergétique solaire maximal de \textbf{\
 	PVEducation.org,
 	\emph{Solar Time}\\
 	\url{http://www.pveducation.org/pvcdrom/properties-of-sunlight/solar-time}
+
+\bibitem{pos_elevation_angle}
+	PVEducation.org,
+	\emph{Elevation Angle}\\
+	\url{http://www.pveducation.org/pvcdrom/properties-of-sunlight/elevation-angle}
 
 \bibitem{pos_declination_angle}
 	PVEducation.org,
