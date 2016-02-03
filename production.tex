@@ -311,13 +311,17 @@ Cette valeur -- \SI{947.07}{\watt\per\square\meter} -- est proche des \SI{960}{\
 \end{figure}
 
 \clearpage
-\section{Conclusion : bilan et applications}
+\section{Conclusion}
 
-Nous avons ainsi répondu à la problématique de départ ("comment peut-on modéliser l’irradiation solaire, et traduire cette modélisation mathématique en programme informatique ?") par l'élaboration d'un modèle de l'irradiation solaire, et par sa traduction un programme capable d'effectuer les calculs nécessaires à son fonctionnement de manière automatisée.
+Nous avons ainsi répondu à la problématique de départ ("comment peut-on modéliser l’irradiation solaire, et traduire cette modélisation mathématique en programme informatique ?") par l'élaboration d'un modèle de l'irradiation solaire, et par sa traduction en un programme capable d'effectuer les calculs nécessaires à son fonctionnement de manière automatisée.
 
-Cet exemple illustre la complexité à laquelle sont quotidiennement confrontés les chercheurs en sciences du climat : si la modélisation \emph{approximative} d'une seule variable, ignorant nombre de facteurs (comme la courbure de la Terre, au sein du calcul de la masse d'air, ou la présence de nuages plus ou moins opaques qui atténuent plus encore les rayons du Soleil), mobilise tout de même de nombreux calculs et environ 200 lignes de code, à combien plus forte raison un modèle climatique complet, comprenant non seulement l'irradiation solaire mais aussi les vents, la convection atmosphérique, la mesure dans laquelle les matériaux à la surface de la Terre absorbent le rayonnement solaire, la formation de nuages, l'humidité de l'air, etc., ne mobilise-t-il pas d'incroyable ressources matérielles et humaines !
+L'éclairement énergétique, que notre modèle permet de calculer, est une donnée qui peut servir de base à une construction plus élaborée : avec des connaissances et des moyens suffisants, on pourrait imaginer ajouter à notre modèle la prise en compte des nuages, ou de la courbure de la Terre\footnote{Le calcul de la masse d'air est en effet une simplification, qui considère le sol comme un plan et non comme la surface d'une sphère, ce qui entraîne de petites imprécisions.}, on pourrait le rendre capable de prévoir la température dans une ville... mais il faudrait pour cela aussi modéliser l'effet de serre, les vents, le phénomène de convection atmosphérique, et mille autres données !
+On se rend bien vite compte que la complexité du modèle augmente très rapidement avec le nombre de facteurs qu'il prend en compte.
+
+Cet exemple illustre la complexité à laquelle sont quotidiennement confrontés les chercheurs en sciences du climat : si la modélisation \emph{approximative} d'une seule variable, ignorant nombre de facteurs, mobilise tout de même de nombreux calculs et environ 200 lignes de code, à combien plus forte raison la construction d'un modèle climatique complet, comprenant non seulement l'irradiation solaire mais aussi les vents, la mesure dans laquelle les matériaux à la surface de la Terre absorbent le rayonnement solaire, la formation de nuages, l'humidité de l'air, etc., ne mobilisera-t-elle pas d'incroyable ressources matérielles et humaines !
 
 
+\clearpage
 \begin{thebibliography}{99}
 
 \bibitem{how_do_climate_models_work} 
