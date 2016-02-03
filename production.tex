@@ -157,7 +157,7 @@ L'angle de déclinaison $\delta$ est ``l'angle entre la droite joignant les cent
 
 \[
 	\delta = \sin^{-1} \left(
-		\sin \left( 23.45\degree \right)
+		\sin \left( 23,45\degree \right)
 		\sin \left(
 			\frac{360}{365}
 			\left(
@@ -180,9 +180,44 @@ Cette valeur est fonction de la longitude du point étudié, de la longitude du 
 \textit{``Remarque sur le mot ``équation'' : en astronomie ancienne, le terme ``équation'' désignait une correction ajoutée algébriquement à une valeur moyenne pour obtenir une valeur vraie.
 C'est une telle acception qui a survécu dans l'expression ``équation du temps'' ''} \cite{equation_temps_wiki}.
 
+\[
+	\text{longitude du méridien local} = 15 \degree \cdot \Delta T_{GMT}
+\]
 
+\begin{gather*}
+	B = \frac{360}{365} \left( d - 81 \right) \\
+	\text{équation du temps} = 9,87 \sin \left( 2B \right) - 7,53 \cos \left( B \right) - 1,5 \sin \left( B \right)
+\end{gather*}
+
+\begin{multline*}
+	\text{facteur de correction de l'heure} = 4 \left( \text{longitude} - \text{longitude du méridien local} \right) \\ + \text{équation du temps}
+\end{multline*}
+
+\[
+	\text{facteur de correction de l'heure} = 4 \left( \text{longitude} - \text{longitude du méridien local}) + \text{équation du temps} \right)
+\]
+
+\[
+	\text{heure solaire} = \text{heure locale} + \frac{\text{facteur de correction de l'heure}}{60}
+\]
+
+\[
+	\text{angle horaire} = 15 \degree \left(
+		\text{heure solaire} - 12
+	\right)
+\]
+
+% XXX: Air MAss
 
 \subsubsection{Combinaison des paramètres} % OK
+
+On peut finalement calculer l'éclairement énergétique solaire :
+
+\[
+I_d = 1,353 \cdot 0.7^{{AM}^{0,678}}
+\]
+
+
 La combinaison de tous ces paramètres permet de calculer une approximation de l'éclairement énergétique solaire en un point à partir de la position de ce point, de la date, de l'heure locale et du fuseau horaire seulement.
 Le fuseau horaire doit être indiqué explicitement car on ne peut le déduire simplement à partir de la latitude, les limites des fuseaux horaires tendant à suivre les frontières des pays au lieu d'être rectilignes, comme le montre la figure ~\ref{fig:timezones}.+
 
@@ -241,23 +276,27 @@ En voici un extrait (fichier \texttt{src/temperature.rs}) :
 
 Maintenant que nous disposons d'un programme fonctionnel, il est nécessaire de le \emph{tester} pour vérifier si les résultats qu'il produit correspondent à la réalité.
 
-D'après Wikipédia, l'éclairement énergétique solaire \emph{maximal} au niveau de la mer est d'environ \SI{1000}{\watt\per\square\meter} \cite{earth_irradiance_wiki}. D'après une autre source \cite{green_rhino_irradiance}, il serait plus proche de \SI{960}{\watt\per\square\meter}.
-
+\subsubsection{Résultats attendus}
+D'après Wikipédia, l'éclairement énergétique solaire \emph{maximal} au niveau de la mer serait d'environ \SI{1000}{\watt\per\square\meter} \cite{earth_irradiance_wiki}, mais aucune source n'est citée.
+D'après une autre source (Green Rhino Energy, une société spécialisée dans l'énergie solaire) \cite{green_rhino_irradiance}, il serait plus proche de \SI{960}{\watt\per\square\meter}.
 Cette valeur ne peut être atteinte que quand le Soleil est très exactement à la verticale du point étudié, ce qui n'est pas le cas tous les jours au midi solaire, comme on pourrait le penser.
 
-Mon programme atteint son maximum 
+\subsubsection{Résultats obtenus}
+J'ai fait fonctionner mon programme avec divers paramètres jusqu'à obtenir un .
+Par définition, l'éclairement énergétique solaire maximal est atteint lorsque la masse d'air (qui est, rappelons-le, un coefficient)
 
+Mon programme affiche un éclairement énergétique solaire maximal de \textbf{\SI{947.07}{\watt\per\square\meter}} au niveau de l'équateur, au Gabon, à 12h20 heure locale (midi heure solaire), le 22 septembre 2016 (équinoxe d'automne). Ce résultat est très proche
 -- reconnaissable au coefficient de masse atmosphérique qui tend vers 1 --
 
 \begin{figure}[!ht]
   \centering
       \makebox[\textwidth]{\includegraphics[width=15cm]{program-maximum.png}}
-  \caption{Mon programme affiche un éclairement énergétique solaire maximal de \SI{947.07}{\watt\per\square\meter} au niveau de l'équateur, au Gabon, à 12h20 heure locale (ce qui donne midi heure solaire), le 22 septembre 2016 (l'équinoxe d'automne).}
+  %\caption{Mon programme affiche un éclairement énergétique solaire maximal de \SI{947.07}{\watt\per\square\meter} au niveau de l'équateur, au Gabon, à 12h20 heure locale (midi heure solaire), le 22 septembre 2016 (équinoxe d'automne).}
   \label{fig:maximum}
 \end{figure}
 
 \clearpage
-\section{Conclusion}
+\section{Conclusion : bilan et applications}
 
 [à faire]
 
@@ -334,8 +373,13 @@ Mon programme atteint son maximum
 
 \bibitem{earth_irradiance_wiki}
 	Wikipédia,
-	\emph{Solar Irradiance - Earth}
+	\emph{Solar Irradiance - Earth}\\
 	\url{https://en.wikipedia.org/wiki/Solar_irradiance#Earth}
+	
+\bibitem{green_rhino_irradiance}
+	Green Rhino Energy,
+	\emph{Annual Solar Irradiance, Intermittency and Annual Variations}\\
+	\url{http://www.greenrhinoenergy.com/solar/radiation/empiricalevidence.php}
 
 \end{thebibliography}
 
