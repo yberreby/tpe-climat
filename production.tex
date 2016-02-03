@@ -17,6 +17,7 @@
 %\usepackage{listings} % Source code formatting and highlighting
 
 \graphicspath{{../resources/images/}}
+\renewcommand{\theFancyVerbLine}{\sffamily \textcolor[rgb]{0.0,0.0,0.0}{\oldstylenums{\arabic{FancyVerbLine}}}}
 
 \begin{document}
 
@@ -196,6 +197,8 @@ Cette approximation ne tient pas compte des nuages ou d'autres phénomènes clim
 \clearpage
 \section{Application : écriture de notre programme}
 
+Nous disposons à présent d'un petit modèle climatique. Pour le faire fonctionner, nous allons à présent le traduire en un programme informatique, et donc en modèle informatique.
+
 \subsection{Bases du fonctionnement d'un programme}
 
 Pour être exécuté, un programme doit être traduit en une série d'instructions appelée \emph{code machine}. Ce code n'étant pas conçu pour être lu ou écrit par des êtres humains, on écrit en pratique les programmes dans des \emph{langages de programmation}, conçus pour être compréhensibles à la fois par le programmeur et par l'ordinateur.
@@ -203,9 +206,7 @@ Pour être exécuté, un programme doit être traduit en une série d'instructio
 Le texte formant un programme, écrit dans un langage de programmation, est appelé \emph{code source} du programme. L'ordinateur traduit le code source en code machine à l'aide un programme appelé \emph{compilateur}. Il est alors libre d'exécuter le code machine.
 
 \subsection{Choix du langage}
-Il existe de nombreux langages de programmation, chacun ayant ses propres atouts et points faibles. Pour ce TPE, j'ai choisi d'écrire mon programme en \textbf{Rust} (\url{https://www.rust-lang.org/}). Il s'agit d'un langage innovant, extrêmement performant, et prévenant de nombreux bugs grâce à un système qui analyse automatiquement le code source afin de vérifier son exactitude avant la traduction en langage machine. Ce sont ces qualités, ainsi que ma familiarité avec le langage, que j'utilise depuis janvier 2015, qui ont motivé mon choix.
-
-[à étoffer]
+Il existe de nombreux langages de programmation, chacun ayant ses propres atouts et points faibles. Pour ce TPE, j'ai choisi d'écrire mon programme en \textbf{Rust} (\url{https://www.rust-lang.org/}). Il s'agit d'un langage innovant, extrêmement performant, et prévenant de nombreux bugs grâce à un système qui analyse automatiquement le code source afin de vérifier son exactitude avant la traduction en langage machine. Ce sont ces qualités, ainsi que ma familiarité avec le langage -- je l'utilise en effet depuis janvier 2015 -- qui ont motivé mon choix.
 
 \subsection{Code source du programme final}
 Le code source de mon programme est trop long pour le copier dans son intégralité, mais il est disponible publiquement sur GitHub, un site de développement collaboratif, à l'adresse suivante : \url{https://github.com/yberreby/rust-climate}. Vous pouvez en télécharger une copie sur votre disque dur en cliquant sur "Download ZIP" dans l'interface GitHub, ou sur le lien suivant : \url{https://github.com/yberreby/rust-climate/archive/master.zip}.
