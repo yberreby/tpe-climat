@@ -296,24 +296,26 @@ Ce n'est \emph{pas} le cas tous les jours au midi solaire, contrairement à ce q
 Si c'était le cas, tous les pays recevraient une irradiation solaire équivalente chaque jour de l'année au midi solaire, ce qui est évidemment faux.
 
 \subsubsection{Résultats obtenus}
-J'ai fait fonctionner mon programme avec divers paramètres jusqu'à obtenir un éclairement énergétique solaire maximal.
-Par définition, ce maximum est atteint lorsque la masse d'air est égale à $1$, mais en pratique, on va chercher à la faire \emph{tendre} vers cette valeur.
+Par définition, un éclairement énergétique maximal est atteint lorsque la masse d'air est égale à $1$.
+Cependant, on en pratique va chercher à la faire \emph{tendre} vers cette valeur.
 Tenter de l'égaler exactement serait en effet inutile, à cause de l'imprécision des valeurs mesurées servant de base au calcul d'éclairement énergétique.
 
-Mon programme affiche un éclairement énergétique solaire maximal de \textbf{\SI{947.07}{\watt\per\square\meter}} au niveau de l'équateur, au Gabon, à 12h20 heure locale (midi heure solaire), le 22 septembre 2016 (équinoxe d'automne). Ce résultat est très proche
--- reconnaissable au coefficient de masse atmosphérique qui tend vers 1 --
+J'ai donc fait fonctionner mon programme avec divers paramètres jusqu'à obtenir une masse d'air tendant vers $1$, et j'obtins un éclairement énergétique maximal de \textbf{\SI{947.07}{\watt\per\square\meter}} au niveau de l'équateur, au Gabon, à 12h20 heure locale (midi heure solaire), le 22 septembre 2016 (équinoxe d'automne).
+Cette valeur -- \SI{947.07}{\watt\per\square\meter} -- est proche des \SI{960}{\watt\per\square\meter} annoncées par Green Rhino Energy : l'essai du programme est donc concluant.
 
 \begin{figure}[!ht]
   \centering
       \makebox[\textwidth]{\includegraphics[width=15cm]{program-maximum.png}}
-  %\caption{Mon programme affiche un éclairement énergétique solaire maximal de \SI{947.07}{\watt\per\square\meter} au niveau de l'équateur, au Gabon, à 12h20 heure locale (midi heure solaire), le 22 septembre 2016 (équinoxe d'automne).}
+  \caption{Mon programme affiche un éclairement énergétique solaire maximal de \SI{947.07}{\watt\per\square\meter}, ce qui est proche des 960 à \SI{1000}{\watt\per\square\meter} attendus.}
   \label{fig:maximum}
 \end{figure}
 
 \clearpage
 \section{Conclusion : bilan et applications}
 
-Nous sommes donc pa
+Nous avons ainsi répondu à la problématique de départ ("comment peut-on modéliser l’irradiation solaire, et traduire cette modélisation mathématique en programme informatique ?") par l'élaboration d'un modèle de l'irradiation solaire, et par sa traduction un programme capable d'effectuer les calculs nécessaires à son fonctionnement de manière automatisée.
+
+Cet exemple illustre la complexité à laquelle sont quotidiennement confrontés les chercheurs en sciences du climat : si la modélisation \emph{approximative} d'une seule variable, ignorant nombre de facteurs (comme la courbure de la Terre, au sein du calcul de la masse d'air, ou la présence de nuages plus ou moins opaques qui atténuent plus encore les rayons du Soleil), mobilise tout de même de nombreux calculs et environ 200 lignes de code, à combien plus forte raison un modèle climatique complet, comprenant non seulement l'irradiation solaire mais aussi les vents, la convection atmosphérique, la mesure dans laquelle les matériaux à la surface de la Terre absorbent le rayonnement solaire, la formation de nuages, l'humidité de l'air, etc., ne mobilise-t-il pas d'incroyable ressources matérielles et humaines !
 
 
 \begin{thebibliography}{99}
