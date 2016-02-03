@@ -180,6 +180,8 @@ Cette valeur est fonction de la longitude du point étudié, de la longitude du 
 \textit{``Remarque sur le mot ``équation'' : en astronomie ancienne, le terme ``équation'' désignait une correction ajoutée algébriquement à une valeur moyenne pour obtenir une valeur vraie.
 C'est une telle acception qui a survécu dans l'expression ``équation du temps'' ''} \cite{equation_temps_wiki}.
 
+$\Delta T_{GMT}$ est le décalage horaire, en heures, par rapport à l'heure GMT. Ainsi, par exemple, $\Delta T_{GMT}$ vaudra $1$ pour Paris, car son fuseau horaire est GMT+1.
+
 \[
 	\text{longitude du méridien local} = 15 \degree \cdot \Delta T_{GMT}
 \]
@@ -192,10 +194,6 @@ C'est une telle acception qui a survécu dans l'expression ``équation du temps'
 \begin{multline*}
 	\text{facteur de correction de l'heure} = 4 \left( \text{longitude} - \text{longitude du méridien local} \right) \\ + \text{équation du temps}
 \end{multline*}
-
-\[
-	\text{facteur de correction de l'heure} = 4 \left( \text{longitude} - \text{longitude du méridien local}) + \text{équation du temps} \right)
-\]
 
 \[
 	\text{heure solaire} = \text{heure locale} + \frac{\text{facteur de correction de l'heure}}{60}
@@ -248,7 +246,7 @@ Il est alors libre d'exécuter le code machine.
 
 \subsection{Choix du langage}
 Il existe de nombreux langages de programmation, chacun ayant ses propres atouts et points faibles.
-Pour ce TPE, j'ai choisi d'écrire mon programme en \textbf{Rust} \cite{rust}.
+Pour ce TPE, j'ai choisi d'écrire mon programme en \textbf{Rust} \footnote{\url{https://www.rust-lang.org/}}.
 Il s'agit d'un langage innovant, extrêmement performant, et prévenant de nombreux bugs grâce à un système qui analyse automatiquement le code source afin de vérifier son exactitude avant la traduction en langage machine.
 Ce sont ces qualités, ainsi que ma familiarité avec le langage (je l'utilise en effet depuis janvier 2015) qui ont motivé mon choix.
 
@@ -263,8 +261,8 @@ J'ai décidé de munir mon programme d'une interface utilisateur simple, afin qu
 \end{figure}
 
 \subsection{Code source}
-Le code source de mon programme est trop long pour le copier dans son intégralité, mais il est disponible publiquement sur GitHub, un site de développement collaboratif, à l'adresse suivante : \url{https://github.com/yberreby/rust-climate}.
-Vous pouvez en télécharger une copie en cliquant sur "Download ZIP" dans l'interface GitHub, ou sur le lien suivant : \url{https://github.com/yberreby/rust-climate/archive/master.zip}.
+Le code source de mon programme est trop long pour le copier dans son intégralité, mais il est disponible publiquement sur GitHub, un site de développement collaboratif.\footnote{\url{https://github.com/yberreby/rust-climate}}.
+Vous pouvez en télécharger une copie en cliquant sur "Download ZIP" dans l'interface GitHub.\footnote{\url{https://github.com/yberreby/rust-climate/archive/master.zip}}.
 Il est également possible de le lire directement depuis votre navigateur, en cliquant sur les noms des fichiers dans l'interface Web.
 Le code est dans \texttt{src}.
 
@@ -368,9 +366,6 @@ Mon programme affiche un éclairement énergétique solaire maximal de \textbf{\
 	\emph{Irradiation solaire}\\
 	\url{https://fr.wikipedia.org/wiki/Irradiation_solaire}
 	
-\bibitem{rust}
-	\url{https://www.rust-lang.org/}
-
 \bibitem{earth_irradiance_wiki}
 	Wikipédia,
 	\emph{Solar Irradiance - Earth}\\
