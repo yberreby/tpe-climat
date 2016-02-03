@@ -200,7 +200,7 @@ Cette approximation ne tient pas compte des nuages ou d'autres phénomènes clim
 \section{Application : écriture de notre programme}
 
 Nous disposons à présent d'un petit modèle climatique.
-Pour le faire fonctionner, nous allons à présent le traduire en un programme informatique, et donc en modèle informatique.
+Pour le faire fonctionner, nous allons devoir en un modèle informatique, et donc en un programme informatique.
 
 \subsection{Bases du fonctionnement d'un programme}
 
@@ -217,6 +217,16 @@ Pour ce TPE, j'ai choisi d'écrire mon programme en \textbf{Rust} \cite{rust}.
 Il s'agit d'un langage innovant, extrêmement performant, et prévenant de nombreux bugs grâce à un système qui analyse automatiquement le code source afin de vérifier son exactitude avant la traduction en langage machine.
 Ce sont ces qualités, ainsi que ma familiarité avec le langage (je l'utilise en effet depuis janvier 2015) qui ont motivé mon choix.
 
+\subsection{Interface utilisateur}
+J'ai décidé de munir mon programme d'une interface utilisateur simple, afin qu'il soit possible de l'utiliser sans connaissances en programmation. Il s'agit d'une interface dite \emph{en ligne de commande}, et non d'une interface graphique traditionnelle, afin préserver la simplicité du code. On l'utilise avec le clavier uniquement, en entrant les paramètres demandés l'un après l'autre (figure ~\ref{fig:demo}).
+
+\begin{figure}[!ht]
+  \centering
+      \makebox[\textwidth]{\includegraphics[width=15cm]{demonstration-programme.png}}
+  \caption{Un exemple d'utilisation de mon programme, avec comme paramètres les coordonnées GPS de la tour Eiffel (48.8582° N, 2.2945° E) et la date et l'heure d'écriture de ces lignes. Seuls les trois paramètres d'entrée (latitude, longitude, date et heure locale) ont été écrits au clavier ; les variables intermédiaires et le résultat ont été calculés et affichés automatiquement.}
+  \label{fig:demo}
+\end{figure}
+
 \subsection{Code source}
 Le code source de mon programme est trop long pour le copier dans son intégralité, mais il est disponible publiquement sur GitHub, un site de développement collaboratif, à l'adresse suivante : \url{https://github.com/yberreby/rust-climate}.
 Vous pouvez en télécharger une copie sur votre disque dur en cliquant sur "Download ZIP" dans l'interface GitHub, ou sur le lien suivant : \url{https://github.com/yberreby/rust-climate/archive/master.zip}.
@@ -228,15 +238,9 @@ En voici un extrait :
 
 \inputminted[linenos]{rust}{rust-climate/src/temperature.rs}
 
-\subsection{Interface utilisateur}
-J'ai décidé de munir mon programme d'une interface utilisateur simple, afin qu'il soit possible de l'utiliser sans connaissances en programmation. Il s'agit d'une interface dite \emph{en ligne de commande}, et non d'une interface graphique traditionnelle, afin préserver la simplicité du code. On l'utilise avec le clavier uniquement, en entrant les paramètres demandés l'un après l'autre (figure ~\ref{fig:demo}).
+Si vous souhaitez le faire fonctionner par vous-même, il devrait vous être possible de compiler et d'exécuter \texttt{rust-climate} après avoir installé le compilateur Rust \cite{rust_install}.
 
-\begin{figure}[!ht]
-  \centering
-      \makebox[\textwidth]{\includegraphics[width=15cm]{demonstration-programme.png}}
-  \caption{Un exemple d'utilisation de mon programme, avec comme paramètres les coordonnées GPS de la tour Eiffel (48.8582° N, 2.2945° E) et la date et l'heure d'écriture de ces lignes. Seuls les trois paramètres d'entrée (latitude, longitude, date et heure locale) ont été écrits au clavier ; les variables intermédiaires et le résultat ont été calculés et affichés automatiquement.}
-  \label{fig:demo}
-\end{figure}
+[XXX: faudrait-il des instructions précises pour les utilisateurs Windows ?]
 
 
 [à étoffer]
