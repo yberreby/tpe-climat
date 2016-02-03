@@ -35,7 +35,7 @@
 
 	{\scshape\LARGE La modélisation informatique du climat \par}
 	\vspace{1cm}
-	{\huge\bfseries Comment peut-on modéliser le rayonnement solaire, et traduire cette modélisation mathématique en programme informatique ?\par}
+	{\huge\bfseries Comment peut-on modéliser l'irradiation solaire, et traduire cette modélisation mathématique en programme informatique ?\par}
 
 	\vspace{1cm}
 	{\Large\itshape Yohaï Eliel Berreby\par}
@@ -81,14 +81,14 @@ En effet, le volume de données que doit traiter tout modèle climatique à part
 \subsection{Démarche expérimentale}
 
 Le rôle primordial des modèles dans un domaine aussi important que la météorologie m'a conduit à vouloir \textbf{explorer leur fonctionnement}.
-Pour ce faire, j'ai choisi de créer un modèle simple, et de le traduire en un programme informatique, avec comme variable l'intensité du rayonnement solaire en un point de la Terre.
+Pour ce faire, j'ai choisi de créer un modèle simple, et de le traduire en un programme informatique, avec comme variable l'éclairement énergétique solaire, c'est-à-dire la puissance reçue du Soleil par unité de surface en un point, en \SI{}{\watt\per\square\meter}.
 
 Cet exemple, d'une grande simplicité en comparaison avec les modèles qu'utilisent des organismes comme Météo France, présente cependant de multiples avantages :
 
 \begin{itemize}
   \item sa \textbf{simplicité} le rend réalisable par un élève seul dans le cadre d'un TPE
   \item les calculs qu'il implique restent cependant suffisamment complexes pour \textbf{justifier la création d'un programme informatique} les réalisant automatiquement
-  \item le rayonnement solaire est \textbf{relativement simple à modéliser}, car plus prévisible que le vent ou les intempéries
+  \item l'irradiation solaire est \textbf{relativement simple à modéliser} approximativement, car plus prévisible que le vent ou les intempéries
 \end{itemize}
 
 J'ai donc abouti, à l'aide de ressources trouvées sur Internet, à une série de calculs permettant de calculer \textbf{l'éclairement énergétique solaire} d'un point en fonction de sa position sur Terre, de la date et de l'heure.
@@ -118,11 +118,11 @@ Pour ce faire, je me suis principalement appuyé sur une collection de ressource
 Le tout forme un modèle à petite échelle, dont voici le fonctionnement.
 
 \subsubsection{Masse d'air et atténuation du rayonnement solaire}
-L'éclairement énergétique solaire d'un point à la surface de la Terre dépend fondamentalement de deux facteurs : l'intensité du rayonnement solaire parvenant \emph{au sommet de l'atmosphère}, et l'atténuation de celui-ci par l'atmosphère. 
-Le rayonnement solaire au sommet de l'atmosphère, si l'on se place perpendiculairement au Soleil, est d'environ \SI{1.35}{\kilo\watt\per\square\meter}.
+L'éclairement énergétique solaire d'un point à la surface de la Terre dépend fondamentalement de deux facteurs : l'éclairement énergétique \emph{au sommet de l'atmosphère}, et l'atténuation de celui-ci par l'atmosphère. 
+L'éclairement énergétique solaire au sommet de l'atmosphère, si l'on se place perpendiculairement au Soleil, est d'environ \SI{1.35}{\kilo\watt\per\square\meter}.
 Comme il varie peu (+/- \SI{10}{\watt\per\square\meter}), nous nous intéresserons plus particulièrement au degré d'atténuation qu'il subit.
 Dans l'espace, les rayons du Soleil peuvent parcourir de grandes distances en perdant peu d'énergie, mais sitôt qu'ils pénètrent l'atmosphère, ils en perdent beaucoup par diffusion et absorption.
-Leur degré d'atténuation est fonction de la distance qu'ils parcourent dans l'atmosphère, c'est pourquoi on utilise pour le calculer un paramètre appelé \emph{masse d'air} (ou \emph{masse atmosphérique} -- \textit{air mass} en anglais) \cite{air_mass_wiki} qui représente le rapport de la longueur du plus court chemin possible au travers de l'atmosphère sur celle du chemin emprunté par la lumière à un instant donné (figure ~\ref{fig:air-mass}). Plus ce coefficient est élevé, plus le rayonnement solaire doit parcourir une distance importante, et plus il est atténué par l'atmosphère.
+Leur degré d'atténuation est fonction de la distance qu'ils parcourent dans l'atmosphère, c'est pourquoi on utilise pour le calculer un paramètre appelé \emph{masse d'air} (ou \emph{masse atmosphérique} -- \textit{air mass} en anglais) \cite{air_mass_wiki} qui représente le rapport de la longueur du plus court chemin possible au travers de l'atmosphère sur celle du chemin emprunté par la lumière à un instant donné (figure ~\ref{fig:air-mass}). Plus ce coefficient est élevé, plus les rayons du Soleil doivent parcourir une distance importante, et plus ils sont atténués par l'atmosphère.
 
 \begin{figure}[!ht]
 	\centerline{\includegraphics[width=12cm]{air-mass.png}}
