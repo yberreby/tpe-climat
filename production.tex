@@ -97,7 +97,8 @@ Cet exemple, d'une grande simplicité en comparaison avec les modèles qu'utilis
 J'ai donc abouti, à l'aide de ressources trouvées sur Internet, à une série de calculs permettant de calculer \textbf{l'éclairement énergétique solaire} d'un point en fonction de sa position sur Terre, de la date et de l'heure.
 J'ai ensuite intégré ces calculs dans un programme, et procédé à la validation expérimentale de celui-ci en le faisant fonctionner et en comparant les résultats obtenus à ceux attendus.
 
-Le lecteur ne sera probablement pas sans remarquer l'utilisation abondante de sources anglophones dans le présent TPE. L'anglais est en effet aujourd'hui communément considéré comme la \textit{lingua franca} \cite{english_lingua_franca} des sciences, et l'abondance des ressources écrites dans cette langue par rapport aux ressources francophones me poussa à mener mes recherches en anglais. 
+Le lecteur ne sera probablement pas sans remarquer l'utilisation abondante de sources anglophones dans le présent TPE.
+L'anglais est en effet aujourd'hui communément considéré comme la \textit{lingua franca} \footnote{\url{https://en.wikipedia.org/wiki/List_of_lingua_francas\#English}} des sciences, et l'abondance des ressources écrites dans cette langue par rapport aux ressources francophones me poussa à mener mes recherches en anglais. 
 
 
 \clearpage
@@ -175,10 +176,8 @@ L'angle horaire, noté $HRA$ pour \textit{Hour Angle}, correspond à l'arc que d
 La Terre ne tournant pas seulement sur elle-même mais aussi autour du Soleil, il y a décalage entre l'heure \emph{locale} (i.e. celle qu'indique un ordinateur ou une horloge) et l'heure \emph{solaire}, qui est définie par la position apparente du Soleil dans le ciel.
 On doit donc utiliser l'heure solaire, et non l'heure locale, pour calculer l'angle horaire.
 Pour cela, on calcule une valeur appelée facteur de correction du temps, qui est la différence entre l'heure solaire et l'heure locale.
-Cette valeur est fonction de la longitude du point étudié, de la longitude du méridien local à ce point et de l'équation du temps, un paramètre qui permet de corriger l'irrégularité du temps solaire, celui-ci n'évoluant pas de manière monotone.
-
-\textit{``Remarque sur le mot ``équation'' : en astronomie ancienne, le terme ``équation'' désignait une correction ajoutée algébriquement à une valeur moyenne pour obtenir une valeur vraie.
-C'est une telle acception qui a survécu dans l'expression ``équation du temps'' ''} \cite{equation_temps_wiki}.
+Cette valeur est fonction de la longitude du point étudié, de la longitude du méridien local à ce point et de l'équation du temps, un paramètre qui permet de corriger l'irrégularité du temps solaire, celui-ci n'évoluant pas de manière monotone.\footnote{\textit{``Remarque sur le mot ``équation'' : en astronomie ancienne, le terme ``équation'' désignait une correction ajoutée algébriquement à une valeur moyenne pour obtenir une valeur vraie.
+C'est une telle acception qui a survécu dans l'expression ``équation du temps'' ''} \cite{equation_temps_wiki}.}
 
 $\Delta T_{GMT}$ est le décalage horaire, en heures, par rapport à l'heure GMT. Ainsi, par exemple, $\Delta T_{GMT}$ vaudra $1$ pour Paris, car son fuseau horaire est GMT+1.
 
@@ -300,11 +299,6 @@ Mon programme affiche un éclairement énergétique solaire maximal de \textbf{\
 
 
 \begin{thebibliography}{99}
-
-\bibitem{english_lingua_franca}
-	Wikipédia,
-	\emph{List of lingua francas}\\
-	\url{https://en.wikipedia.org/wiki/List_of_lingua_francas#English}
 
 \bibitem{how_do_climate_models_work} 
 	Kaitlin Alexander,
