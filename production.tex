@@ -76,6 +76,16 @@ Ces enjeux sont \textbf{économiques}, avec par exemple la météo agricole, un 
 
 Ces prévisions sont aujourd'hui littéralement à \emph{portée de main} avec l'avènement des applications mobiles, et pourtant elles reposent sur des constructions d'une grande complexité à la croisée des mathématiques, de la physique et de l'informatique : \textbf{les modèles}.
 
+\subsection{Les modèles en climatologie}
+
+On parle de modèles mathématiques, scientifiques, climatiques, ou encore informatiques.
+Ces notions, bien que diverses, se rejoignent en un point : il s'agit de représentations de phénomènes rendues suffisamment simples pour qu'on puisse les appréhender et les manipuler, mais qui restent les plus proches possibles de la réalité, sans quoi elles seraient inutiles.
+En ce sens, l'on peut dire que tout modèle est une \textbf{approximation du réel}.
+
+Le modèle \emph{mathématique} est une construction formelle qui sert bien souvent de base au modèle informatique.
+Les lois qui régissent le premier servent de base au second, qui, soumis à des contraintes physiques (vitesse de calcul, de transfert des données, capacité de stockage d'un volume de données grandissant), en est la traduction imparfaite, empirique, gouverné par l'expérience, approximative.
+Bien que nous puissions aujourd'hui prévoir des phénomènes \emph{précisément à court terme}, ou \emph{approximativement à long terme}, nous sommes incapables de les prévoir \emph{précisément à long terme} : nous savons quelle température il fera demain, mais pas s'il pleuvra le même jour l'année prochaine.
+
 
 \subsection{Rapport au thème}
 
@@ -101,72 +111,13 @@ Cet exemple, d'une grande simplicité en comparaison avec les modèles qu'utilis
 J'ai donc abouti, à l'aide de ressources trouvées sur Internet, à une série de calculs permettant de calculer \textbf{l'éclairement énergétique solaire} d'un point en fonction de sa position sur Terre, de la date et de l'heure.
 J'ai ensuite intégré ces calculs dans un programme, et procédé à la validation expérimentale de celui-ci en le faisant fonctionner et en comparant les résultats obtenus à ceux attendus.
 
-\vfill
-
-\small{Note : l'abondance des ressources écrites en anglais par rapport aux ressources françaises me poussa à mener mes recherches dans cette langue.}
-
-
-
-\clearpage
-\section{La modélisation informatique du climat}
-
-\subsection{Qu'est-ce qu'un modèle ?}
-
-On parle de modèles mathématiques, scientifiques, climatiques, ou encore informatiques -- mais qu'est-ce au juste qu'un modèle ?
-Ces notions, bien que diverses, se rejoignent en un point : il s'agit de représentations de phénomènes rendues suffisamment simples pour qu'on puisse les appréhender et les manipuler, mais qui restent les plus proches possibles de la réalité, sans quoi elles seraient inutiles.
-En ce sens, l'on peut dire que tout modèle est une \textbf{approximation du réel}.
-
-Le modèle \emph{mathématique} est une construction formelle qui sert bien souvent de base au modèle informatique.
-Les lois qui régissent le premier servent de base au second, qui, soumis à des contraintes physiques (vitesse de calcul, de transfert des données, capacité de stockage d'un volume de données grandissant), en est la traduction imparfaite, empirique, gouverné par l'expérience, approximative.
-Il dépend du matériel avec lequel on l'utilise, et évolue au fur et à mesure que celui-ci devient plus rapide et capable de traiter de grands volumes de données.
-
-
-\subsection{Le prévisible}
-
-La science nous permet aujourd'hui de prévoir des phénomènes \emph{précisément à court terme}, ou \emph{approximativement à long terme}.
-Ainsi, bien que nous puissions déclarer avec assurance que le temps sera couvert demain à midi, nous sommes incapables de dire quel temps il fera dans un an.
-Pourquoi est-ce le cas ?
-Pourquoi, avec les immenses super-ordinateurs dont nous disposons, avec toute notre science, sommes-nous incapables de dire s'il pleuvra ou s'il fera beau le
-18 janvier 2017 ?
-
-Une réponse est que c'est impossible de la dire avec certitude, car soit il nous faudrait pour cela la connaissance universelle, soit rien n'est réellement pr
-évisible même avec tout le savoir du monde :
-
-\begin{quotation}
-De deux choses l'une : soit toute chose est prévisible et nous manquons simplement du savoir nécessaire pour comprendre la Nature, soit certains phénomènes, c
-omme la désintégration radioactive, ne sont pas seulement hors de notre portée mais réellement aléatoires, impossibles à prévoir, quelques avancées que nous f
-assions.
-
-Dans le premier cas, \emph{toute cause a un effet}.
-Rien n'est absolument isolé dans l'Univers.
-On peut s'en rendre compte à l'échelle humaine : des choses apparemment anodines finissent souvent par avoir des conséquences inattendues, comme une invitatio
-n, une rencontre ou une offre d'emploi qui, plusieurs années plus tard, a fait prendre une tournure radicalement différente à la vie d'une personne.
-
-Partant de cette hypothèse, \emph{tout dépend de tout}, et \textbf{il est donc nécessaire de tout connaître pour prédire quoi que ce soit} : l'Homme devrait a
-lors posséder la connaissance universelle, et serait comme un dieu.
-
-Dans le second cas, s'il existe des phénomènes \emph{réellement} aléatoires, alors \textbf{rien ne peut être prédit car nulle chose n'est certaine}.
-\end{quotation}
-
-S'il nous est impossible de prédire quoi que ce soit, nous pouvons toutefois
-
 
 
 \clearpage
 \section{Les phénomènes gouvernant l'irradiation solaire}
 
 \subsection{La "masse d'air" et l'atténuation du rayonnement solaire}
-d
-
-
-\subsection{L'inclinaison de la Terre sur son axe}
-d
-
-
-\clearpage
-\section{Modélisation mathématique : calcul d'éclairement énergétique}
-
-\subsection{Construction de notre modèle}
+L'éclairement énergétique solaire d'un point à la surface de la Terre dépend fondamentalement de deux facteurs : l'éclairement énergétique \emph{au sommet de l'atmosphère}, et l'atténuation de celui-ci par l'atmosphère. 
 
 \begin{figure}[!ht]
 	\centerline{\includegraphics[width=12cm]{air-mass.png}}
@@ -174,13 +125,43 @@ d
 	\label{fig:air-mass}
 \end{figure}
 
-Le modèle informatique que nous cherchons à construire va ainsi s'appuyer sur un modèle mathématique, que nous construirons progressivement.
+
+L'éclairement énergétique solaire au sommet de l'atmosphère, si l'on se place perpendiculairement au Soleil, est d'environ \SI{1.35}{\kilo\watt\per\square\meter}.
+Comme il varie peu (+/- \SI{10}{\watt\per\square\meter}), nous nous intéresserons plus particulièrement au degré d'atténuation qu'il subit.
+Dans l'espace, les rayons du Soleil peuvent parcourir de grandes distances en perdant peu d'énergie, mais sitôt qu'ils pénètrent l'atmosphère, ils en perdent beaucoup par diffusion et absorption.
+Leur degré d'atténuation est fonction de la distance qu'ils parcourent dans l'atmosphère, c'est pourquoi on utilise pour le calculer un paramètre appelé \emph{masse d'air} (ou \emph{masse atmosphérique} -- \textit{air mass} en anglais) \cite{air_mass_wiki} qui représente le rapport de la longueur du plus court chemin possible au travers de l'atmosphère sur celle du chemin emprunté par la lumière à un instant donné (figure~\ref{fig:air-mass}). Plus ce coefficient est élevé, plus les rayons du Soleil doivent parcourir une distance importante, et plus ils sont atténués par l'atmosphère.
+
+\
+
+\subsection{L'inclinaison de la Terre sur son axe}
+
+d
+
+
+\subsection{Angle horaire et heure solaire}
+
+L'angle horaire est l'arc que décrit le Soleil au cours de la journée, et dépend donc de l'heure.
+La Terre ne tournant pas seulement sur elle-même mais également autour du Soleil, il y a décalage entre l'heure \emph{locale} (i.e. celle qu'indique un ordinateur ou une horloge) et l'heure \emph{solaire}, qui est définie par la position apparente du Soleil dans le ciel.
+On doit donc utiliser l'heure solaire, et non l'heure locale, pour calculer l'angle horaire.
+Pour cela, on calcule une valeur appelée facteur de correction du temps, qui est la différence entre l'heure solaire et l'heure locale.
+Cette valeur est fonction de la longitude du point étudié, de la longitude du méridien local à ce point et de l'équation du temps, un paramètre qui permet de corriger l'irrégularité du temps solaire, celui-ci n'évoluant pas de manière monotone.\footnote{\textit{``Remarque sur le mot ``équation'' : en astronomie ancienne, le terme ``équation'' désignait une correction ajoutée algébriquement à une valeur moyenne pour obtenir une valeur vraie.
+C'est une telle acception qui a survécu dans l'expression ``équation du temps'' ''} \cite{equation_temps_wiki}.}
+
+
+
+\clearpage
+\section{Modélisation mathématique : calcul d'éclairement énergétique}
+
+\subsection{Construction de notre modèle}
+
+Nous
+
+Le modèle informatique que nous cherchons à construire va  s'appuyer sur un modèle mathématique, que nous construirons progressivement.
 Pour ce faire, je me suis principalement appuyé sur une collection de ressources du site PVEducation.org appelée \emph{Properties of Sunlight} \cite{properties_of_sunlight}.
 À l'aide de ce site, j'ai déterminé comment l'on pouvait calculer l'éclairement énergétique solaire (\textit{solar irradiance} en anglais) à partir d'autres paramètres physiques, pouvant eux-mêmes être calculés à partir d'autres paramètres, et ainsi de suite jusqu'à établir une relation entre date, heure, position sur la Terre d'un point, et éclairement énergétique solaire de ce point.
 Le tout forme un modèle à petite échelle, dont voici le fonctionnement.
 
-\subsubsection{Masse d'air et atténuation du rayonnement solaire}
-L'éclairement énergétique solaire d'un point à la surface de la Terre dépend fondamentalement de deux facteurs : l'éclairement énergétique \emph{au sommet de l'atmosphère}, et l'atténuation de celui-ci par l'atmosphère. 
+\subsubsection{Calcul de de la masse d'air}
 
 D'après \emph{PVEducation.org} \cite{pos_air_mass}, on a :
 
@@ -189,11 +170,6 @@ D'après \emph{PVEducation.org} \cite{pos_air_mass}, on a :
 \]
 
 Avec $I_d$ l'éclairement énergétique solaire en \SI{}{\watt\per\square\meter}, et $AM$ la masse d'air.
-
-L'éclairement énergétique solaire au sommet de l'atmosphère, si l'on se place perpendiculairement au Soleil, est d'environ \SI{1.35}{\kilo\watt\per\square\meter}.
-Comme il varie peu (+/- \SI{10}{\watt\per\square\meter}), nous nous intéresserons plus particulièrement au degré d'atténuation qu'il subit.
-Dans l'espace, les rayons du Soleil peuvent parcourir de grandes distances en perdant peu d'énergie, mais sitôt qu'ils pénètrent l'atmosphère, ils en perdent beaucoup par diffusion et absorption.
-Leur degré d'atténuation est fonction de la distance qu'ils parcourent dans l'atmosphère, c'est pourquoi on utilise pour le calculer un paramètre appelé \emph{masse d'air} (ou \emph{masse atmosphérique} -- \textit{air mass} en anglais) \cite{air_mass_wiki} qui représente le rapport de la longueur du plus court chemin possible au travers de l'atmosphère sur celle du chemin emprunté par la lumière à un instant donné (figure~\ref{fig:air-mass}). Plus ce coefficient est élevé, plus les rayons du Soleil doivent parcourir une distance importante, et plus ils sont atténués par l'atmosphère.
 
 La distance parcourue par les rayons du Soleil ($Y$ sur la figure~\ref{fig:air-mass}) est égale à $\cos \theta$ ($\theta$ est l'angle zénithal, que nous décrirons plus loin).
 La masse d'air est donc égale à :
@@ -212,7 +188,7 @@ $\theta$ est \emph{l'angle zénithal}. L'angle zénithal et l'angle d'élévatio
 	\label{fig:elevation-and-zenith-angle}
 \end{figure}
 
-L'angle d'élévation $\alpha$ est plus complexe à calculer, car il est fonction de la latitude du point étudié (il convient de rappeler qu'il s'agit de calculer l'éclairement énergétique d'un point à la surface de la Terre), de \emph{l'angle de déclinaison} et de \emph{l'angle horaire}. On a ainsi, d'après \emph{PVEducation.org} \cite{pos_elevation_angle}, pour $\phi$ la latitude du point étudié :
+L'angle d'élévation $\alpha$ est plus complexe à calculer, car il est fonction de la latitude du point étudié, de \emph{l'angle de déclinaison} et de \emph{l'angle horaire}. On a ainsi, d'après \emph{PVEducation.org} \cite{pos_elevation_angle}, pour $\phi$ la latitude du point étudié :
 
 \[
 	\alpha = \sin^{-1} \left(
@@ -222,8 +198,6 @@ L'angle d'élévation $\alpha$ est plus complexe à calculer, car il est fonctio
 \]
 
 L'angle de déclinaison $\delta$ est \emph{``l'angle entre la droite joignant les centres du Soleil et de la Terre et le plan de l'équateur terrestre''} \cite{mouvement_terre}. Il dépend de la position de la Terre autour du Soleil, et donc du \emph{jour de l'année} (allant de 1 à 365).
-
-% TODO: illustration sur le tableau
 
 \[
 	\delta = \sin^{-1} \left(
@@ -240,12 +214,6 @@ L'angle de déclinaison $\delta$ est \emph{``l'angle entre la droite joignant le
 
 
 \subsubsection{Angle horaire et temps solaire} % XXX
-L'angle horaire est l'arc que décrit le Soleil au cours de la journée, et dépend donc de l'heure.
-La Terre ne tournant pas seulement sur elle-même mais également autour du Soleil, il y a décalage entre l'heure \emph{locale} (i.e. celle qu'indique un ordinateur ou une horloge) et l'heure \emph{solaire}, qui est définie par la position apparente du Soleil dans le ciel.
-On doit donc utiliser l'heure solaire, et non l'heure locale, pour calculer l'angle horaire.
-Pour cela, on calcule une valeur appelée facteur de correction du temps, qui est la différence entre l'heure solaire et l'heure locale.
-Cette valeur est fonction de la longitude du point étudié, de la longitude du méridien local à ce point et de l'équation du temps, un paramètre qui permet de corriger l'irrégularité du temps solaire, celui-ci n'évoluant pas de manière monotone.\footnote{\textit{``Remarque sur le mot ``équation'' : en astronomie ancienne, le terme ``équation'' désignait une correction ajoutée algébriquement à une valeur moyenne pour obtenir une valeur vraie.
-C'est une telle acception qui a survécu dans l'expression ``équation du temps'' ''} \cite{equation_temps_wiki}.}
 
 \[
 	\text{longitude du méridien local} = 15 \degree \cdot \Delta T_{GMT}
