@@ -116,8 +116,20 @@ Puis j'ai intégré ces calculs dans un programme informatique, et procédé à 
 \clearpage
 \section{Les phénomènes gouvernant l'irradiation solaire}
 
+L'activité du Soleil est relativement stable.
+
+L'éclairement énergétique solaire -- au sommet de l'atmosphère, si l'on se place perpendiculairement au Soleil, est d'environ \SI{1.35}{\kilo\watt\per\square\meter} et varie peu (+/- \SI{10}{\watt\per\square\meter}).
+Comme l'activité du Soleil reste relativement stable de jour en jour et d'année en année, l'éclairement énergétique au sol dépend principalement du degré d'atténuation de ses rayons lors de leur passage à travers l'atmosphère.
+
+L'éclairement énergétique solaire d'un point à la surface de la Terre, c'est-à-dire l'intensité du rayonnement solaire le frappant, dépend fondamentalement de deux facteurs, si l'on exclue les nuages : l'éclairement énergétique \emph{au sommet de l'atmosphère}, et la mesure dans laquelle celui-ci est atténué par l'atmosphère.
+
+Le premier est pratiquement constant : 
+
+Dans l'espace, les rayons du Soleil peuvent parcourir de grandes distances en perdant peu d'énergie, mais sitôt qu'ils pénètrent l'atmosphère, ils en perdent beaucoup par diffusion et absorption.
+Leur degré d'atténuation est fonction de la distance qu'ils parcourent dans l'atmosphère, c'est pourquoi on utilise pour le calculer un paramètre appelé \emph{masse d'air} (ou \emph{masse atmosphérique} -- \textit{air mass} en anglais) \cite{air_mass_wiki} qui représente le rapport de la longueur du plus court chemin possible au travers de l'atmosphère sur celle du chemin emprunté par la lumière à un instant donné (figure~\ref{fig:air-mass}). Plus ce coefficient est élevé, plus les rayons du Soleil doivent parcourir une distance importante, et plus ils sont atténués par l'atmosphère.
+
 \subsection{La "masse d'air" et l'atténuation du rayonnement solaire}
-L'éclairement énergétique solaire d'un point à la surface de la Terre dépend fondamentalement de deux facteurs : l'éclairement énergétique \emph{au sommet de l'atmosphère}, et l'atténuation de celui-ci par l'atmosphère. 
+
 
 \begin{figure}[!ht]
 	\centerline{\includegraphics[width=12cm]{air-mass.png}}
@@ -126,10 +138,7 @@ L'éclairement énergétique solaire d'un point à la surface de la Terre dépen
 \end{figure}
 
 
-L'éclairement énergétique solaire au sommet de l'atmosphère, si l'on se place perpendiculairement au Soleil, est d'environ \SI{1.35}{\kilo\watt\per\square\meter}.
-Comme il varie peu (+/- \SI{10}{\watt\per\square\meter}), nous nous intéresserons plus particulièrement au degré d'atténuation qu'il subit.
-Dans l'espace, les rayons du Soleil peuvent parcourir de grandes distances en perdant peu d'énergie, mais sitôt qu'ils pénètrent l'atmosphère, ils en perdent beaucoup par diffusion et absorption.
-Leur degré d'atténuation est fonction de la distance qu'ils parcourent dans l'atmosphère, c'est pourquoi on utilise pour le calculer un paramètre appelé \emph{masse d'air} (ou \emph{masse atmosphérique} -- \textit{air mass} en anglais) \cite{air_mass_wiki} qui représente le rapport de la longueur du plus court chemin possible au travers de l'atmosphère sur celle du chemin emprunté par la lumière à un instant donné (figure~\ref{fig:air-mass}). Plus ce coefficient est élevé, plus les rayons du Soleil doivent parcourir une distance importante, et plus ils sont atténués par l'atmosphère.
+
 
 
 
