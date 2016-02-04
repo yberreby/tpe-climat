@@ -97,8 +97,7 @@ En effet, le volume de données que doit traiter tout modèle climatique à part
 
 \subsection{Démarche expérimentale}
 
-Le rôle primordial des modèles dans un domaine aussi important que la météorologie m'a conduit à vouloir \textbf{explorer leur fonctionnement}.
-Pour ce faire, j'ai choisi de créer un modèle simple, et de le traduire en un programme informatique, avec comme variable l'éclairement énergétique solaire, c'est-à-dire la puissance reçue du Soleil par unité de surface en un point, en \SI{}{\watt\per\square\meter}.
+Le rôle primordial des modèles dans un domaine aussi important que la météorologie m'a conduit à vouloir explorer leur fonctionnement en créant un modèle simple de \emph{l'irradiation solaire}.
 
 Cet exemple, d'une grande simplicité en comparaison avec les modèles qu'utilisent des organismes comme Météo France, présente cependant de multiples avantages :
 
@@ -108,8 +107,9 @@ Cet exemple, d'une grande simplicité en comparaison avec les modèles qu'utilis
   \item l'irradiation solaire est \textbf{relativement simple à modéliser} avec une marge d'erreur raisonnable car elle est plus stable, plus prévisible que le vent ou les intempéries, par exemple.
 \end{itemize}
 
-J'ai donc abouti, à l'aide de ressources trouvées sur Internet, à une série de calculs permettant de calculer \textbf{l'éclairement énergétique solaire} d'un point en fonction de sa position sur Terre, de la date et de l'heure.
-J'ai ensuite intégré ces calculs dans un programme, et procédé à la validation expérimentale de celui-ci en le faisant fonctionner et en comparant les résultats obtenus à ceux attendus.
+Pour le réaliser, j'ai commencé par tenter de comprendre les phénomènes et paramètres gouvernant l'irradiation solaire.
+Ensuite, je me suis attaché à modéliser cette irradiation solaire par le calcul à l'aide de ressources trouvées sur Internet pour obtenir la valeur de \emph{l'éclairement énergétique solaire} d'un point, c'est-à-dire la puissance qu'il reçoit du Soleil par unité de surface (en \SI{}{\watt\per\square\meter}), en fonction de sa position sur Terre, de la date et de l'heure.
+Puis j'ai intégré ces calculs dans un programme informatique, et procédé à la validation expérimentale de celui-ci en le faisant fonctionner et en comparant les résultats obtenus à ceux attendus.
 
 
 
