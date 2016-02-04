@@ -75,12 +75,13 @@ Cependant, toutes communes et faciles d'accès qu'elles soient, elles n'en prés
 Ces enjeux sont \textbf{économiques}, avec par exemple la météo agricole, un outil précieux pour des millions d'agriculteurs à travers le monde, mais aussi \textbf{humains}, car prévoir une crue ou une tempête ne serait-ce que quelques heures à l'avance peut permettre de sauver des vies en évacuant les populations en danger.
 
 Ces prévisions sont aujourd'hui littéralement à \emph{portée de main} avec l'avènement des applications mobiles, et pourtant elles reposent sur des constructions d'une grande complexité à la croisée des mathématiques, de la physique et de l'informatique : \textbf{les modèles}.
+
 % XXX: Expliquer POURQUOI et COMMENT les modèles sont à la base de tout
 \subsection{Rapport au thème}
 
 La modélisation climatique s'inscrit naturellement dans le thème choisi, à savoir \emph{"l'aléatoire, l'insolite, le prévisible"}, car, outre l'exploration du passé qu'elle permet -- un point sur lequel on reviendra plus loin --, l'un de ses principaux intérêts est la réalisation de \textbf{prévisions météorologiques}. % XXX: IL FAUT REVENIR SUR L'EXPLORATION DU PASSÉ
 
-Elle est également aujourd'hui indissociable de l'informatique, discipline qui passionne votre serviteur, d'où le choix du sujet \emph{"la modélisation informatique du climat"}.
+Elle est également aujourd'hui indissociable de l'informatique, d'où le choix du sujet \emph{"la modélisation informatique du climat"}.
 En effet, le volume de données que doit traiter tout modèle climatique à partir d'un certain degré de complexité est bien trop important pour qu'un être humain, même muni d'une calculatrice, puisse réaliser les calculs nécessaires : on a donc recours à des ordinateurs pour cela, car ils sont capables de réaliser ces calculs à des vitesses dépassant de très loin les capacités humaines.
 
 \subsection{Démarche expérimentale}
@@ -101,12 +102,12 @@ J'ai ensuite intégré ces calculs dans un programme, et procédé à la validat
 
 \vfill
 
-\small{Note : le lecteur ne sera probablement pas sans remarquer l'utilisation abondante de sources anglophones dans le présent TPE.
+\small{Note : le lecteur ne sera probablement pas sans remarquer l'utilisation abondante de sources anglophones dans le présent TPE. % XXX
 L'anglais est en effet aujourd'hui communément considéré comme la \textit{lingua franca} \footnote{\url{https://en.wikipedia.org/wiki/List_of_lingua_francas\#English}} des sciences, et l'abondance des ressources écrites dans cette langue par rapport aux ressources francophones me poussa à mener mes recherches en anglais.}
 
 
 \clearpage
-\section{Les modèles en climatologie} % FIXME: awful title
+\section{Modélisation mathématique de l'irradiation solaire}
 
 \subsection{Qu'est-ce qu'un modèle ?}
 
@@ -227,8 +228,6 @@ C'est une telle acception qui a survécu dans l'expression ``équation du temps'
 
 $\Delta T_{GMT}$ est le décalage horaire, en heures, par rapport à l'heure GMT. Ainsi, par exemple, $\Delta T_{GMT}$ vaudra $1$ pour Paris, car son fuseau horaire est GMT+1.
 
-
-
 \subsubsection{Combinaison des paramètres}
 La combinaison de tous ces paramètres permet de calculer une approximation de l'éclairement énergétique solaire en un point à partir de la position de ce point, de la date, de l'heure locale et du fuseau horaire seulement.
 Le fuseau horaire doit être indiqué explicitement car on ne peut le déduire simplement à partir de la latitude, les limites des fuseaux horaires tendant à suivre les frontières des pays au lieu d'être rectilignes, comme le montre la figure~\ref{fig:timezones}.+
@@ -284,18 +283,19 @@ En voici un extrait (fichier \texttt{src/temperature.rs}) :
 
 \inputminted[linenos]{rust}{rust-climate/src/temperature.rs}
 
-\subsection{Validation expérimentale : essai du programme}
+\clearpage
+\section{Validation expérimentale : essai du programme}
 
 Maintenant que nous disposons d'un programme fonctionnel, il est nécessaire de le \emph{tester} pour vérifier si les résultats qu'il produit correspondent à la réalité.
 
-\subsubsection{Résultats attendus}
+\subsection{Résultats attendus}
 D'après Wikipédia, l'éclairement énergétique solaire \emph{maximal} au niveau de la mer serait d'environ \SI{1000}{\watt\per\square\meter} \cite{earth_irradiance_wiki}, mais aucune source n'est citée.
 D'après une autre source (Green Rhino Energy, une société spécialisée dans l'énergie solaire) \cite{green_rhino_irradiance}, il serait plus proche de \SI{960}{\watt\per\square\meter}.
 Cette valeur ne peut être atteinte que quand les rayons du Soleil arrivent perpendiculairement au plan auquel appartient le point étudié.
 Ce n'est \emph{pas} le cas tous les jours au midi solaire, contrairement à ce que l'on pourrait penser.
 Si c'était le cas, tous les pays seraient, chaque jour de l'année, au midi solaire, soumis à une irradiation solaire équivalente, ce qui est évidemment faux.
 
-\subsubsection{Résultats obtenus}
+\subsection{Résultats obtenus}
 Par définition, l'éclairement énergétique maximal est atteint lorsque la masse d'air est égale à $1$.
 Cependant, on va en pratique chercher à la faire \emph{tendre} vers cette valeur, car tenter de l'égaler exactement serait inutile en raison de l'imprécision des valeurs mesurées servant de base au calcul de l'éclairement énergétique.
 
