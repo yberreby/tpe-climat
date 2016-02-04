@@ -1,0 +1,17 @@
+graph graphname {
+  "éclairement énergétique solaire au niveau du sol" -- "éclairement énergétique
+  solaire au-dessus de l'atmosphère";
+  "éclairement énergétique solaire au niveau du sol" -- "masse d'air" -- "angle
+  zénithal" -- "angle d'élévation";
+
+  "angle d'élévation" -- "latitude";
+  "angle d'élévation" -- "angle de déclinaison" -- "jour de l'année";
+  "angle d'élévation" -- "angle horaire" -- "heure solaire" -- "heure locale";
+
+  "heure solaire" -- "facteur de correction de l'heure" -- "longitude";
+  "facteur de correction de l'heure" -- "longitude du méridien local" --
+  "décalage horaire par rapport à l'heure GMT";
+
+  "facteur de correction de l'heure" -- "équation du temps" -- "jour de
+  l'année";
+}
