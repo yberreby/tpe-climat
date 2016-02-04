@@ -163,29 +163,21 @@ d
 d
 
 
-% Plan de traitement :
-% la masse d'air et l'atténuation par l'atmosphère, au coeur de tout
-
-% l'inclinaison de la Terre, ou 'obliquité' (source CNRS)
-
-% l'angle d'élévation et le calcul trigo qui permet de l'obtenir
-
-
 \clearpage
 \section{Modélisation mathématique : calcul d'éclairement énergétique}
 
 \subsection{Construction de notre modèle}
 
+\begin{figure}[!ht]
+	\centerline{\includegraphics[width=12cm]{air-mass.png}}
+	\caption{La masse d'air à un instant et en un point donné (\textit{air mass} en anglais) est définie par X (chemin le plus court que peuvent prendre les rayons du Soleil) divisé par Y (chemin qu'ils prennent à cet instant et en ce point).}
+	\label{fig:air-mass}
+\end{figure}
+
 Le modèle informatique que nous cherchons à construire va ainsi s'appuyer sur un modèle mathématique, que nous construirons progressivement.
 Pour ce faire, je me suis principalement appuyé sur une collection de ressources du site PVEducation.org appelée \emph{Properties of Sunlight} \cite{properties_of_sunlight}.
 À l'aide de ce site, j'ai déterminé comment l'on pouvait calculer l'éclairement énergétique solaire (\textit{solar irradiance} en anglais) à partir d'autres paramètres physiques, pouvant eux-mêmes être calculés à partir d'autres paramètres, et ainsi de suite jusqu'à établir une relation entre date, heure, position sur la Terre d'un point, et éclairement énergétique solaire de ce point.
 Le tout forme un modèle à petite échelle, dont voici le fonctionnement.
-
-\begin{figure}[!htp]
-	\centerline{\includegraphics[width=\paperwidth]{graph.png}}
-	\caption{Structure du modèle.}
-	\label{fig:model-structure}
-\end{figure}
 
 \subsubsection{Masse d'air et atténuation du rayonnement solaire}
 L'éclairement énergétique solaire d'un point à la surface de la Terre dépend fondamentalement de deux facteurs : l'éclairement énergétique \emph{au sommet de l'atmosphère}, et l'atténuation de celui-ci par l'atmosphère. 
@@ -202,13 +194,6 @@ L'éclairement énergétique solaire au sommet de l'atmosphère, si l'on se plac
 Comme il varie peu (+/- \SI{10}{\watt\per\square\meter}), nous nous intéresserons plus particulièrement au degré d'atténuation qu'il subit.
 Dans l'espace, les rayons du Soleil peuvent parcourir de grandes distances en perdant peu d'énergie, mais sitôt qu'ils pénètrent l'atmosphère, ils en perdent beaucoup par diffusion et absorption.
 Leur degré d'atténuation est fonction de la distance qu'ils parcourent dans l'atmosphère, c'est pourquoi on utilise pour le calculer un paramètre appelé \emph{masse d'air} (ou \emph{masse atmosphérique} -- \textit{air mass} en anglais) \cite{air_mass_wiki} qui représente le rapport de la longueur du plus court chemin possible au travers de l'atmosphère sur celle du chemin emprunté par la lumière à un instant donné (figure~\ref{fig:air-mass}). Plus ce coefficient est élevé, plus les rayons du Soleil doivent parcourir une distance importante, et plus ils sont atténués par l'atmosphère.
-
-
-\begin{figure}[!ht]
-	\centerline{\includegraphics[width=12cm]{air-mass.png}}
-	\caption{La masse d'air à un instant et en un point donné (\textit{air mass} en anglais) est définie par X (chemin le plus court que peuvent prendre les rayons du Soleil) divisé par Y (chemin qu'ils prennent à cet instant et en ce point).}
-	\label{fig:air-mass}
-\end{figure}
 
 La distance parcourue par les rayons du Soleil ($Y$ sur la figure~\ref{fig:air-mass}) est égale à $\cos \theta$ ($\theta$ est l'angle zénithal, que nous décrirons plus loin).
 La masse d'air est donc égale à :
@@ -300,7 +285,14 @@ Le fuseau horaire doit être indiqué explicitement car on ne peut le déduire s
 
 Cette approximation ne tient pas compte des nuages ou d'autres phénomènes climatiques pouvant altérer le parcours des rayons du Soleil, mais reste assez proche de la réalité par temps clair.
 
-
+\clearpage
+\begin{figure}[!htb]
+	\centering
+	{ \Large \textbf{Annexe : structure du modèle} \par\medskip }
+	\centerline{\includegraphics[width=\paperwidth - 2cm]{graph.png}}
+	\caption{Structure du modèle.}
+	\label{fig:model-structure}
+\end{figure}
 
 \clearpage
 \section{Modélisation informatique : écriture de notre programme}
