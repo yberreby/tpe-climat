@@ -151,7 +151,7 @@ Ces différences d'ensoleillement sont dues à l'inclinaison de la Terre sur son
 	\label{fig:seasons-year}\end{figure}
 	
 
-\subsection{Heure solaire, angle horaire}
+\subsection{Angle horaire, heure solaire et heure locale}
 
 On a vu plus tôt que l'angle zénithal dépendait, entre autres, de l'angle horaire.
 Ce dernier est exprimable indépendamment en degrés ou en heures, et est appelé \emph{heure solaire} dans le second cas.
@@ -161,11 +161,14 @@ On pourrait penser que l'heure solaire ou l'angle horaire peuvent être calculé
 Il existe un décalage variable entre ces deux valeurs, car l'heure solaire évalue de façon irrégulière, contrairement à l'heure légale.
 Cela est dû à la trajectoire elliptique que suit la Terre dans sa révolution autour du Soleil, qu'on peut observer sur la figure~\ref{fig:seasons-year}.
 La vitesse de révolution de la Terre est également variable selon l'époque de l'année.
+Un paramètre appelé \emph{équation du temps}\footnote{\textit{``Remarque sur le mot ``équation'' : en astronomie ancienne, le terme ``équation'' désignait une correction ajoutée algébriquement à une valeur moyenne pour obtenir une valeur vraie.
+C'est une telle acception qui a survécu dans l'expression ``équation du temps'' ''} \cite{equation_temps_wiki}.} représente la variation de l'heure solaire par rapport à l'heure solaire moyenne, et permet donc de corriger les irrégularités de celles-ci \cite{equation_temps_wiki}.
 
-Un paramètre appelé \emph{équation du temps} rend compte de ces irrégularités.
+L'équation du temps n'est cependant pas suffisante pour calculer l'heure solaire ; il faut aussi prendre en compte la \emph{longitude} du point où l'on se place.
+En effet, au sein d'un fuseau horaire donné, l'heure légale est partout la même, mais ce n'est pas le cas de l'heure solaire.
+Le Soleil ne sera ainsi pas aussi haut dans le ciel à un instant donné si l'on se place dans deux villes situées aux deux extrémités du même fuseau horaire (par exemple Dallas et Chicago, toutes deux situées dans le fuseau horaire UTC-06:00).
 
-\footnote{\textit{``Remarque sur le mot ``équation'' : en astronomie ancienne, le terme ``équation'' désignait une correction ajoutée algébriquement à une valeur moyenne pour obtenir une valeur vraie.
-C'est une telle acception qui a survécu dans l'expression ``équation du temps'' ''} \cite{equation_temps_wiki}.}
+
 
 % longitude méridien standard local
 
