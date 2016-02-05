@@ -135,7 +135,7 @@ Ainsi, par exemple, il fera plus froid en janvier qu'en juillet dans l'hémisph�
 
  \begin{figure}[H]
 	\centerline{\includegraphics[width=\textwidth]{seasons-2.jpeg}}
-	\caption{La Terre est inclinée sur son axe, ce qui fait qu'elle se présente au Soleil sous des angles différents à chaque saison. \textit{Crédits image : \url{http://quelles-dates.fr/dates-solstices-ete-hiver-et-equinoxes/}}}
+	\caption{La Terre est inclinée sur son axe, ce qui fait qu'elle se présente au Soleil sous des angles différents à chaque saison.}
 	\label{fig:seasons-year}
 \end{figure}
 	
@@ -146,6 +146,12 @@ On a vu plus tôt que l'angle zénithal dépendait, entre autres, de l'angle hor
 Ce dernier est exprimable indépendamment en degrés ou en heures, et est appelé \emph{heure solaire} dans le second cas.
 Le midi solaire est ainsi défini comme ``l'instant où le Soleil atteint son point de culmination, en un endroit donné de la Terre''\cite{temps_solaire_wiki} : à ce même instant, l'angle horaire vaut 90\degree.
 
+ \begin{figure}[H]
+	\centerline{\includegraphics[width=\textwidth]{midi-solaire.jpg}}
+	\caption{Au midi solaire, le Soleil est au zénith.}
+	\label{fig:solar-noon}
+\end{figure}
+
 On pourrait penser que l'heure solaire ou l'angle horaire peuvent être calculés simplement à partir de l'heure \emph{légale}, ou heure locale, (i.e., celle indiquée par une montre), mais ce n'est pas le cas.
 Il existe un décalage variable entre ces deux valeurs, car l'heure solaire évalue de façon irrégulière, contrairement à l'heure légale.
 Cela est dû à la trajectoire elliptique que suit la Terre dans sa révolution autour du Soleil, qu'on peut observer sur la figure~\ref{fig:seasons-year}.
@@ -153,7 +159,13 @@ La vitesse de révolution de la Terre est également variable selon l'époque de
 Un paramètre appelé \emph{équation du temps}\footnote{\textit{``Remarque sur le mot ``équation'' : en astronomie ancienne, le terme ``équation'' désignait une correction ajoutée algébriquement à une valeur moyenne pour obtenir une valeur vraie.
 C'est une telle acception qui a survécu dans l'expression ``équation du temps'' ''} \cite{equation_temps_wiki}.} représente la variation de l'heure solaire par rapport à l'heure solaire moyenne, et permet donc de corriger les irrégularités de celles-ci \cite{equation_temps_wiki}.
 
-
+ \begin{figure}[H]
+	\centerline{\includegraphics[width=\textwidth]{eot-graph.png}}
+	\caption{
+		La courbe de l'équation du temps en 2000.
+	}
+	\label{fig:eot-graph}
+\end{figure}
 
 L'équation du temps n'est cependant pas suffisante pour calculer l'heure solaire ; il faut aussi prendre en compte la \emph{longitude} du point où l'on se place.
 En effet, au sein d'un fuseau horaire donné, l'heure légale est partout la même, mais ce n'est pas le cas de l'heure solaire.
