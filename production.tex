@@ -137,13 +137,19 @@ Il fera ainsi plus froid en janvier qu'en juillet dans l'hémisphère Nord ; dan
 
 \subsection{Angle horaire et heure solaire}
 
-L'angle horaire est l'arc que décrit le Soleil au cours de la journée, et dépend donc de l'heure.
-La Terre ne tournant pas seulement sur elle-même mais également autour du Soleil, il y a décalage entre l'heure \emph{locale} (i.e. celle qu'indique un ordinateur ou une horloge) et l'heure \emph{solaire}, qui est définie par la position apparente du Soleil dans le ciel.
-On doit donc utiliser l'heure solaire, et non l'heure locale, pour calculer l'angle horaire.
-Pour cela, on calcule une valeur appelée facteur de correction du temps, qui est la différence entre l'heure solaire et l'heure locale.
-Cette valeur est fonction de la longitude du point étudié, de la longitude du méridien local à ce point et de l'équation du temps, un paramètre qui permet de corriger l'irrégularité du temps solaire, celui-ci n'évoluant pas de manière monotone.\footnote{\textit{``Remarque sur le mot ``équation'' : en astronomie ancienne, le terme ``équation'' désignait une correction ajoutée algébriquement à une valeur moyenne pour obtenir une valeur vraie.
+On a vu plus tôt que l'angle zénithal dépend, entre autres, de l'heure de la journée.
+On ne peut cependant utiliser l'heure locale pour le calculer directement.
+
+En effet, comme la Terre ne tourne pas seulement sur elle-même mais tourne aussi autour du Soleil, il y a décalage entre l'heure \emph{locale} et l'heure \emph{solaire}.
+L'heure locale est l'heure qu'indique un ordinateur ou une horloge, alors que l'heure solaire indique à la position apparente du Soleil dans le ciel.
+Le midi solaire est ainsi défini comme ``l'instant où le Soleil atteint son point de culmination, en un endroit donné de la Terre''\cite{temps_solaire_wiki}.
+
+
+
+L'heure solaire est fonction de la longitude du point étudié, de la longitude du méridien local à ce point et de l'équation du temps, un paramètre qui permet de corriger l'irrégularité du temps solaire, celui-ci n'évoluant pas de manière monotone.\footnote{\textit{``Remarque sur le mot ``équation'' : en astronomie ancienne, le terme ``équation'' désignait une correction ajoutée algébriquement à une valeur moyenne pour obtenir une valeur vraie.
 C'est une telle acception qui a survécu dans l'expression ``équation du temps'' ''} \cite{equation_temps_wiki}.}
 
+L'heure solaire permet de calculer l'\emph{angle horaire}, c'est-à-dire l'arc que décrit le Soleil au cours de la journée.
 
 
 \clearpage
@@ -190,16 +196,16 @@ $\theta$ est \emph{l'angle zénithal}. L'angle zénithal et l'angle d'élévatio
 	\delta = 90\degree - \alpha
 \]
 
-\begin{figure}[!ht]
-	\centerline{\includegraphics[width=7cm]{elevation-and-zenith-angle.png}}
-	\caption{Angle zénithal et angle d'élévation}
-	\label{fig:elevation-and-zenith-angle}
-\end{figure}
+%\begin{figure}[!ht]
+%	\centerline{\includegraphics[width=7cm]{elevation-and-zenith-angle.png}}
+%	\caption{Angle zénithal et angle d'élévation}
+%	\label{fig:elevation-and-zenith-angle}
+%\end{figure}
 
  \begin{figure}[H]
 	\centerline{\includegraphics[width=12cm]{zenith-and-elevation-angles-schema.jpg}}
 	\caption{Angle zénithal et angle d'élévation.}
-	\label{fig:air-mass}
+	\label{fig:elevation-and-zenith-angle}
 \end{figure}
 
 L'angle d'élévation $\alpha$ est plus complexe à calculer, car il est fonction de la latitude du point étudié, de \emph{l'angle de déclinaison} et de \emph{l'angle horaire}. On a ainsi, d'après \emph{PVEducation.org} \cite{pos_elevation_angle}, pour $\phi$ la latitude du point étudié :
@@ -228,6 +234,10 @@ L'angle de déclinaison $\delta$ est \emph{``l'angle entre la droite joignant le
 
 
 \subsubsection{Angle horaire et temps solaire} % XXX
+
+
+Pour calculer l'heure solaire à partir de l'heure locale, il faut calculer valeur appelée facteur de correction du temps, qui est la différence entre l'heure solaire et l'heure locale.
+
 
 \[
 	\text{longitude du méridien local} = 15 \degree \cdot \Delta T_{GMT}
@@ -321,9 +331,9 @@ Vous pouvez en télécharger une copie en cliquant sur "Download ZIP" dans l'int
 Il est également possible de le lire directement depuis votre navigateur, en cliquant sur les noms des fichiers dans l'interface Web.
 Le code est dans \texttt{src}.
 
-En voici un extrait (fichier \texttt{src/temperature.rs}) :
+En voici un extrait (fichier \texttt{src/irradiance.rs}) :
 
-\inputminted[linenos]{rust}{rust-climate/src/temperature.rs}
+\inputminted[linenos]{rust}{rust-climate/src/irradiance.rs}
 
 
 
@@ -426,6 +436,11 @@ Cet exemple illustre la complexité à laquelle sont quotidiennement confrontés
 	Wikipédia,
 	\emph{Irradiation solaire}\\
 	\url{https://fr.wikipedia.org/wiki/Irradiation_solaire}
+	
+\bibitem{temps_solaire_wiki}
+	Wikipédia,
+	\emph{Temps solaire}\\
+	\url{https://fr.wikipedia.org/wiki/Temps_solaire}
 	
 \bibitem{earth_irradiance_wiki}
 	Wikipédia,
