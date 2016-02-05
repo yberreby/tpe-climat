@@ -72,7 +72,7 @@
 
 Qui n'a jamais eu besoin d'allumer sa télévision ou de consulter son téléphone pour savoir quel temps il ferait avant de prendre un avion, de partir en vacances ou tout simplement d'aller se promener en forêt ?
 Les prévisions météorologiques font aujourd'hui partie intégrante de la vie quotidienne.
-Cependant, toutes communes et faciles d'accès qu'elles soient, elles n'en présentent pas moins des enjeux importants.
+Communes et faciles d'accès, elles présentent cependant des enjeux importants.
 Ces enjeux sont \textbf{économiques}, avec par exemple la météo agricole, un outil précieux pour des millions d'agriculteurs à travers le monde, mais aussi \textbf{humains}, car prévoir une crue ou une tempête ne serait-ce que quelques heures à l'avance peut permettre de sauver des vies en évacuant les populations en danger.
 
 Ces prévisions sont aujourd'hui littéralement à \emph{portée de main} avec l'avènement des applications mobiles, et pourtant elles reposent sur des constructions d'une grande complexité à la croisée des mathématiques, de la physique et de l'informatique : \textbf{les modèles}.
@@ -80,12 +80,14 @@ Ces prévisions sont aujourd'hui littéralement à \emph{portée de main} avec l
 \subsection{Les modèles en climatologie}
 
 On parle de modèles mathématiques, scientifiques, climatiques, ou encore informatiques.
-Ces notions, bien que diverses, se rejoignent en un point : il s'agit de représentations de phénomènes rendues suffisamment simples pour qu'on puisse les appréhender et les manipuler, mais qui restent les plus proches possibles de la réalité, sans quoi elles seraient inutiles.
+Ces notions, bien que diverses, se rejoignent en un point : il s'agit de représentations de phénomènes rendues suffisamment simples pour qu'on puisse les appréhender et les manipuler, mais qui restent les plus proches possibles de la réalité, sans quoi elles seraient inutiles. % XXX: trop long
 En ce sens, l'on peut dire que tout modèle est une \textbf{approximation du réel}.
 
 Le modèle \emph{mathématique} est une construction formelle qui sert bien souvent de base au modèle informatique.
-Les lois qui régissent le premier servent de base au second, qui, soumis à des contraintes physiques (vitesse de calcul, de transfert des données, capacité de stockage d'un volume de données grandissant), en est la traduction imparfaite, empirique, gouverné par l'expérience, approximative.
-Bien que nous puissions aujourd'hui prévoir des phénomènes \emph{précisément à court terme}, ou \emph{approximativement à long terme}, nous sommes incapables de les prévoir \emph{précisément à long terme} : nous savons quelle température il fera demain, mais pas s'il pleuvra le même jour l'année prochaine.
+Les lois qui régissent le premier servent de base au second, qui, soumis à des contraintes physiques (vitesse de calcul, de transfert des données, capacité de stockage d'un volume de données grandissant), en est la traduction empirique et approximative.
+Bien qu'on sache aujourd'hui prévoir des phénomènes \emph{précisément à court terme}, ou \emph{approximativement à long terme}, nous sommes incapables de les prévoir \emph{précisément à long terme} : nous savons quelle température il fera demain, mais pas s'il pleuvra le même jour l'année prochaine.
+
+Il convient d'établir une distinction entre climatologie et météorologie, car là où la météorologie étudie le temps à court terme, l'étude du climat se fait nécessairement à long terme. Prévoir s'il pleuvra dans une semaine, par exemple, relève ainsi de la météorologie, alors qu'étudier l'impact qu'aura le réchauffement climatique sur notre atmosphère dans 50 ans est du domaine de la climatologie.
 
 
 \subsection{Rapport au thème}
@@ -93,7 +95,7 @@ Bien que nous puissions aujourd'hui prévoir des phénomènes \emph{précisémen
 La modélisation climatique s'inscrit naturellement dans le thème choisi, à savoir \emph{"l'aléatoire, l'insolite, le prévisible"}, car, outre l'exploration du passé qu'elle permet -- un point sur lequel on reviendra plus loin --, l'un de ses principaux intérêts est la réalisation de \textbf{prévisions météorologiques}. % XXX: IL FAUT REVENIR SUR L'EXPLORATION DU PASSÉ
 
 Elle est également aujourd'hui indissociable de l'informatique, d'où le choix du sujet \emph{"la modélisation informatique du climat"}.
-En effet, le volume de données que doit traiter tout modèle climatique à partir d'un certain degré de complexité est bien trop important pour qu'un être humain, même muni d'une calculatrice, puisse réaliser les calculs nécessaires : on a donc recours à des ordinateurs pour cela, car ils sont capables de réaliser ces calculs à des vitesses dépassant de très loin les capacités humaines.
+En effet, le volume de données que doit traiter tout modèle climatique à partir d'un certain degré de complexité est bien trop important pour qu'un être humain, même muni d'une calculatrice, puisse réaliser les calculs nécessaires. On a donc pour cela recours à des ordinateurs, car ils sont capables de réaliser ces calculs à des vitesses dépassant de très loin les capacités humaines.
 
 
 \subsection{Démarche expérimentale}
@@ -103,22 +105,26 @@ Le rôle primordial des modèles dans un domaine aussi important que la météor
 Cet exemple, d'une grande simplicité en comparaison avec les modèles qu'utilisent des organismes comme Météo France, présente cependant de multiples avantages :
 
 \begin{itemize}
-  \item sa \textbf{simplicité} le rend réalisable par un élève seul dans le cadre d'un TPE
-  \item les calculs qu'il implique restent cependant suffisamment complexes pour \textbf{justifier la création d'un programme informatique} les réalisant automatiquement
+  \item il est réalisable par un élève seul dans le cadre d'un TPE,
+  \item les calculs qu'il implique restent cependant suffisamment complexes pour \textbf{justifier la création d'un programme informatique} les réalisant automatiquement,
   \item l'irradiation solaire est \textbf{relativement simple à modéliser} avec une marge d'erreur raisonnable car elle est plus stable, plus prévisible que le vent ou les intempéries, par exemple.
 \end{itemize}
 
-Pour le réaliser, j'ai commencé par tenter de comprendre les phénomènes et paramètres gouvernant l'irradiation solaire.
-Ensuite, je me suis attaché à modéliser cette irradiation solaire par le calcul à l'aide de ressources trouvées sur Internet pour obtenir la valeur de \emph{l'éclairement énergétique solaire} d'un point, c'est-à-dire la puissance qu'il reçoit du Soleil par unité de surface (en \SI{}{\watt\per\square\meter}), en fonction de sa position sur Terre, de la date et de l'heure.
-Puis j'ai intégré ces calculs dans un programme informatique, et procédé à la validation expérimentale de celui-ci en le faisant fonctionner et en comparant les résultats obtenus à ceux attendus.
+\vspace{0.5cm}
 
+Pour le réaliser, j'ai tenté de comprendre les phénomènes et paramètres gouvernant l'irradiation solaire.
+Puis, je me suis attaché à modéliser cette irradiation solaire par le calcul à l'aide de ressources trouvées sur Internet.
+Finalement, j'ai intégré ces calculs dans un programme informatique, et procédé à la validation expérimentale de celui-ci en le faisant fonctionner et en comparant les résultats obtenus à ceux attendus.
 
+%pour obtenir la valeur de \emph{l'éclairement énergétique solaire} d'un point en fonction de sa position sur Terre, de la date et de l'heure.
+%L'éclairement énergétique est la puissance reçue par unité de surface (en \SI{}{\watt\per\square\meter})
 
 \clearpage
 \section{Les phénomènes gouvernant l'irradiation solaire}
 
-L'éclairement énergétique solaire au sommet de l'atmosphère, c'est-à-dire l'intensité du rayonnement solaire, varie peu ; l'éclairement énergétique au sol va donc principalement dépendre du degré d'atténuation que subissent des rayons du Soleil lors de leur passage à travers l'atmosphère.
+L'éclairement énergétique solaire au sommet de l'atmosphère, c'est-à-dire l'intensité du rayonnement solaire, varie peu ; l'éclairement énergétique au sol va donc principalement dépendre du niveau d'atténuation que subissent les rayons du Soleil lors de leur passage à travers l'atmosphère.
 
+\subsection{L'atténuation des rayons solaires}
 Alors que dans l'espace les rayons du Soleil peuvent parcourir de grandes distances en perdant peu d'énergie, ils en perdent beaucoup par diffusion et absorption sitôt qu'ils pénètrent l'atmosphère.
 Plus la distance qu'ils parcourent au travers de l'atmosphère est grande, plus ils perdent d'énergie.
 Cette distance est d'autant plus grande que les rayons solaires suivent une trajectoire inclinée, c'est-à-dire que leur angle d'incidence, appelé \emph{angle zénithal}, est grand.
@@ -131,15 +137,24 @@ Cette distance est d'autant plus grande que les rayons solaires suivent une traj
 
 L'angle zénithal change bien sûr avec l'heure : c'est pour cela qu'il fait moins chaud le soir qu'à midi, car, comme le Soleil s'approche de l'horizon, ses rayons suivent une trajectoire oblique et sont fortement atténués par l'atmosphère.
 
-Il dépend également de la période de l'année et de la latitude, car la Terre est penchée sur son axe.
+Cet angle dépend également de la période de l'année et de la latitude, car un point donné de la Terre n'est pas également ensoleillé pendant toute l'année, et à une période donnée certains endroits seront plus ensoleillés que d'autre : c'est le cycle des saisons.
+La variation des saisons est causée par l'inclinaison de la Terre sur son axe, qui fait que sa surface est inégalement éclairée par le Soleil. % sauf aux équinoxes ?...
+
+ \begin{figure}[H]
+	\centerline{\includegraphics[height=7cm]{saison.png}}
+	\caption{Les changements de saisons sont dûs à l'inclinaison de la terre sur son axe. \textit{Crédits image : \url{http://philippe.boeuf.pagesperso-orange.fr/robert/astronomie/saisons.htm}}}
+	\label{fig:seasons-declination}
+\end{figure}
+
+
 C'est cette obliquité qui est responsable des saisons, et qui fait qu'un point donné de la Terre n'est pas également ensoleillé pendant toute l'année.
 Il fera ainsi plus froid en janvier qu'en juillet dans l'hémisphère Nord ; dans l'hémisphère Sud, ce sera l'inverse, car l'été y dure de décembre à février, et l'hiver de juin à août.
 
-\subsection{Angle horaire et heure solaire}
+\subsection{Heure solaire et angle horaire}
 
 On a vu plus tôt que l'angle zénithal dépend, entre autres, de l'heure de la journée.
-On ne peut cependant utiliser l'heure locale pour le calculer directement.
 
+On ne peut cependant utiliser l'heure locale pour le calculer directement.
 En effet, comme la Terre ne tourne pas seulement sur elle-même mais tourne aussi autour du Soleil, il y a décalage entre l'heure \emph{locale} et l'heure \emph{solaire}.
 L'heure locale est l'heure qu'indique un ordinateur ou une horloge, alors que l'heure solaire indique à la position apparente du Soleil dans le ciel.
 Le midi solaire est ainsi défini comme ``l'instant où le Soleil atteint son point de culmination, en un endroit donné de la Terre''\cite{temps_solaire_wiki}.
@@ -157,7 +172,7 @@ L'heure solaire permet de calculer l'\emph{angle horaire}, c'est-à-dire l'arc q
 \clearpage
 \section{Modélisation mathématique}
 %calcul d'éclairement énergétique
-\subsection{Construction de notre modèle}
+\subsection{Construction du modèle}
 
 Pour ce faire, je me suis principalement appuyé sur une collection de ressources du site PVEducation.org appelée \emph{Properties of Sunlight} \cite{properties_of_sunlight}.
 À l'aide de ce site, j'ai déterminé comment l'on pouvait calculer l'éclairement énergétique solaire (\textit{solar irradiance} en anglais) à partir d'autres paramètres physiques, pouvant eux-mêmes être calculés à partir d'autres paramètres, et ainsi de suite jusqu'à établir une relation entre date, heure, position sur la Terre d'un point, et éclairement énergétique solaire de ce point.
@@ -187,7 +202,7 @@ D'après \emph{PVEducation.org} \cite{pos_air_mass}, on a :
 
 Avec $I_d$ l'éclairement énergétique solaire en \SI{}{\watt\per\square\meter}, et $AM$ la masse d'air.
 
-La distance parcourue par les rayons du Soleil ($Y$ sur la figure~\ref{fig:air-mass}) est égale à $\cos \theta$ ($\theta$ est l'angle zénithal, que nous décrirons plus loin).
+La distance parcourue par les rayons du Soleil ($Y$ sur la figure~\ref{fig:air-mass}) est égale à $\cos \theta$ ($\theta$ est l'angle zénithal, que je décrirai plus loin).
 La masse d'air est donc égale à :
 
 \[\frac{1 }{\cos \theta}\]
@@ -289,10 +304,10 @@ Cette approximation ne tient pas compte des nuages ou d'autres phénomènes clim
 \end{figure}
 
 \clearpage
-\section{Modélisation informatique : écriture de notre programme}
+\section{Modélisation informatique : écriture du programme}
 
-Nous disposons à présent d'un petit modèle climatique.
-Pour le faire fonctionner, nous allons devoir le traduire en un modèle informatique, et donc en un programme informatique.
+On dispose à présent d'un petit modèle climatique.
+Pour le faire fonctionner sur ordinateur, il va falloir le traduire en un algorithme qu'on intègrera dans un programme informatique.
 
 \subsection{Bases du fonctionnement d'un programme}
 
@@ -309,8 +324,7 @@ Il est alors libre d'exécuter le code machine.
 Il existe de nombreux langages de programmation, chacun ayant ses propres atouts et points faibles.
 Pour ce TPE, j'ai choisi d'écrire mon programme en \textbf{Rust} \footnote{\url{https://www.rust-lang.org/}}.
 Il s'agit d'un langage innovant, extrêmement performant, et prévenant de nombreux bugs grâce à un système qui analyse automatiquement le code source afin de vérifier son exactitude avant la traduction en langage machine.
-Ce sont ces qualités, ainsi que ma familiarité avec le langage, que j'utilise depuis janvier 2015, qui ont motivé mon choix.
-% XXX / TODO: "écriture du programme" ?
+Ce sont ces qualités, ainsi que ma familiarité avec ce langage, que j'utilise depuis janvier 2015, qui ont motivé mon choix.
 
 
 \subsection{Interface utilisateur}
@@ -328,7 +342,7 @@ J'ai décidé de munir mon programme d'une interface utilisateur simple, afin qu
 \FloatBarrier
 \subsection{Code source}
 
-Le code source de mon programme est trop long\footnote{252 lignes au total, dont 176 lignes de code Rust (en excluant les commentaires et les espaces).} pour le copier dans son intégralité, mais il est disponible publiquement sur GitHub, un site de développement collaboratif.\footnote{\url{https://github.com/yberreby/rust-climate}}
+Le code source de mon programme est trop long\footnote{252 lignes au total, dont 176 lignes de code Rust (en excluant les commentaires et les espaces).} pour le copier dans son intégralité, mais je l'ai rendu disponible sur GitHub, un site de développement collaboratif.\footnote{\url{https://github.com/yberreby/rust-climate}}
 Vous pouvez en télécharger une copie en cliquant sur "Download ZIP" dans l'interface GitHub.\footnote{\url{https://github.com/yberreby/rust-climate/archive/master.zip}}
 Il est également possible de le lire directement depuis votre navigateur, en cliquant sur les noms des fichiers dans l'interface Web.
 Le code est dans \texttt{src}.
@@ -342,7 +356,7 @@ En voici un extrait (fichier \texttt{src/irradiance.rs}) :
 \clearpage
 \section{Validation expérimentale : essai du programme}
 
-Maintenant que nous disposons d'un programme fonctionnel, il est nécessaire de le \emph{tester} pour vérifier si les résultats qu'il produit correspondent à la réalité.
+Maintenant qu'on dispose d'un programme fonctionnel, il est nécessaire de le \emph{tester} pour vérifier si les résultats qu'il produit correspondent à la réalité.
 
 \subsection{Résultats attendus}
 
@@ -373,12 +387,14 @@ Cette valeur est proche des \SI{960}{\watt\per\square\meter} annoncées par Gree
 \clearpage
 \section{Conclusion}
 
-Nous avons ainsi répondu à la problématique de départ ("comment peut-on modéliser l’irradiation solaire, et traduire cette modélisation mathématique en programme informatique ?") par l'élaboration d'un modèle de l'irradiation solaire, et par sa traduction en un programme capable d'effectuer les calculs nécessaires à son fonctionnement de manière automatisée.
+Je suis ainsi parvenu à construire un modèle mathématique de l'irradiation solaire, ainsi qu'un programme permettant de le faire fonctionner en réalisant automatiquement tous les calculs nécessaires. 
 
-L'éclairement énergétique, que notre modèle permet de calculer, est une donnée qui peut servir de base à une construction plus élaborée : avec des connaissances et des moyens suffisants, on pourrait imaginer ajouter à notre modèle la prise en compte des nuages, ou de la courbure de la Terre\footnote{Le calcul de la masse d'air est en effet une simplification, qui considère le sol comme un plan et non comme la surface d'une sphère, ce qui entraîne de petites imprécisions.}, on pourrait le rendre capable de prévoir la température dans une ville... mais il faudrait pour cela aussi modéliser l'effet de serre, les vents, le phénomène de convection atmosphérique, et mille autres données !
-On se rend bien vite compte que la complexité du modèle augmente très rapidement avec le nombre de facteurs qu'il prend en compte.
+L'éclairement énergétique que mon modèle permet de calculer est une donnée qui peut servir de base à une construction plus élaborée.
+Ainsi, avec des connaissances et des moyens suffisants, on pourrait par exemple imaginer ajouter à ce modèle la prise en compte des nuages, qui absorbent beaucoup d'énergie solaire, ou de la courbure de la Terre\footnote{Le calcul de la masse d'air est en effet une simplification, qui considère le sol comme un plan et non comme la surface d'une sphère, ce qui entraîne de petites imprécisions.}.
+On pourrait le rendre capable de prévoir la température dans une ville... mais il faudrait pour cela qu'il intègre l'effet de serre, les vents, le phénomène de convection atmosphérique, et mille autres données !
+On se rend bien vite compte que la complexité du modèle augmente de façon exponentielle avec le nombre de facteurs qu'il prend en compte.
 
-Cet exemple illustre la complexité à laquelle sont quotidiennement confrontés les chercheurs en sciences du climat : si la modélisation \emph{approximative} d'une seule variable, ignorant nombre de facteurs, mobilise tout de même de nombreux calculs et environ 200 lignes de code, à combien plus forte raison la construction d'un modèle climatique complet, comprenant non seulement l'irradiation solaire mais aussi les vents, la mesure dans laquelle les matériaux à la surface de la Terre absorbent le rayonnement solaire, la formation de nuages, l'humidité de l'air, etc., ne mobilisera-t-elle pas d'incroyable ressources matérielles et humaines !
+Cet exemple illustre la complexité à laquelle sont quotidiennement confrontés les chercheurs en sciences du climat : si la modélisation \emph{approximative} d'une seule variable, ignorant nombre de facteurs, nécessite tout de même de nombreux calculs et environ 200 lignes de code, à combien plus forte raison la construction d'un modèle climatique complet, comprenant non seulement l'irradiation solaire mais aussi les vents, la mesure dans laquelle les matériaux à la surface de la Terre absorbent le rayonnement solaire, la formation de nuages, l'humidité de l'air, etc., ne mobilisera-t-elle pas d'incroyable ressources matérielles et humaines !
 
 
 \clearpage
