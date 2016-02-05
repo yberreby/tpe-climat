@@ -113,65 +113,68 @@ Cet exemple, d'une grande simplicité en comparaison avec les modèles qu'utilis
 \vspace{0.5cm}
 
 Pour le réaliser, j'ai tenté de comprendre les phénomènes et paramètres gouvernant l'irradiation solaire.
-Puis, je me suis attaché à modéliser cette irradiation solaire par le calcul à l'aide de ressources trouvées sur Internet.
+Ensuite, je me suis attaché à modéliser cette irradiation solaire par le calcul à l'aide de ressources trouvées sur Internet.
 Finalement, j'ai intégré ces calculs dans un programme informatique, et procédé à la validation expérimentale de celui-ci en le faisant fonctionner et en comparant les résultats obtenus à ceux attendus.
 
-%pour obtenir la valeur de \emph{l'éclairement énergétique solaire} d'un point en fonction de sa position sur Terre, de la date et de l'heure.
-%L'éclairement énergétique est la puissance reçue par unité de surface (en \SI{}{\watt\per\square\meter})
+
 
 \clearpage
 \section{Les phénomènes gouvernant l'irradiation solaire}
 
-L'éclairement énergétique solaire au sommet de l'atmosphère, c'est-à-dire l'intensité du rayonnement solaire, varie peu ; l'éclairement énergétique au sol va donc principalement dépendre du niveau d'atténuation que subissent les rayons du Soleil lors de leur passage à travers l'atmosphère.
-
-\subsection{L'atténuation des rayons solaires}
-Alors que dans l'espace les rayons du Soleil peuvent parcourir de grandes distances en perdant peu d'énergie, ils en perdent beaucoup par diffusion et absorption sitôt qu'ils pénètrent l'atmosphère.
-Plus la distance qu'ils parcourent au travers de l'atmosphère est grande, plus ils perdent d'énergie.
-Cette distance est d'autant plus grande que les rayons solaires suivent une trajectoire inclinée, c'est-à-dire que leur angle d'incidence, appelé \emph{angle zénithal}, est grand.
+On appelle \emph{éclairement énergétique solaire} la puissance reçue du Soleil par unité de surface.
+Cette valeur est mesurée en \SI{}{\watt\per\square\meter}.
+L'intensité du rayonnement solaire frappant la Terre variant peu, l'éclairement énergétique \emph{au sol} dépend principalement du niveau d'atténuation des rayons du Soleil lors de leur passage à travers l'atmosphère.
+En effet, alors que dans l'espace les rayons du Soleil peuvent parcourir de grandes distances en perdant peu d'énergie, ils en perdent beaucoup par diffusion et absorption sitôt qu'ils pénètrent l'atmosphère.
+Plus la distance parcourue au travers de l'atmosphère est grande, plus ils perdent d'énergie.
+Cette distance est d'autant plus grande que les rayons solaires suivent une trajectoire inclinée, c'est-à-dire que leur angle d'incidence est grand (figure~\ref{fig:angle-of-incidence}).
 
  \begin{figure}[H]
-	\centerline{\includegraphics[width=12cm]{angle-of-incidence.jpg}}
+	\centerline{\includegraphics[width=\textwidth]{angle-of-incidence.jpg}}
 	\caption{L'angle d'incidence des rayons lumineux est appelé \emph{angle zénithal}. Plus il est grand, plus les rayons solaires doivent parcourir une distance importante au travers de l'atmosphère, et plus ils sont atténués.}
 	\label{fig:angle-of-incidence}
 \end{figure}
 
-L'angle zénithal change bien sûr avec l'heure : c'est pour cela qu'il fait moins chaud le soir qu'à midi, car, comme le Soleil s'approche de l'horizon, ses rayons suivent une trajectoire oblique et sont fortement atténués par l'atmosphère.
+\section{L'angle zénithal}
+L'angle d'incidence des rayons solaires est appelé \emph{angle zénithal}.
+Il varie en fonction de trois paramètres : \emph{l'angle horaire}, \emph{l'angle de déclinaison}, et la \emph{latitude}.
 
-Cet angle dépend également de la période de l'année et de la latitude, car un point donné de la Terre n'est pas également ensoleillé pendant toute l'année, et à une période donnée certains endroits seront plus ensoleillés que d'autre : c'est le cycle des saisons.
-La variation des saisons est causée par l'inclinaison de la Terre sur son axe, qui fait que sa surface est inégalement éclairée par le Soleil. % sauf aux équinoxes ?...
+L'angle horaire est la mesure du déplacement apparent du Soleil dans le ciel. 
+Il change avec l'heure : c'est pour cela qu'il fait moins chaud le soir qu'à midi, car comme le Soleil s'approche de l'horizon, ses rayons suivent une trajectoire oblique et sont fortement atténués par l'atmosphère.
+
+L'angle zénithal dépend également de la période de l'année et de la latitude car la surface de la Terre est éclairée différemment par le Soleil tout au long de l'année : c'est le cycle des saisons.
+Il fera ainsi plus froid en janvier qu'en juillet dans l'hémisphère Nord ; dans l'hémisphère Sud, ce sera l'inverse, car l'été y dure de décembre à février, et l'hiver de juin à août.
+Ces différences d'ensoleillement sont dues à l'inclinaison de la Terre sur son axe (voir figure~\ref{fig:seasons-year}).
 
  \begin{figure}[H]
-	\centerline{\includegraphics[height=7cm]{saison.png}}
-	\caption{Les changements de saisons sont dûs à l'inclinaison de la terre sur son axe. \textit{Crédits image : \url{http://philippe.boeuf.pagesperso-orange.fr/robert/astronomie/saisons.htm}}}
-	\label{fig:seasons-declination}
-\end{figure}
+	\centerline{\includegraphics[width=\textwidth]{seasons-2.jpeg}}
+	\caption{La Terre est inclinée sur son axe, ce qui fait qu'elle se présente au Soleil sous des angles différents à chaque saison. \textit{Crédits image : \url{http://quelles-dates.fr/dates-solstices-ete-hiver-et-equinoxes/}}}
+	\label{fig:seasons-year}\end{figure}
+	
 
+\subsection{Heure solaire, angle horaire}
 
-C'est cette obliquité qui est responsable des saisons, et qui fait qu'un point donné de la Terre n'est pas également ensoleillé pendant toute l'année.
-Il fera ainsi plus froid en janvier qu'en juillet dans l'hémisphère Nord ; dans l'hémisphère Sud, ce sera l'inverse, car l'été y dure de décembre à février, et l'hiver de juin à août.
+On a vu plus tôt que l'angle zénithal dépendait, entre autres, de l'angle horaire.
+Ce dernier est exprimable indépendamment en degrés ou en heures, et est appelé \emph{heure solaire} dans le second cas.
+Le midi solaire est ainsi défini comme ``l'instant où le Soleil atteint son point de culmination, en un endroit donné de la Terre''\cite{temps_solaire_wiki} : à ce même instant, l'angle horaire vaut 90\degree.
 
-\subsection{Heure solaire et angle horaire}
+On pourrait penser que l'heure solaire ou l'angle horaire peuvent être calculés simplement à partir de l'heure \emph{légale}, ou heure locale, (i.e., celle indiquée par une montre), mais ce n'est pas le cas.
+Il existe un décalage variable entre ces deux valeurs, car l'heure solaire évalue de façon irrégulière, contrairement à l'heure légale.
+Cela est dû à la trajectoire elliptique que suit la Terre dans sa révolution autour du Soleil, qu'on peut observer sur la figure~\ref{fig:seasons-year}.
+La vitesse de révolution de la Terre est également variable selon l'époque de l'année.
 
-On a vu plus tôt que l'angle zénithal dépend, entre autres, de l'heure de la journée.
+Un paramètre appelé \emph{équation du temps} rend compte de ces irrégularités.
 
-On ne peut cependant utiliser l'heure locale pour le calculer directement.
-En effet, comme la Terre ne tourne pas seulement sur elle-même mais tourne aussi autour du Soleil, il y a décalage entre l'heure \emph{locale} et l'heure \emph{solaire}.
-L'heure locale est l'heure qu'indique un ordinateur ou une horloge, alors que l'heure solaire indique à la position apparente du Soleil dans le ciel.
-Le midi solaire est ainsi défini comme ``l'instant où le Soleil atteint son point de culmination, en un endroit donné de la Terre''\cite{temps_solaire_wiki}.
-
-
-
-L'heure solaire est fonction de la longitude du point étudié, de la longitude du méridien local à ce point et de l'équation du temps, un paramètre qui permet de corriger l'irrégularité du temps solaire, celui-ci n'évoluant pas de manière monotone.\footnote{\textit{``Remarque sur le mot ``équation'' : en astronomie ancienne, le terme ``équation'' désignait une correction ajoutée algébriquement à une valeur moyenne pour obtenir une valeur vraie.
+\footnote{\textit{``Remarque sur le mot ``équation'' : en astronomie ancienne, le terme ``équation'' désignait une correction ajoutée algébriquement à une valeur moyenne pour obtenir une valeur vraie.
 C'est une telle acception qui a survécu dans l'expression ``équation du temps'' ''} \cite{equation_temps_wiki}.}
 
-L'heure solaire permet de calculer l'\emph{angle horaire}, c'est-à-dire l'arc que décrit le Soleil au cours de la journée.
-
-% XXX: l'heure solaire mérite de GRANDES EXPLICATIONS
+% longitude méridien standard local
 
 
 \clearpage
 \section{Modélisation mathématique}
-%calcul d'éclairement énergétique
+
+XXX \emph{l'éclairement énergétique solaire} d'un point en fonction de sa position sur Terre, de la date et de l'heure
+
 \subsection{Construction du modèle}
 
 Pour ce faire, je me suis principalement appuyé sur une collection de ressources du site PVEducation.org appelée \emph{Properties of Sunlight} \cite{properties_of_sunlight}.
@@ -187,7 +190,7 @@ Il représente le rapport de la longueur du plus court chemin possible au traver
 Plus cette valeur est élevée, plus les rayons du Soleil doivent parcourir une distance importante, et plus ils sont atténués par l'atmosphère.
 
 \begin{figure}[H]
-	\centerline{\includegraphics[width=12cm]{air-mass.png}}
+	\centerline{\includegraphics[width=\textwidth]{air-mass.png}}
 	\caption{La masse d'air à un instant et en un point donné (\textit{air mass} en anglais) est définie par X (chemin le plus court que peuvent prendre les rayons du Soleil) divisé par Y (chemin qu'ils prennent à cet instant et en ce point).} % C'EST FAUX - 1/COS THETA - CE N'EST PAS ÇA
 	\label{fig:air-mass}
 \end{figure}
@@ -220,7 +223,7 @@ $\theta$ est \emph{l'angle zénithal}. L'angle zénithal et l'angle d'élévatio
 %\end{figure}
 
  \begin{figure}[H]
-	\centerline{\includegraphics[width=12cm]{zenith-and-elevation-angles-schema.jpg}}
+	\centerline{\includegraphics[width=\textwidth]{zenith-and-elevation-angles-schema.jpg}}
 	\caption{Angle zénithal et angle d'élévation.}
 	\label{fig:elevation-and-zenith-angle}
 \end{figure}
