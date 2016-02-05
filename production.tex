@@ -329,7 +329,7 @@ Ce sont ces qualités, ainsi que ma familiarité avec ce langage, que j'utilise 
 
 \subsection{Interface utilisateur}
 
-J'ai décidé de munir mon programme d'une interface utilisateur simple, afin qu'il soit possible de l'utiliser sans connaissances en programmation. Il s'agit d'une interface dite \emph{en ligne de commande}, et non d'une interface graphique traditionnelle, afin préserver la simplicité du code. On l'utilise avec le clavier uniquement, en entrant les paramètres demandés l'un après l'autre (figure~\ref{fig:demo}). La date, l'heure et le fuseau horaire sont tous entrés en même temps.
+J'ai décidé de munir mon programme d'une interface utilisateur simple, afin qu'il soit possible de l'utiliser sans connaissances en programmation. Il s'agit d'une interface dite \emph{en ligne de commande}, et non d'une interface graphique traditionnelle, afin préserver la simplicité du code. On l'utilise avec le clavier uniquement, en entrant les paramètres demandés les uns après les autres (figure~\ref{fig:demo}). La date, l'heure et le fuseau horaire sont tous entrés en même temps.
 
 \begin{figure}[!htbp]
   \centering
@@ -387,14 +387,14 @@ Cette valeur est proche des \SI{960}{\watt\per\square\meter} annoncées par Gree
 \clearpage
 \section{Conclusion}
 
-Je suis ainsi parvenu à construire un modèle mathématique de l'irradiation solaire, ainsi qu'un programme permettant de le faire fonctionner en réalisant automatiquement tous les calculs nécessaires. 
+Ainsi, après m'être assuré de comprendre les phénomènes physiques intervenant dans l'irradiation solaire, je les ai traduits en modèle mathématique simple, et j'ai enfin écrit un programme informatique permettant de faire fonctionner ce modèle en réalisant automatiquement tous les calculs nécessaires .
 
 L'éclairement énergétique que mon modèle permet de calculer est une donnée qui peut servir de base à une construction plus élaborée.
-Ainsi, avec des connaissances et des moyens suffisants, on pourrait par exemple imaginer ajouter à ce modèle la prise en compte des nuages, qui absorbent beaucoup d'énergie solaire, ou de la courbure de la Terre\footnote{Le calcul de la masse d'air est en effet une simplification, qui considère le sol comme un plan et non comme la surface d'une sphère, ce qui entraîne de petites imprécisions.}.
-On pourrait le rendre capable de prévoir la température dans une ville... mais il faudrait pour cela qu'il intègre l'effet de serre, les vents, le phénomène de convection atmosphérique, et mille autres données !
-On se rend bien vite compte que la complexité du modèle augmente de façon exponentielle avec le nombre de facteurs qu'il prend en compte.
+Ainsi, avec des connaissances et des moyens suffisants, on pourrait imaginer rendre ce modèle plus précis en y ajoutant, par exemple, la prise en compte des nuages, qui absorbent beaucoup d'énergie solaire, ou de la courbure de la Terre\footnote{Le calcul de la masse d'air est en effet une simplification, qui considère le sol comme un plan et non comme la surface d'une sphère, ce qui entraîne de petites imprécisions.}.
+On pourrait aussi le rendre capable de prévoir la température, mais il faudrait pour cela qu'il intègre l'effet de serre, les vents, le phénomène de convection atmosphérique, et mille autres données !
+On se rend bien vite compte que la complexité augmente de façon exponentielle avec le nombre de facteurs pris en considération.
 
-Cet exemple illustre la complexité à laquelle sont quotidiennement confrontés les chercheurs en sciences du climat : si la modélisation \emph{approximative} d'une seule variable, ignorant nombre de facteurs, nécessite tout de même de nombreux calculs et environ 200 lignes de code, à combien plus forte raison la construction d'un modèle climatique complet, comprenant non seulement l'irradiation solaire mais aussi les vents, la mesure dans laquelle les matériaux à la surface de la Terre absorbent le rayonnement solaire, la formation de nuages, l'humidité de l'air, etc., ne mobilisera-t-elle pas d'incroyable ressources matérielles et humaines !
+Cet exemple illustre les défis que doivent relever les chercheurs en sciences du climat : si la modélisation \emph{approximative} d'une seule variable, ignorant nombre de facteurs, nécessite tout de même de nombreux calculs et environ 200 lignes de code, à combien plus forte raison la construction d'un modèle climatique complet, comprenant non seulement l'irradiation solaire mais aussi les vents, la mesure dans laquelle les matériaux à la surface de la Terre absorbent le rayonnement solaire, la formation de nuages, l'humidité de l'air, etc., ne mobilisera-t-elle pas d'incroyable ressources matérielles et humaines !
 
 
 \clearpage
