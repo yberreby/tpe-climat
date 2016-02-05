@@ -68,39 +68,26 @@
 
 \section{Introduction} 
 
-\subsection{Des enjeux actuels}
-
-Qui n'a jamais eu besoin d'allumer sa télévision ou de consulter son téléphone pour savoir quel temps il ferait avant de prendre un avion, de partir en vacances ou tout simplement d'aller se promener en forêt ?
 Les prévisions météorologiques font aujourd'hui partie intégrante de la vie quotidienne.
-Communes et faciles d'accès, elles présentent cependant des enjeux importants.
-Ces enjeux sont \textbf{économiques}, avec par exemple la météo agricole, un outil précieux pour des millions d'agriculteurs à travers le monde, mais aussi \textbf{humains}, car prévoir une crue ou une tempête ne serait-ce que quelques heures à l'avance peut permettre de sauver des vies en évacuant les populations en danger.
+Qui n'a jamais eu besoin d'allumer sa télévision ou de consulter son téléphone pour savoir quel temps il ferait avant de prendre un avion, de partir en vacances ou tout simplement d'aller se promener en forêt ?
+Cependant, bien qu'elles soient communes et faciles d'accès, elles présentent des enjeux importants.
+Ces enjeux sont \emph{économiques}, avec par exemple la météo agricole, un outil précieux pour des millions d'agriculteurs à travers le monde, mais aussi \emph{humains}, car prévoir une crue ou une tempête ne serait-ce que quelques heures à l'avance peut permettre de sauver des vies en évacuant les populations en danger.
 
-Ces prévisions sont aujourd'hui littéralement à \emph{portée de main} avec l'avènement des applications mobiles, et pourtant elles reposent sur des constructions d'une grande complexité à la croisée des mathématiques, de la physique et de l'informatique : \textbf{les modèles}.
+Ces prévisions sont aujourd'hui littéralement à \emph{portée de main} avec l'avènement des applications mobiles, et pourtant les constructions sur lesquelles elles reposent sont d'une grande complexité.
+Il s'agit d'outils à la croisée des mathématiques, de la physique et de l'informatique : les \textbf{modèles}.
 
-\subsection{Les modèles en climatologie}
+Les modèles sont des représentations de phénomènes, rendues suffisamment simples pour qu'on puisse les appréhender et les manipuler, mais qui restent aussi proches de la réalité que possible.
+Dans le cadre de la météorologie, c'est-à-dire l'étude du temps à court terme, ils sont surtout utiles pour réaliser des \textbf{prévisions}.
+Les modèles \emph{climatiques}, eux, permettent une étude du temps à plus long terme, en simulant les conditions climatiques des centaines, des milliers ou des millions d'années dans le futur ou dans le passé.
 
-On parle de modèles mathématiques, scientifiques, climatiques, ou encore informatiques.
-Ces notions, bien que diverses, se rejoignent en un point : il s'agit de représentations de phénomènes rendues suffisamment simples pour qu'on puisse les appréhender et les manipuler, mais qui restent les plus proches possibles de la réalité, sans quoi elles seraient inutiles. % XXX: trop long
-En ce sens, l'on peut dire que tout modèle est une \textbf{approximation du réel}.
-
-Le modèle \emph{mathématique} est une construction formelle qui sert bien souvent de base au modèle informatique.
-Les lois qui régissent le premier servent de base au second, qui, soumis à des contraintes physiques (vitesse de calcul, de transfert des données, capacité de stockage d'un volume de données grandissant), en est la traduction empirique et approximative.
-Bien qu'on sache aujourd'hui prévoir des phénomènes \emph{précisément à court terme}, ou \emph{approximativement à long terme}, nous sommes incapables de les prévoir \emph{précisément à long terme} : nous savons quelle température il fera demain, mais pas s'il pleuvra le même jour l'année prochaine.
-
-Il convient d'établir une distinction entre climatologie et météorologie, car là où la météorologie étudie le temps à court terme, l'étude du climat se fait nécessairement à long terme. Prévoir s'il pleuvra dans une semaine, par exemple, relève ainsi de la météorologie, alors qu'étudier l'impact qu'aura le réchauffement climatique sur notre atmosphère dans 50 ans est du domaine de la climatologie.
-
-
-\subsection{Rapport au thème}
-
-La modélisation climatique s'inscrit naturellement dans le thème choisi, à savoir \emph{"l'aléatoire, l'insolite, le prévisible"}, car, outre l'exploration du passé qu'elle permet -- un point sur lequel on reviendra plus loin --, l'un de ses principaux intérêts est la réalisation de \textbf{prévisions météorologiques}. % XXX: IL FAUT REVENIR SUR L'EXPLORATION DU PASSÉ
-
-Elle est également aujourd'hui indissociable de l'informatique, d'où le choix du sujet \emph{"la modélisation informatique du climat"}.
-En effet, le volume de données que doit traiter tout modèle climatique à partir d'un certain degré de complexité est bien trop important pour qu'un être humain, même muni d'une calculatrice, puisse réaliser les calculs nécessaires. On a donc pour cela recours à des ordinateurs, car ils sont capables de réaliser ces calculs à des vitesses dépassant de très loin les capacités humaines.
+La modélisation météorologique est étroitement liée au thème du prévisible, puisque son principal intérêt est de pouvoir réaliser des prévisions.
+La modélisation du temps, qu'elle soit météorologique ou climatique, est également aujourd'hui indissociable de l'informatique.
+Le volume de données dépassant rapidement de très loin les capacités humaines, on a recours à des ordinateurs pour réaliser les calculs nécessaires, car ils peuvent le faire à des vitesses très élevées.
 
 
 \subsection{Démarche expérimentale}
 
-Le rôle primordial des modèles dans un domaine aussi important que la météorologie m'a conduit à vouloir explorer leur fonctionnement en créant un modèle simple de \emph{l'irradiation solaire}.
+Le rôle primordial des modèles dans un domaine aussi important que la météorologie m'a conduit à vouloir explorer leur fonctionnement en créant un petit modèle de \emph{l'irradiation solaire}.
 
 Cet exemple, d'une grande simplicité en comparaison avec les modèles qu'utilisent des organismes comme Météo France, présente cependant de multiples avantages :
 
@@ -112,9 +99,9 @@ Cet exemple, d'une grande simplicité en comparaison avec les modèles qu'utilis
 
 \vspace{0.5cm}
 
-Pour le réaliser, j'ai tenté de comprendre les phénomènes et paramètres gouvernant l'irradiation solaire.
+J'ai d'abord tenté de comprendre les phénomènes et paramètres gouvernant l'irradiation solaire.
 Ensuite, je me suis attaché à modéliser cette irradiation solaire par le calcul à l'aide de ressources trouvées sur Internet.
-Finalement, j'ai intégré ces calculs dans un programme informatique, et procédé à la validation expérimentale de celui-ci en le faisant fonctionner et en comparant les résultats obtenus à ceux attendus.
+Finalement, j'ai intégré ces calculs dans un programme informatique, et je l'ai testé en le faisant fonctionner et en comparant les résultats obtenus à ceux attendus.
 
 
 
