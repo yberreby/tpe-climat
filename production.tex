@@ -130,7 +130,7 @@ L'angle horaire est la mesure du déplacement apparent du Soleil dans le ciel.
 Il change avec l'heure : c'est pour cela qu'il fait moins chaud le soir qu'à midi, car comme le Soleil s'approche de l'horizon, ses rayons suivent une trajectoire oblique et sont fortement atténués par l'atmosphère.
 
 La déclinaison, elle, est l'angle que forment le plan de l'équateur et les rayons du Soleil.
-Elle varie tout au long de l'année,  ce qui fait que la surface de la Terre est éclairée différemment par le Soleil tout au long de l'année : c'est le cycle des saisons (voir figure~\ref{fig:seasons-year}). Elle et la latitude doivent être prises en compte car les saisons ne sont pas les mêmes partout sur le globe.
+Elle varie tout au long de l'année,  ce qui fait que la surface de la Terre est éclairée différemment par le Soleil tout au long de l'année : c'est le cycle des saisons (voir figure~\ref{fig:seasons-year}). La déclinaison et la latitude doivent être prises en compte car les saisons ne sont pas les mêmes partout sur le globe.
 Ainsi, par exemple, il fera plus froid en janvier qu'en juillet dans l'hémisphère Nord, mais ce sera l'inverse dans l'hémisphère Sud car l'été y dure de décembre à février, et l'hiver de juin à août.
 
  \begin{figure}[H]
@@ -176,29 +176,18 @@ Le Soleil ne sera ainsi pas aussi haut dans le ciel à un instant donné si l'on
 \clearpage
 \section{Modélisation mathématique}
 
-Maintenant qu'on a détaillé les phénomènes impliqués dans la variation de l'éclairement énergétique solaire d'un lieu, d'une heure et d'une date à l'autre, on va tenter de les modéliser mathématiquement pour pouvoir calculer l'éclairement énergétique solaire en un point en fonction de ces paramètres (position sur Terre, date et heure).
+Maintenant qu'on a détaillé les phénomènes impliqués dans la variation de l'éclairement énergétique solaire d'un lieu, d'une heure et d'une date à l'autre, on va tenter de les modéliser mathématiquement pour pouvoir calculer l'éclairement énergétique solaire en un point, en fonction de ces paramètres (position sur Terre, date et heure).
+%Pour cela, nous utiliserons une approche descendante, pour calculer les paramètres intermédiaires nécessaires
 
-\subsubsection{Calcul de de la masse d'air}
+\subsection{Éclairement énergétique et masse d'air}
 
 Nous avons expliqué plus tôt que plus l'épaisseur d'atmosphère traversée par les rayons solaires est grande, plus ils perdent d'énergie.
 On utilise pour représenter cette épaisseur un paramètre appelé \emph{masse d'air} (\textit{air mass} en anglais) \cite{air_mass_wiki}.
-
-En notant $AM$ la masse d'air, et en appelant $\theta$ l'angle zénithal (voir section~\ref{sec:zenith-angle}), elle est définie par :
-
-\[
-	AM = \frac{1 }{\cos \theta}
-\]
-
+Elle permet de calculer directement l'éclairement énergétique solaire au sol.
 Plus cette valeur est élevée, plus les rayons du Soleil sont atténués.
 
-\begin{figure}[H]
-	\centerline{\includegraphics[width=\textwidth - 1cm]{air-mass-schema.jpg}}
-	\caption{La masse d'air à un instant et en un point donné est définie comme la longueur du chemin que les rayons du Soleil prennent au travers de l'atmosphère ($b$), divisée par la longueur minimum de ce chemin ($a$). $b$, ainsi que la masse d'air, est minimal quand le Soleil est exactement à la verticale du point étudié.}
-	\label{fig:air-mass}
-\end{figure}
-
-La masse d'air permet de calculer directement l'éclairement énergétique solaire au sol.
-Ainsi, en le nommant $I_d$ et en l'exprimant en watts par mètre carré (\SI{}{\watt\per\square\meter}), on a, d'après \emph{PVEducation.org} \cite{pos_air_mass} :
+On note $I_d$ l'éclairement énergétique solaire au niveau du sol, exprimé en \SI{}{\watt\per\square\meter} (watts par mètre carré), $AM$ la masse d'air, et $\theta$ l'angle zénithal (voir section~\ref{sec:zenith-angle}).
+On a alors, d'après \emph{PVEducation.org} \cite{pos_air_mass} :
 
 \[
 	\scalebox{1.3}{
@@ -206,26 +195,35 @@ Ainsi, en le nommant $I_d$ et en l'exprimant en watts par mètre carré (\SI{}{\
 	}
 \]
 
-
-\subsubsection{Angle zénithal, d'élévation, de déclinaison}
-$\theta$ est \emph{l'angle zénithal}. L'angle zénithal et l'angle d'élévation ($\alpha$) étant complémentaires, on a :
 \[
-	\delta = 90\degree - \alpha
+	\scalebox{1.3}{
+		$AM = \frac{1}{\cos \theta}$
+	}
 \]
 
-%\begin{figure}[!ht]
-%	\centerline{\includegraphics[width=7cm]{elevation-and-zenith-angle.png}}
-%	\caption{Angle zénithal et angle d'élévation}
-%	\label{fig:elevation-and-zenith-angle}
-%\end{figure}
+\begin{figure}[H]
+	\centerline{\includegraphics[width=\textwidth - 1cm]{air-mass-schema.jpg}}
+	\caption{La masse d'air à un instant et en un point donné est définie comme la longueur du chemin que les rayons du Soleil prennent au travers de l'atmosphère ($b$), divisée par la longueur minimum de ce chemin ($a$). $b$, ainsi que la masse d'air, est minimal quand le Soleil est exactement à la verticale du point étudié.}
+	\label{fig:air-mass}
+\end{figure}
+
+
+\subsubsection{Angle zénithal, d'élévation, de déclinaison}
+On calcule l'angle zénithal $\theta$ à partir d'une valeur intermédiaire : \emph{l'angle d'élévation}, qu'on note $\alpha$.
+Il s'agit de l'angle entre l'horizontale et le Soleil, là où l'angle zénithal est l'angle entre la \emph{verticale} et le Soleil.
+
+L'angle zénithal $\theta$ et l'angle d'élévation $\alpha$ étant complémentaires, on a :
+\[
+	\theta = 90\degree - \alpha
+\]
 
  \begin{figure}[H]
-	\centerline{\includegraphics[width=\textwidth]{zenith-and-elevation-angles-schema.jpg}}
+	\centerline{\includegraphics[width=\textwidth]{elevation-and-zenith-angle-ink.jpg}}
 	\caption{Angle zénithal et angle d'élévation.}
 	\label{fig:elevation-and-zenith-angle}
 \end{figure}
 
-L'angle d'élévation $\alpha$ est plus complexe à calculer, car il est fonction de la latitude du point étudié, de \emph{l'angle de déclinaison} et de \emph{l'angle horaire}. On a ainsi, d'après \emph{PVEducation.org} \cite{pos_elevation_angle}, pour $\phi$ la latitude du point étudié :
+$\alpha$ est plus complexe à calculer, car il est fonction de la latitude du point étudié, de \emph{l'angle de déclinaison} et de \emph{l'angle horaire}. D'après \emph{PVEducation.org} \cite{pos_elevation_angle}, on a ainsi, pour $\phi$ la latitude du point étudié :
 
 \[
 	\alpha = \sin^{-1} \left(
@@ -250,28 +248,11 @@ L'angle de déclinaison $\delta$ est \emph{``l'angle entre la droite joignant le
 
 
 
-\subsubsection{Angle horaire et temps solaire} % XXX
+\subsubsection{Angle horaire et temps solaire}
 
-
-Pour calculer l'heure solaire à partir de l'heure locale, il faut calculer valeur appelée facteur de correction du temps, qui est la différence entre l'heure solaire et l'heure locale.
-
-
-\[
-	\text{longitude du méridien local} = 15 \degree \cdot \Delta T_{GMT}
-\]
-
-\begin{gather*}
-	B = \frac{360}{365} \left( d - 81 \right) \\
-	\text{équation du temps} = 9,87 \sin \left( 2B \right) - 7,53 \cos \left( B \right) - 1,5 \sin \left( B \right)
-\end{gather*}
-
-\begin{multline*}
-	\text{facteur de correction de l'heure} = 4 \left( \text{longitude} - \text{longitude du méridien local} \right) \\ + \text{équation du temps}
-\end{multline*}
-
-\[
-	\text{heure solaire} = \text{heure locale} + \frac{\text{facteur de correction de l'heure}}{60}
-\]
+Pour calculer l'heure solaire à partir de l'heure locale, il faut calculer une valeur appelée facteur de correction du temps, qui est la différence entre l'heure solaire et l'heure locale.
+On note $\Delta T_{GMT}$ le décalage horaire, en heures, par rapport à l'heure GMT.
+Ainsi, par exemple, $\Delta T_{GMT}$ vaudra $1$ pour Paris, car son fuseau horaire est GMT+1.
 
 \[
 	\text{angle horaire} = 15 \degree \left(
@@ -279,16 +260,32 @@ Pour calculer l'heure solaire à partir de l'heure locale, il faut calculer vale
 	\right)
 \]
 
-$\Delta T_{GMT}$ est le décalage horaire, en heures, par rapport à l'heure GMT. Ainsi, par exemple, $\Delta T_{GMT}$ vaudra $1$ pour Paris, car son fuseau horaire est GMT+1.
+\[
+	\text{heure solaire} = \text{heure locale} + \frac{\text{facteur de correction de l'heure}}{60}
+\]
+
+\begin{multline*}
+	\text{facteur de correction de l'heure} = 4 \left( \text{longitude} - \text{longitude du méridien local} \right) \\ + \text{équation du temps}
+\end{multline*}
+
+\begin{gather*}
+	B = \frac{360}{365} \left( d - 81 \right) \\
+	\text{équation du temps} = 9,87 \sin \left( 2B \right) - 7,53 \cos \left( B \right) - 1,5 \sin \left( B \right)
+\end{gather*}
+
+\[
+	\text{longitude du méridien local} = 15 \degree \cdot \Delta T_{GMT}
+\]
+
 
 \subsubsection{Combinaison des paramètres}
 La combinaison de tous ces paramètres permet de calculer une approximation de l'éclairement énergétique solaire en un point à partir de la position de ce point, de la date, de l'heure locale et du fuseau horaire seulement.
-Le fuseau horaire doit être indiqué explicitement car on ne peut le déduire simplement à partir de la latitude, les limites des fuseaux horaires tendant à suivre les frontières des pays au lieu d'être rectilignes, comme le montre la figure~\ref{fig:timezones}.+
+Le fuseau horaire doit être indiqué explicitement car on ne peut le déduire simplement à partir de la latitude, les limites des fuseaux horaires tendant à suivre les frontières des pays au lieu d'être rectilignes, comme le montre la figure~\ref{fig:timezones}.
 
 \begin{figure}[!ht]
   \centering
       \makebox[\textwidth]{\includegraphics[width=\paperwidth]{timezones.png}}
-  \caption{Les fuseaux horaires, dont les limites sont représentées par des lignes rouges, suivent souvent les contours des pays.}
+  \caption{Les fuseaux horaires, dont les limites sont représentées par des lignes rouges sur ce schéma, suivent les contours des pays.}
   \label{fig:timezones}
 \end{figure}
 
@@ -299,7 +296,7 @@ Cette approximation ne tient pas compte des nuages ou d'autres phénomènes clim
 	\centering
 	{ \Large \textbf{Annexe : structure du modèle} \par\medskip }
 	\centerline{\includegraphics[width=\paperwidth - 2cm]{graph.png}}
-	\caption{Structure du modèle.}
+	\caption{Structure du modèle. Chaque bulle représente un paramètre, dépendant d'autres paramètres. Ainsi, par exemple, l'heure solaire dépend de l'heure locale et du facteur de correction de l'heure, qui dépend lui-même de la longitude du point étudié, de celle du méridien local et de l'équation du temps.}
 	\label{fig:model-structure}
 \end{figure}
 
@@ -360,9 +357,8 @@ Maintenant qu'on dispose d'un programme fonctionnel, il est nécessaire de le \e
 
 \subsection{Résultats attendus}
 
-D'après Wikipédia, l'éclairement énergétique solaire \emph{maximal} au niveau de la mer serait d'environ \SI{1000}{\watt\per\square\meter} \cite{earth_irradiance_wiki}, mais aucune source n'est citée.
-D'après une autre source (Green Rhino Energy, une société spécialisée dans l'énergie solaire) \cite{green_rhino_irradiance}, il serait plus proche de \SI{960}{\watt\per\square\meter}.
-Cette valeur ne peut être atteinte que quand les rayons du Soleil arrivent perpendiculairement au plan auquel appartient le point étudié.
+D'après Green Rhino Energy, une société spécialisée dans l'énergie solaire \cite{green_rhino_irradiance}, l'éclairement énergétique solaire \emph{maximal} au niveau de la mer serait d'environ \SI{960}{\watt\per\square\meter}.
+Cette valeur ne peut être atteinte que lorsque les rayons du Soleil arrivent perpendiculairement au plan auquel appartient le point étudié.
 Ce n'est \emph{pas} le cas tous les jours au midi solaire, contrairement à ce que l'on pourrait penser.
 Si c'était le cas, tous les pays seraient, chaque jour de l'année, au midi solaire, soumis à une irradiation solaire équivalente, ce qui est évidemment faux.
 
@@ -373,7 +369,7 @@ Par définition, l'éclairement énergétique maximal est atteint lorsque la mas
 Cependant, on va en pratique chercher à la faire \emph{tendre} vers cette valeur, car tenter de l'égaler exactement serait inutile en raison de l'imprécision des valeurs mesurées servant de base au calcul de l'éclairement énergétique.
 
 J'ai donc fait fonctionner mon programme avec divers paramètres jusqu'à obtenir une masse d'air tendant vers $1$, et j'obtins un éclairement énergétique maximal de \textbf{\SI{947.07}{\watt\per\square\meter}} au niveau de l'équateur, au Gabon (0\degree N, 13\degree E), à 12h20 heure locale (midi heure solaire), le 22 septembre 2016 (équinoxe d'automne).
-Cette valeur est proche des \SI{960}{\watt\per\square\meter} annoncées par Green Rhino Energy : l'essai du programme est donc concluant.
+Cette valeur est proche des \SI{960}{\watt\per\square\meter} annoncés par Green Rhino Energy : l'essai du programme est donc concluant.
 
 \begin{figure}[!ht]
   \centering
@@ -394,7 +390,7 @@ Ainsi, avec des connaissances et des moyens suffisants, on pourrait imaginer ren
 On pourrait aussi le rendre capable de prévoir la température, mais il faudrait pour cela qu'il intègre l'effet de serre, les vents, le phénomène de convection atmosphérique, et mille autres données !
 On se rend bien vite compte que la complexité augmente de façon exponentielle avec le nombre de facteurs pris en considération.
 
-Cet exemple illustre les défis que doivent relever les chercheurs en sciences du climat : si la modélisation \emph{approximative} d'une seule variable, ignorant nombre de facteurs, nécessite tout de même de nombreux calculs et environ 200 lignes de code, à combien plus forte raison la construction d'un modèle climatique complet, comprenant non seulement l'irradiation solaire mais aussi les vents, la mesure dans laquelle les matériaux à la surface de la Terre absorbent le rayonnement solaire, la formation de nuages, l'humidité de l'air, etc., ne mobilisera-t-elle pas d'incroyable ressources matérielles et humaines !
+Cet exemple illustre les défis que doivent relever les chercheurs en sciences du climat : si la modélisation \emph{approximative} d'une seule variable nécessite tout de même de nombreux calculs et environ 200 lignes de code, à combien plus forte raison la construction d'un modèle climatique complet, comprenant non seulement l'irradiation solaire mais aussi les vents, la mesure dans laquelle les matériaux à la surface de la Terre absorbent le rayonnement solaire, la formation de nuages, l'humidité de l'air, etc., ne mobilisera-t-elle pas d'incroyable ressources matérielles et humaines !
 
 
 \clearpage
