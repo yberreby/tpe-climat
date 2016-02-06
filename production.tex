@@ -76,6 +76,7 @@ Ces enjeux sont \emph{économiques}, avec par exemple la météo agricole, un ou
 Ces prévisions sont aujourd'hui littéralement à \emph{portée de main} avec l'avènement des applications mobiles, et pourtant les constructions sur lesquelles elles reposent sont d'une grande complexité.
 Il s'agit d'outils à la croisée des mathématiques, de la physique et de l'informatique : les \textbf{modèles}.
 
+\subsection{Les modèles en sciences du climat}
 Les modèles sont des représentations de phénomènes rendues suffisamment simples pour qu'on puisse les appréhender et les manipuler, tout en restant aussi proches que possible de la réalité.
 Dans le cadre de la météorologie, c'est-à-dire l'étude du temps à court terme, ils sont surtout utiles pour réaliser des \textbf{prévisions}.
 Les modèles \emph{climatiques}, eux, permettent une étude du temps à plus long terme, en simulant les conditions climatiques des centaines, des milliers ou des millions d'années dans le futur ou dans le passé.
@@ -85,22 +86,23 @@ La modélisation du temps, qu'elle soit météorologique ou climatique, est éga
 En effet, le volume de données dépassant rapidement de très loin les capacités humaines, on a recours à des ordinateurs pour réaliser les calculs nécessaires, car ils peuvent le faire à des vitesses très élevées.
 
 
-\subsection{Démarche expérimentale}
+\subsection{Modéliser l'irradiation solaire}
 
 Le rôle primordial des modèles dans un domaine aussi important que la météorologie m'a conduit à vouloir explorer leur fonctionnement en créant un petit modèle de \emph{l'irradiation solaire}.
 
 Cet exemple, d'une grande simplicité en comparaison avec les modèles qu'utilisent des organismes comme Météo France, présente cependant de multiples avantages :
 
+% J'ai choisi de  XXXX TODO FIXME
+
 \begin{itemize}
-  \item il est réalisable par un élève seul dans le cadre d'un TPE,
   \item les calculs qu'il implique sont toutefois suffisamment complexes pour \textbf{justifier la création d'un programme informatique} les réalisant automatiquement,
   \item l'irradiation solaire est \textbf{relativement simple à modéliser} avec une marge d'erreur raisonnable car elle est plus stable, plus prévisible que le vent ou les intempéries, par exemple.
 \end{itemize}
 
-\vspace{0.5cm}
+\subsection{Démarche expérimentale}
 
 Pour mener à bien ce projet, j'ai d'abord tenté de comprendre les phénomènes et paramètres gouvernant l'irradiation solaire.
-Ensuite, je me suis attaché à la modéliser par le calcul à l'aide de ressources trouvées sur Internet.
+Je me suis ensuite attaché à la modéliser par le calcul à l'aide de ressources trouvées sur Internet.
 Finalement, j'ai intégré ces calculs dans un programme informatique, et je l'ai testé en le faisant fonctionner et en comparant les résultats obtenus à ceux attendus.
 
 
@@ -110,27 +112,30 @@ Finalement, j'ai intégré ces calculs dans un programme informatique, et je l'a
 
 On appelle \emph{éclairement énergétique solaire} la puissance reçue du Soleil par unité de surface.
 Cette valeur est mesurée en \SI{}{\watt\per\square\meter}.
+
+\subsection{L'atténuation du rayonnement solaire}
+\label{sec:attenuation-rayonnement}
 L'intensité du rayonnement solaire frappant la Terre variant peu, l'éclairement énergétique \emph{au sol} dépend principalement du niveau d'atténuation des rayons du Soleil lors de leur passage à travers l'atmosphère.
 En effet, alors que dans l'espace les rayons du Soleil peuvent parcourir de grandes distances en perdant peu d'énergie, ils en perdent beaucoup par diffusion et absorption sitôt qu'ils pénètrent l'atmosphère.
 Plus la distance parcourue au travers de l'atmosphère est grande, plus ils perdent d'énergie.
-Cette distance est d'autant plus importante que les rayons solaires suivent une trajectoire inclinée, c'est-à-dire que leur angle d'incidence est grand (figure~\ref{fig:angle-of-incidence}).
+Cette distance est d'autant plus importante que les rayons solaires suivent une trajectoire inclinée, c'est-à-dire que leur angle d'incidence est grand.
 
- \begin{figure}[H]
-	\centerline{\includegraphics[width=\textwidth]{angle-of-incidence.jpg}}
-	\caption{L'angle d'incidence des rayons lumineux est appelé \emph{angle zénithal}. Plus il est grand, plus les rayons solaires doivent parcourir une distance importante au travers de l'atmosphère, et plus ils sont atténués.}
-	\label{fig:angle-of-incidence}
-\end{figure}
+\vfill
+\centerline{\includegraphics[width=\textwidth-5cm]{angle-of-incidence.jpg}}
+\vfill
 
 \subsection{L'angle zénithal}
 \label{sec:zenith-angle}
 L'angle d'incidence des rayons solaires est appelé \emph{angle zénithal}.
 Il varie en fonction de trois paramètres : \emph{l'angle horaire}, \emph{la déclinaison}, et la \emph{latitude}.
 
-L'angle horaire est la mesure du déplacement apparent du Soleil dans le ciel. 
+\textbf{L'angle horaire} est la mesure du déplacement apparent du Soleil dans le ciel. 
 Il change avec l'heure : c'est pour cela qu'il fait moins chaud le soir qu'à midi, car comme le Soleil s'approche de l'horizon, ses rayons suivent une trajectoire oblique et sont fortement atténués par l'atmosphère.
 
-La déclinaison, elle, est l'angle que forment le plan de l'équateur et les rayons du Soleil.
-Elle varie tout au long de l'année,  ce qui fait que la surface de la Terre est éclairée différemment par le Soleil tout au long de l'année : c'est le cycle des saisons (voir figure~\ref{fig:seasons-year}). La déclinaison et la latitude doivent être prises en compte car les saisons ne sont pas les mêmes partout sur le globe.
+La \textbf{déclinaison}, elle, est l'angle que forment le plan de l'équateur et les rayons du Soleil.
+Elle varie tout au long de l'année,  ce qui fait que la surface de la Terre est éclairée différemment par le Soleil tout au long de l'année : c'est le cycle des saisons (voir figure~\ref{fig:seasons-year}).
+
+La déclinaison et la \textbf{latitude} doivent être prises en compte car les saisons ne sont pas les mêmes partout sur le globe.
 Ainsi, par exemple, il fera plus froid en janvier qu'en juillet dans l'hémisphère Nord, mais ce sera l'inverse dans l'hémisphère Sud car l'été y dure de décembre à février, et l'hiver de juin à août.
 
  \begin{figure}[H]
@@ -144,20 +149,26 @@ Ainsi, par exemple, il fera plus froid en janvier qu'en juillet dans l'hémisph�
 
 On a vu plus tôt que l'angle zénithal dépendait, entre autres, de l'angle horaire.
 Ce dernier est exprimable indépendamment en degrés ou en heures, et est appelé \emph{heure solaire} dans le second cas.
-Le midi solaire est ainsi défini comme ``l'instant où le Soleil atteint son point de culmination, en un endroit donné de la Terre''\cite{temps_solaire_wiki} : à ce même instant, l'angle horaire vaut 90\degree.
+Le midi solaire est ainsi défini comme ``l'instant où le Soleil atteint son point de culmination, en un endroit donné de la Terre'' \cite{temps_solaire_wiki} : à ce même instant, l'angle horaire vaut 90\degree.
 
  \begin{figure}[H]
 	\centerline{\includegraphics[width=\textwidth]{midi-solaire.jpg}}
-	\caption{Au midi solaire, le Soleil est au zénith.}
+	\caption{Le midi solaire.}
 	\label{fig:solar-noon}
 \end{figure}
 
-On pourrait penser que l'heure solaire ou l'angle horaire peuvent être calculés simplement à partir de l'heure \emph{légale}, ou heure locale, (i.e., celle indiquée par une montre), mais ce n'est pas le cas.
+On pourrait penser que l'heure solaire ou l'angle horaire peuvent être calculés simplement à partir de l'heure \emph{légale}, ou heure locale, mais ce n'est pas le cas.
 Il existe un décalage variable entre ces deux valeurs, car l'heure solaire évalue de façon irrégulière, contrairement à l'heure légale.
-Cela est dû à la trajectoire elliptique que suit la Terre dans sa révolution autour du Soleil, qu'on peut observer sur la figure~\ref{fig:seasons-year}.
-La vitesse de révolution de la Terre est également variable selon l'époque de l'année.
-Un paramètre appelé \emph{équation du temps}\footnote{\textit{``Remarque sur le mot ``équation'' : en astronomie ancienne, le terme ``équation'' désignait une correction ajoutée algébriquement à une valeur moyenne pour obtenir une valeur vraie.
-C'est une telle acception qui a survécu dans l'expression ``équation du temps'' ''} \cite{equation_temps_wiki}.} représente la variation de l'heure solaire par rapport à l'heure solaire moyenne, et permet donc de corriger les irrégularités de celles-ci \cite{equation_temps_wiki}.
+
+\clearpage
+\subsubsection{L'équation du temps}
+Ce décalage entre l'heure légale et l'heure solaire existe car l'orbite de la Terre autour du Soleil est irrégulière.
+En effet, elle n'est pas parfaitement circulaire, mais elliptique (on peut le voir sur la figure~\ref{fig:seasons-year}), et l'attraction qu'exerce la Lune sur la Terre perturbe également son orbite.
+
+Ces irrégularités sont représentées par un paramètre appelé \emph{équation du temps}\footnote{\textit{``Remarque sur le mot ``équation'' : en astronomie ancienne, le terme ``équation'' désignait une correction ajoutée algébriquement à une valeur moyenne pour obtenir une valeur vraie.
+C'est une telle acception qui a survécu dans l'expression ``équation du temps'' ''} \cite{equation_temps_wiki}.} \cite{equation_temps_wiki}.
+Il s'agit de la variation de l'heure solaire par rapport à l'heure solaire moyenne.
+Sa courbe est similaire d'année en année.
 
  \begin{figure}[H]
 	\centerline{\includegraphics[width=\textwidth]{eot-graph.png}}
@@ -167,27 +178,30 @@ C'est une telle acception qui a survécu dans l'expression ``équation du temps'
 	\label{fig:eot-graph}
 \end{figure}
 
+\subsubsection{La variation de l'heure solaire au sein d'un fuseau horaire}
 L'équation du temps n'est cependant pas suffisante pour calculer l'heure solaire ; il faut aussi prendre en compte la \emph{longitude} du point où l'on se place.
 En effet, au sein d'un fuseau horaire donné, l'heure légale est partout la même, mais ce n'est pas le cas de l'heure solaire.
 Le Soleil ne sera ainsi pas aussi haut dans le ciel à un instant donné si l'on se place dans deux villes situées aux deux extrémités du même fuseau horaire (par exemple Dallas et Chicago, toutes deux situées dans le fuseau horaire UTC-06:00).
 
 
+\section{Approche de la modélisation mathématique}
 
-\clearpage
-\section{Modélisation mathématique}
 
-Maintenant qu'on a détaillé les phénomènes impliqués dans la variation de l'éclairement énergétique solaire d'un lieu, d'une heure et d'une date à l'autre, on va tenter de les modéliser mathématiquement pour pouvoir calculer l'éclairement énergétique solaire en un point, en fonction de ces paramètres (position sur Terre, date et heure).
+Nous avons tenté d'expliquer les principaux phénomènes physiques qui influent sur l'intensité du rayonnement solaire.
+Nous allons à présent essayer de les modéliser mathématiquement afin de calculer l'éclairement énergétique solaire en un point.
+%, en fonction de ces paramètres (position sur Terre, date et heure).
 %Pour cela, nous utiliserons une approche descendante, pour calculer les paramètres intermédiaires nécessaires
 
 \subsection{Éclairement énergétique et masse d'air}
 
-Nous avons expliqué plus tôt que plus l'épaisseur d'atmosphère traversée par les rayons solaires est grande, plus ils perdent d'énergie.
+Nous avons vu dans la partie~\ref{sec:attenuation-rayonnement} que plus l'épaisseur d'atmosphère traversée par les rayons solaires est grande, plus ils perdent d'énergie.
 On utilise pour représenter cette épaisseur un paramètre appelé \emph{masse d'air} (\textit{air mass} en anglais) \cite{air_mass_wiki}.
-Elle permet de calculer directement l'éclairement énergétique solaire au sol.
+Celui-ci permet de calculer directement l'éclairement énergétique solaire au sol.
 Plus cette valeur est élevée, plus les rayons du Soleil sont atténués.
 
-On note $I_d$ l'éclairement énergétique solaire au niveau du sol, exprimé en \SI{}{\watt\per\square\meter} (watts par mètre carré), $AM$ la masse d'air, et $\theta$ l'angle zénithal (voir section~\ref{sec:zenith-angle}).
-On a alors, d'après \emph{PVEducation.org} \cite{pos_air_mass} :
+On note $I_d$ l'éclairement énergétique solaire au niveau du sol, exprimé en \SI{}{\watt\per\square\meter} (watts par mètre carré), $AM$ (pour \emph{air mass}) la masse d'air, et $\theta$ l'angle zénithal (voir section~\ref{sec:zenith-angle}).
+
+On a alors \cite{pos_air_mass} :
 
 \[
 	\scalebox{1.3}{
@@ -203,12 +217,12 @@ On a alors, d'après \emph{PVEducation.org} \cite{pos_air_mass} :
 
 \begin{figure}[H]
 	\centerline{\includegraphics[width=\textwidth - 1cm]{air-mass-schema.jpg}}
-	\caption{La masse d'air à un instant et en un point donné est définie comme la longueur du chemin que les rayons du Soleil prennent au travers de l'atmosphère ($b$), divisée par la longueur minimum de ce chemin ($a$). $b$, ainsi que la masse d'air, est minimal quand le Soleil est exactement à la verticale du point étudié.}
+	\caption{La masse d'air $AM$ à un instant et en un point donné est définie comme la longueur du chemin que les rayons du Soleil prennent au travers de l'atmosphère ($b$), divisée par la longueur minimum de ce chemin ($a$). $b$, ainsi que la masse d'air, est minimal quand le Soleil est exactement à la verticale du point étudié.}
 	\label{fig:air-mass}
 \end{figure}
 
 
-\subsubsection{Angle zénithal, d'élévation, de déclinaison}
+\subsection{Angle zénithal, d'élévation, de déclinaison}
 On calcule l'angle zénithal $\theta$ à partir d'une valeur intermédiaire : \emph{l'angle d'élévation}, qu'on note $\alpha$.
 Il s'agit de l'angle entre l'horizontale et le Soleil, là où l'angle zénithal est l'angle entre la \emph{verticale} et le Soleil.
 
@@ -223,7 +237,8 @@ L'angle zénithal $\theta$ et l'angle d'élévation $\alpha$ étant complémenta
 	\label{fig:elevation-and-zenith-angle}
 \end{figure}
 
-$\alpha$ est plus complexe à calculer, car il est fonction de la latitude du point étudié, de \emph{l'angle de déclinaison} et de \emph{l'angle horaire}. D'après \emph{PVEducation.org} \cite{pos_elevation_angle}, on a ainsi, pour $\phi$ la latitude du point étudié :
+$\alpha$ est plus complexe à calculer, car il est fonction de la latitude du point étudié, de \emph{l'angle de déclinaison} et de \emph{l'angle horaire}.
+On a ainsi, pour $\phi$ la latitude du point étudié  \cite{pos_elevation_angle} :
 
 \[
 	\alpha = \sin^{-1} \left(
@@ -248,7 +263,7 @@ L'angle de déclinaison $\delta$ est \emph{``l'angle entre la droite joignant le
 
 
 
-\subsubsection{Angle horaire et temps solaire}
+\subsection{Angle horaire et temps solaire}
 
 Pour calculer l'heure solaire à partir de l'heure locale, il faut calculer une valeur appelée facteur de correction du temps, qui est la différence entre l'heure solaire et l'heure locale.
 On note $\Delta T_{GMT}$ le décalage horaire, en heures, par rapport à l'heure GMT.
@@ -278,7 +293,7 @@ Ainsi, par exemple, $\Delta T_{GMT}$ vaudra $1$ pour Paris, car son fuseau horai
 \]
 
 
-\subsubsection{Combinaison des paramètres}
+\subsection{Combinaison des paramètres}
 La combinaison de tous ces paramètres permet de calculer une approximation de l'éclairement énergétique solaire en un point à partir de la position de ce point, de la date, de l'heure locale et du fuseau horaire seulement.
 Le fuseau horaire doit être indiqué explicitement car on ne peut le déduire simplement à partir de la latitude, les limites des fuseaux horaires tendant à suivre les frontières des pays au lieu d'être rectilignes, comme le montre la figure~\ref{fig:timezones}.
 
@@ -294,7 +309,7 @@ Cette approximation ne tient pas compte des nuages ou d'autres phénomènes clim
 \clearpage
 \begin{figure}[!htb]
 	\centering
-	{ \Large \textbf{Annexe : structure du modèle} \par\medskip }
+	{ \Large \textbf{Structure du modèle} \par\medskip }
 	\centerline{\includegraphics[width=\paperwidth - 2cm]{graph.png}}
 	\caption{Structure du modèle. Chaque bulle représente un paramètre, dépendant d'autres paramètres. Ainsi, par exemple, l'heure solaire dépend de l'heure locale et du facteur de correction de l'heure, qui dépend lui-même de la longitude du point étudié, de celle du méridien local et de l'équation du temps.}
 	\label{fig:model-structure}
@@ -321,12 +336,15 @@ Il est alors libre d'exécuter le code machine.
 Il existe de nombreux langages de programmation, chacun ayant ses propres atouts et points faibles.
 Pour ce TPE, j'ai choisi d'écrire mon programme en \textbf{Rust} \footnote{\url{https://www.rust-lang.org/}}.
 Il s'agit d'un langage innovant, extrêmement performant, et prévenant de nombreux bugs grâce à un système qui analyse automatiquement le code source afin de vérifier son exactitude avant la traduction en langage machine.
-Ce sont ces qualités, ainsi que ma familiarité avec ce langage, que j'utilise depuis janvier 2015, qui ont motivé mon choix.
+Ce sont ces qualités, ainsi que ma familiarité avec ce langage, qui ont motivé mon choix.
 
 
 \subsection{Interface utilisateur}
 
-J'ai décidé de munir mon programme d'une interface utilisateur simple, afin qu'il soit possible de l'utiliser sans connaissances en programmation. Il s'agit d'une interface dite \emph{en ligne de commande}, et non d'une interface graphique traditionnelle, afin préserver la simplicité du code. On l'utilise avec le clavier uniquement, en les paramètres nécessaires l'un après l'autre (figure~\ref{fig:demo}). La date, l'heure et le fuseau horaire sont tous entrés en même temps.
+J'ai décidé de munir mon programme d'une interface utilisateur simple, afin qu'il soit possible de l'utiliser sans connaissances en programmation.
+Il s'agit d'une interface dite \emph{en ligne de commande}, et non d'une interface graphique traditionnelle, afin préserver la simplicité du code.
+On l'utilise avec le clavier uniquement, en entrant la latitude, la longitude puis la date, l'heure et le fuseau horaire.
+Ces derniers sont entrés simultanément, sous la forme \texttt{DD/MM/YYYY HH:MM:SS [fuseau horaire]}.
 
 \begin{figure}[!htbp]
   \centering
