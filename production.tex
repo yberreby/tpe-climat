@@ -73,41 +73,35 @@ Qui n'a jamais eu besoin d'allumer sa télévision ou de consulter son télépho
 Cependant, bien qu'elles soient communes et faciles d'accès, les prévisions météorologiques présentent des enjeux importants.
 Ces enjeux sont \emph{économiques}, avec par exemple la météo agricole, un outil précieux pour des millions d'agriculteurs à travers le monde, mais aussi \emph{humains}, car prévoir une crue ou une tempête ne serait-ce que quelques heures à l'avance peut permettre de sauver des vies en évacuant les populations en danger.
 
-Ces prévisions sont aujourd'hui littéralement à \emph{portée de main} avec l'avènement des applications mobiles, et pourtant les constructions sur lesquelles elles reposent sont d'une grande complexité.
+Les prévisions météorologiques sont aujourd'hui littéralement à \emph{portée de main} avec l'avènement des applications mobiles, et pourtant les constructions sur lesquelles elles reposent sont d'une grande complexité.
 Il s'agit d'outils à la croisée des mathématiques, de la physique et de l'informatique : les \textbf{modèles}.
 
 \subsection{Les modèles en sciences du climat}
+
+\subsubsection{Modéliser pour prévoir}
 Les modèles sont des représentations de phénomènes rendues suffisamment simples pour qu'on puisse les appréhender et les manipuler, tout en restant aussi proches que possible de la réalité.
 Dans le cadre de la météorologie, c'est-à-dire l'étude du temps à court terme, ils sont surtout utiles pour réaliser des \textbf{prévisions}.
 Les modèles \emph{climatiques}, eux, permettent une étude du temps à plus long terme, en simulant les conditions climatiques des centaines, des milliers ou des millions d'années dans le futur ou dans le passé.
 
-La modélisation météorologique est étroitement liée au thème du prévisible, puisque son principal intérêt est de pouvoir réaliser des prévisions.
-La modélisation du temps, qu'elle soit météorologique ou climatique, est également aujourd'hui indissociable de l'informatique, d'où le choix du sujet "la modélisation informatique du climat" pour ce TPE.
+La modélisation du temps, qu'elle soit météorologique ou climatique, est également aujourd'hui indissociable de l'informatique, d'où le choix du sujet "la modélisation informatique du climat".
 En effet, le volume de données dépassant rapidement de très loin les capacités humaines, on a recours à des ordinateurs pour réaliser les calculs nécessaires, car ils peuvent le faire à des vitesses très élevées.
 
+Malgré cette puissance de calcul grandissante et l'utilisation de modèles mathématiques toujours plus précis, les prévisions météorologiques restent des estimations.
+Nous pouvons donc prévoir le temps, mais non le prédire.
 
-\subsection{Modéliser l'irradiation solaire}
 
-Le rôle primordial des modèles dans un domaine aussi important que la météorologie m'a conduit à vouloir explorer leur fonctionnement en créant un petit modèle de \emph{l'irradiation solaire}.
+\subsubsection{La modélisation de l'irradiation solaire}
 
-Cet exemple, d'une grande simplicité en comparaison avec les modèles qu'utilisent des organismes comme Météo France, présente cependant de multiples avantages :
+Le rôle primordial des modèles dans un domaine aussi important que la météorologie m'a conduit à vouloir explorer leur fonctionnement en créant un modèle à petite à échelle.
+J'ai décidé de m'intéresser à l'irradiation solaire car son intensité, appelée éclairement énergétique solaire, est relativement simple à calculer avec une marge d'erreur raisonnable.
+En effet, elle est plus stable, plus prévisible que le vent ou les intempéries, par exemple.
+Bien que mon modèle se restreigne à cette seule variable, les calculs qu'il implique sont suffisamment complexes pour justifier la création d'un programme informatique les réalisant automatiquement.
 
-% J'ai choisi de  XXXX TODO FIXME
-
-\begin{itemize}
-  \item les calculs qu'il implique sont toutefois suffisamment complexes pour \textbf{justifier la création d'un programme informatique} les réalisant automatiquement,
-  \item l'irradiation solaire est \textbf{relativement simple à modéliser} avec une marge d'erreur raisonnable car elle est plus stable, plus prévisible que le vent ou les intempéries, par exemple.
-\end{itemize}
-
-\subsection{Démarche expérimentale}
-
-Pour mener à bien ce projet, j'ai d'abord tenté de comprendre les phénomènes et paramètres gouvernant l'irradiation solaire.
-Je me suis ensuite attaché à la modéliser par le calcul à l'aide de ressources trouvées sur Internet.
+Pour mener à bien mon projet, j'ai d'abord tenté de comprendre le phénomène de l'irradiation solaire.
+Je me suis ensuite attaché à la modéliser par le calcul à l'aide de ressources trouvées sur Internet, afin d'aboutir à une méthode de calcul de l'éclairement énergétique solaire au niveau du sol.
 Finalement, j'ai intégré ces calculs dans un programme informatique, et je l'ai testé en le faisant fonctionner et en comparant les résultats obtenus à ceux attendus.
 
 
-
-\clearpage
 \section{Les phénomènes gouvernant l'irradiation solaire}
 
 On appelle \emph{éclairement énergétique solaire} la puissance reçue du Soleil par unité de surface.
@@ -118,11 +112,10 @@ Cette valeur est mesurée en \SI{}{\watt\per\square\meter}.
 L'intensité du rayonnement solaire frappant la Terre variant peu, l'éclairement énergétique \emph{au sol} dépend principalement du niveau d'atténuation des rayons du Soleil lors de leur passage à travers l'atmosphère.
 En effet, alors que dans l'espace les rayons du Soleil peuvent parcourir de grandes distances en perdant peu d'énergie, ils en perdent beaucoup par diffusion et absorption sitôt qu'ils pénètrent l'atmosphère.
 Plus la distance parcourue au travers de l'atmosphère est grande, plus ils perdent d'énergie.
-Cette distance est d'autant plus importante que les rayons solaires suivent une trajectoire inclinée, c'est-à-dire que leur angle d'incidence est grand.
+Cette distance est d'autant plus importante que les rayons solaires suivent une trajectoire inclinée, c'est-à-dire que leur angle d'incidence est grand (voir figure ci-dessous).
 
-\vfill
-\centerline{\includegraphics[width=\textwidth-5cm]{angle-of-incidence.jpg}}
-\vfill
+\centerline{\includegraphics[width=\textwidth]{angle-of-incidence.jpg}}
+
 
 \subsection{L'angle zénithal}
 \label{sec:zenith-angle}
@@ -160,7 +153,8 @@ Le midi solaire est ainsi défini comme ``l'instant où le Soleil atteint son po
 On pourrait penser que l'heure solaire ou l'angle horaire peuvent être calculés simplement à partir de l'heure \emph{légale}, ou heure locale, mais ce n'est pas le cas.
 Il existe un décalage variable entre ces deux valeurs, car l'heure solaire évalue de façon irrégulière, contrairement à l'heure légale.
 
-\clearpage
+
+
 \subsubsection{L'équation du temps}
 Ce décalage entre l'heure légale et l'heure solaire existe car l'orbite de la Terre autour du Soleil est irrégulière.
 En effet, elle n'est pas parfaitement circulaire, mais elliptique (on peut le voir sur la figure~\ref{fig:seasons-year}), et l'attraction qu'exerce la Lune sur la Terre perturbe également son orbite.
@@ -185,7 +179,6 @@ Le Soleil ne sera ainsi pas aussi haut dans le ciel à un instant donné si l'on
 
 
 \section{Approche de la modélisation mathématique}
-
 
 Nous avons tenté d'expliquer les principaux phénomènes physiques qui influent sur l'intensité du rayonnement solaire.
 Nous allons à présent essayer de les modéliser mathématiquement afin de calculer l'éclairement énergétique solaire en un point.
@@ -265,7 +258,7 @@ L'angle de déclinaison $\delta$ est \emph{``l'angle entre la droite joignant le
 
 \subsection{Angle horaire et temps solaire}
 
-Pour calculer l'heure solaire à partir de l'heure locale, il faut calculer une valeur appelée facteur de correction du temps, qui est la différence entre l'heure solaire et l'heure locale.
+Pour calculer l'heure solaire à partir de l'heure locale, il faut calculer une valeur appelée facteur de correction de l'heure, qui est la différence entre l'heure solaire et l'heure locale.
 On note $\Delta T_{GMT}$ le décalage horaire, en heures, par rapport à l'heure GMT.
 Ainsi, par exemple, $\Delta T_{GMT}$ vaudra $1$ pour Paris, car son fuseau horaire est GMT+1.
 
@@ -315,7 +308,8 @@ Cette approximation ne tient pas compte des nuages ou d'autres phénomènes clim
 	\label{fig:model-structure}
 \end{figure}
 
-\clearpage
+
+
 \section{Modélisation informatique : écriture du programme}
 
 On dispose à présent d'un petit modèle climatique.
@@ -368,7 +362,6 @@ En voici un extrait (fichier \texttt{src/irradiance.rs}) :
 
 
 
-\clearpage
 \section{Validation expérimentale : essai du programme}
 
 Maintenant qu'on dispose d'un programme fonctionnel, il est nécessaire de le \emph{tester} pour vérifier si les résultats qu'il produit correspondent à la réalité.
@@ -397,8 +390,7 @@ Cette valeur est proche des \SI{960}{\watt\per\square\meter} annoncés par Green
 \end{figure}
 
 
-
-\clearpage
+\FloatBarrier
 \section{Conclusion}
 
 Ainsi, après m'être assuré de comprendre les phénomènes physiques impliqués dans l'irradiation solaire, je les ai intégrés dans un modèle mathématique simple à l'aide des sources citées plus tôt. J'ai ensuite écrit un programme informatique permettant de faire fonctionner ce modèle en réalisant automatiquement tous les calculs nécessaires.
