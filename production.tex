@@ -32,15 +32,15 @@
 \begin{titlepage}
 	\centering
 	
-	{\scshape\large TPE Mathématiques et SVT\par}
+	{\huge\bfseries  TPE Mathématiques et SVT\par}
 	\vspace{0.2cm}	
 	{ \Large Thème : l'aléatoire, l'insolite, le prévisible\par }
 	{ \large Axe de recherche : comprendre le présent, penser le futur\par }
 	\vspace{1.5cm}
 
-	{\scshape\LARGE La modélisation informatique du climat \par}
+	{\bfseries \scshape\Large La modélisation informatique du climat \par}
 	\vspace{1cm}
-	{\huge\bfseries Comment peut-on modéliser l'irradiation solaire, et traduire cette modélisation mathématique en programme informatique ?\par}
+	{\Large Comment peut-on modéliser l'irradiation solaire, et traduire cette modélisation mathématique en programme informatique ?\par}
 
 	\vspace{1cm}
 	{\Large\itshape Yohaï Eliel Berreby\par}
@@ -98,7 +98,7 @@ En effet, elle est plus stable, plus prévisible que le vent ou les intempéries
 Bien que mon modèle se restreigne à cette seule variable, les calculs qu'il implique sont suffisamment complexes pour justifier la création d'un programme informatique les réalisant automatiquement.
 
 Pour mener à bien mon projet, j'ai d'abord tenté de comprendre le phénomène de l'irradiation solaire.
-Je me suis ensuite attaché à la modéliser par le calcul à l'aide de ressources trouvées sur Internet, afin d'aboutir à une méthode de calcul de l'éclairement énergétique solaire au niveau du sol.
+Je me suis ensuite attaché à la modéliser par le calcul à l'aide de ressources trouvées sur Internet, afin d'aboutir à une méthode de calcul de son intensité au niveau du sol.
 Finalement, j'ai intégré ces calculs dans un programme informatique, et je l'ai testé en le faisant fonctionner et en comparant les résultats obtenus à ceux attendus.
 
 
@@ -393,7 +393,7 @@ Cette valeur est proche des \SI{960}{\watt\per\square\meter} annoncés par Green
 \FloatBarrier
 \section{Conclusion}
 
-Ainsi, après m'être assuré de comprendre les phénomènes physiques impliqués dans l'irradiation solaire, je les ai intégrés dans un modèle mathématique simple à l'aide des sources citées plus tôt. J'ai ensuite écrit un programme informatique permettant de faire fonctionner ce modèle en réalisant automatiquement tous les calculs nécessaires.
+Ainsi, après m'être assuré de comprendre les phénomènes physiques impliqués dans l'irradiation solaire, je les ai intégrés dans un modèle mathématique simple. J'ai ensuite écrit un programme informatique permettant de faire fonctionner ce modèle en réalisant automatiquement tous les calculs nécessaires.
 
 L'éclairement énergétique, que mon modèle permet de calculer, est une donnée qui peut servir de base à une construction plus élaborée.
 Ainsi, avec des connaissances et des moyens suffisants, on pourrait imaginer rendre ce modèle plus précis en y ajoutant, par exemple, la prise en compte des nuages, qui absorbent beaucoup d'énergie solaire, ou de la courbure de la Terre\footnote{Le calcul de la masse d'air est en effet une simplification, qui considère le sol comme un plan et non comme la surface d'une sphère, ce qui entraîne de petites imprécisions.}.
@@ -404,12 +404,35 @@ Cet exemple illustre les défis que doivent relever les chercheurs en sciences d
 
 
 \clearpage
-\begin{thebibliography}{99}
 
-\bibitem{how_do_climate_models_work} 
-	Kaitlin Alexander,
-	\emph{How do climate models work?}\\
-	\url{http://climatesight.org/2012/01/20/how-do-climate-models-work/}
+\section{Glossaire}
+
+\textbf{angle zénithal} --- angle d'incidence des rayons solaires.
+Il s'agit de l'angle que formeraient les rayons du Soleil avec une droite perpendiculaire à la surface.
+
+\textbf{angle d'élévation} --- angle que formeraient les rayons du Soleil avec le plan de la surface.
+
+\textbf{angle de déclinaison} --- angle entre la droite joignant les centres du Soleil et de la Terre et le plan de l'équateur terrestre.
+
+\textbf{éclairement énergétique solaire} --- puissance transmise à un corps par le rayonnement solaire par unité de surface, exprimée en \SI{}{\watt\per\square\meter} dans le système international.
+
+\textbf{irradiation solaire} --- exposition d'un corps à un flux de rayonnements en provenance du soleil.
+
+\textbf{climatologie} --- science du climat. Elle porte sur de longues périodes de temps.
+
+\textbf{code machine} --- code binaire d'un programme, généré par un \textbf{compilateur}. Il est exécutable directement par le processeur de l'ordinateur.
+
+\textbf{code source} --- texte écrit par le programmeur représentant les instructions d'un programme.
+
+\textbf{compilateur} --- programme qui traduit le \textbf{code source} d'un programme en \textbf{code machine}.
+
+\textbf{modèle} --- simulation, représentation simplifiée d'un système complexe au moyen d'équations et de relations.
+
+\textbf{équation du temps} --- différence entre l'heure solaire et l'heure solaire moyenne.
+
+
+\clearpage
+\begin{thebibliography}{99}
 
 \bibitem{properties_of_sunlight} 
 	PVEducation.org,
