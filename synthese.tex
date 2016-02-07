@@ -11,9 +11,11 @@
 \usepackage{textcomp}
 \usepackage{gensymb}
 \usepackage{hyperref}
+\usepackage[margin=0.75in]{geometry}
+
 \usepackage{graphicx}
 \graphicspath{ {images/} }
-%\usepackage{listings} % Source code formatting and highlighting
+
 
 \begin{document}
 
@@ -28,20 +30,21 @@
 	\vspace{1.5cm}
 
 	{\bfseries \scshape\Large La modélisation informatique du climat \par}
-	\vspace{1cm}
-	
+
+	\vspace{2cm}
+
 	{\Huge\bfseries  \scshape Note de synthèse \par}
-		\vspace{1cm}
-		
 	
+	\vspace{2cm}
+
 	{\Large Comment peut-on modéliser l'irradiation solaire, et traduire cette modélisation mathématique en programme informatique ?\par}
 
 	\vspace{1cm}
 	{\Large\itshape Yohaï Eliel Berreby\par}
-	
+
 	\vfill
-	
-	
+
+
 	{\Large\bfseries Établissement : CNED\par}
 	\vspace{0.2cm}
 	{\Large \bfseries Série : S }
@@ -61,35 +64,64 @@
 %  Justifier dans le cadre de ce sujet les disciplines retenues. 
 
 Je m'intéresse à l'informatique, et plus particulièrement à la programmation, depuis maintenant plusieurs années.
-Cet intérêt vient notamment du lien étroit qu'il existe entre cette discipline et les mathématiques, ainsi que des immenses possibilités qu'elle ouvre à une époque où les ordinateurs prennent une importance grandissante.
-Ils sont aujourd'hui utilisés dans des domaines aussi divers que la finance, le divertissement, la médecine, ou encore la prévision météorologique.
+Cet intérêt vient notamment du lien étroit qu'il existe entre cette discipline et les mathématiques, ainsi que des immenses possibilités qu'elle ouvre à une époque où les ordinateurs prennent une importance grandissante dans des domaines aussi divers que la finance, le divertissement, la médecine, ou encore l'intelligence artificielle.
+J'ai donc commencé ma recherche de sujet avec l'espoir d'en trouver un qui me permette d'associer l'informatique à mon travail de manière \textbf{pertinente}.
+
+En parcourant les différents thèmes proposés, je me suis arrêté sur celui de  \emph{"l'aléatoire, l'insolite, le prévisible"}, et plus particulièrement sur l'axe de recherche \emph{"comprendre le présent, penser le futur"}.
+Celui-ci me parut une superbe opportunité d'étudier l'application des mathématiques et de l'informatique à un sujet d'actualité : la prévision du temps.
+Les prévisions météorologiques et climatiques sont en effet réalisées à l'aide de constructions mathématiques et informatiques, les modèles, et comme l'étude du climat fait appel aux Sciences de la Terre, j'ai trouvé que ce sujet apporterait un caractère bidisciplinaire à mon travail.
+
+J'ai donc décidé de retenir le sujet de la \textbf{modélisation informatique du climat}.
+Mon idée était de concevoir un petit modèle climatique à l'aide de ressources documentaires, et de le mettre en œuvre en le traduisant en programme informatique.
 
 
-C'est ce dernier point, la prévision météorologique, qui m'a fait m'arrêter sur le thème de \emph{"l'aléatoire, l'insolite, le prévisible"}.
 
-
-En effet, l'axe de recherche \emph{"comprendre le présent, penser le futur"} de ce thème me parut une superbe opportunité d'étudier l'application des mathématiques et de l'informatique à la prévision.
-
-
-La \textbf{prévision météorologique} s'imposa rapidement dans mon esprit comme 
-
-L.
-De plus, étant donné que la météorologie fait beaucoup appel aux Sciences de la Terre, j'ai trouvé que ce sujet apporterait un caractère interdisciplinaire à mon travail.
-
-Je me suis finalement décidé à retenir le sujet de la \textbf{modélisation informatique du climat}, et j'ai commencé ma recherche de problématique.
-C'est donc naturellement que j'ai commencé ma recherche de sujet dans l'espoir de pouvoir associer l'informatique à mon travail,
-
-
- 
 \section{Ma démarche}
 
 % Cheminement qui a conduit à la formulation de la problématique (changement de direction, reformulation de la problématique…) 
 % Moyens mis en œuvre pour répondre à la problématique (les réussites, les impasses, les limites…)
+% Objectifs visés
+% Justifier le choix du type de production
+
+\subsection{Une première approche de la modélisation climatique}
+
+Maintenant que j'avais fixé un sujet, il me fallait trouver une problématique.
+Après la lecture d'un article intitulé \emph{How do climate models work?}\footnote{\url{http://climatesight.org/2012/01/20/how-do-climate-models-work/}}, j'ai entrepris de travailler sur le calcul de la température d'un objet exposé au Soleil.
+Je voulais que mon modèle miniature puisse réaliser des prévisions qui soient utiles à tout un chacun, et prévoir la température me sembla un bon moyen d'y parvenir car c'est l'une des premières données qu'on retient dans un bulletin météo, avec les intempéries.
+Je voulais également mettre en relation mon travail avec des modèles plus évolués, en étudiant comment on pourrait utiliser le calcul de la température pour réaliser d'autres prévisions, comme la vitesse du vent.
+
+C'est ainsi que j'aboutis à ma première problématique : \emph{``comment le calcul de la température d'un point en fonction de son ensoleillement s'intègre-t-il dans un modèle climatique complet ?''}.
+
+J'avais besoin de données d'ensoleillement pour calculer des températures, et ma première idée fut d'utiliser base de données publique pour cela.
+J'en trouvai une\footnote{\url{https://developer.nrel.gov/docs/solar/solar-resource-v1/}}, et j'écrivis un premier programme l'utilisant.
+Il s'avéra cependant rapidement que mon approche du calcul de la température était erronée, car les résultats que j'obtenais étaient beaucoup trop bas.
+J'ai d'abord pensé que ces erreurs venaient du fait que mon modèle ignorait l'effet de serre, mais ce n'était là qu'une partie du problème.
+En réalité, elles survenaient car la base de données que j'utilisais ne contenait que des valeurs \emph{moyennes} de l'intensité du rayonnement solaire sur un mois, et non des valeurs \emph{instantanées}, relevées à des heures et dates précises.
+
+\subsection{Comprendre la complexité des modèles}
+Face à cette difficulté, je fus forcé de changer d'approche.
+j'ai donc dû restreindre la portée de mon projet.
+
+Plutôt que de tenter de calculer précisément la température, une variable qui s'est avérée bien trop complexe pour que j'en crée un modèle fidèle à la réalité, je \textbf{calculerais éclairement énergétique solaire} à l'aide de formules mathématiques.
+Il s'agissait là d'une variable plus simple à représenter avec une marge d'erreur raisonnable, et cependant la calculer plutôt que de la lire dans une base de données m'offrait la possibilité de conduire une recherche personnelle plus approfondie.
+Elle ne serait plus dans mon programme une étape intermédiaire pour aboutir à la température, mais la remplacerait comme variable.
+
+C'est ainsi que ma problématique devint : \emph{``comment peut-on modéliser le rayonnement solaire, et traduire cette modélisation mathématique en programme informatique ?''}.
+
+Le site Internet PVEducation.org me fut d'une grande aide pour mieux comprendre les phénomènes conduisant aux variations de l'intensité du rayonnement solaire : le cycle des saisons, l'irrégularité de l'orbite terrestre et de l'heure solaire... j'y appris également comment les fuseaux horaires étaient découpés suivant les frontières des pays, et comment l'on pouvait calculer l'heure solaire à partir de l'heure locale.
+
+À l'aide de ce site et d'autres ressources, je parvins à écrire un programme capable de calculer assez précisément l'éclairement énergétique solaire par temps clair.
 
 
-\section{Bilan personnel}
+\section{Bilan}
+Ce travail fut pour moi l'occasion de me rendre compte de l'immense complexité des modèles climatiques, en étant confronté à celle d'un modèle pourtant restreint et portant sur une seule variable.
+J'avais sous-estimé la complexité du problème, et ma première problématique était trop ambitieuse ; ce TPE me permit de réaliser à quel point la modélisation climatique était un domaine vaste.
 
-\section{Conclusion}
+Il fut aussi ma première exposition à la recherche, ainsi qu'une occasion de suivre une démarche scientifique.
+J'ai rencontré des difficultés qui m'ont forcé à abandonner mon projet initial, repenser le problème, changer de direction et remettre en question ma conception du sujet.
+
+J'en finalement découvert comment l'on pouvait concevoir un petit modèle climatique, d'abord en comprenant les phénomènes physiques les plus importants dans le calcul de la variable choisie, puis en construisant un modèle mathématique, et enfin en le traduisant en programme écrit dans un langage de programmation.
+
 
 
 \end{document}
